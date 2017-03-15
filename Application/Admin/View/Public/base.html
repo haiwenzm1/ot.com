@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="__CSS__/common.css" media="all">
     <link rel="stylesheet" type="text/css" href="__CSS__/module.css">
     <link rel="stylesheet" type="text/css" href="__CSS__/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="__CSS__/myicon.css" media="all">
 	<link rel="stylesheet" type="text/css" href="__CSS__/{$Think.config.COLOR_STYLE}.css" media="all">
      <!--[if lt IE 9]>
     <script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
@@ -57,11 +58,11 @@
                 <volist name="__MENU__.child" id="sub_menu">
                     <!-- 子导航 -->
                     <notempty name="sub_menu">
-                        <notempty name="key"><h3><i class="icon icon-unfold"></i>{$key}</h3></notempty>
+                        <notempty name="key"><h3><span class="sl"><i class="myicon r17c5"></i></span>{$key}<span class="sr"><i class="myicon r18c11"></i></span></h3></notempty>
                         <ul class="side-sub-menu">
                             <volist name="sub_menu" id="menu">
                                 <li>
-                                    <a class="item" href="{$menu.url|U}">{$menu.title}</a>
+                                    <a class="item" href="{$menu.url|U}">{$menu.title}<span class="sr"><i class="myicon r18c11"></i></span></a>
                                 </li>
                             </volist>
                         </ul>
@@ -135,14 +136,54 @@
             url = window.location.pathname + window.location.search;
             url = url.replace(/(\/(p)\/\d+)|(&p=\d+)|(\/(id)\/\d+)|(&id=\d+)|(\/(group)\/\d+)|(&group=\d+)/, "");
             $subnav.find("a[href='" + url + "']").parent().addClass("current");
-
+			$subnav.find("a[href='" + url + "']").find('.sr i').addClass('r18c13').removeClass('r18c11');
+			$subnav.find("a[href='" + url + "']").parent().parent().prev("h3").addClass("current");
+			$subnav.find("a[href='" + url + "']").parent().parent().prev("h3").find('.sl i').addClass('r17c6').removeClass('r17c5');
+			$subnav.find("a[href='" + url + "']").parent().parent().prev("h3").find('.sr i').addClass('r18c14').removeClass('r18c11');
+			$subnav.find("a[href='" + url + "']").parent().parent().siblings(".side-sub-menu:visible").hide(); 
+			
+			$('.item').hover(function(){
+				if(!$(this).parent().hasClass('current')){
+					$(this).find('.sr i').addClass('r18c13').removeClass('r18c11');
+				}
+			},function(){
+				if(!$(this).parent().hasClass('current')){
+					$(this).find('.sr i').addClass('r18c11').removeClass('r18c13');
+				}
+			})
+			
             /* 左边菜单显示收起 */
             $("#subnav").on("click", "h3", function(){
-                var $this = $(this);
-                $this.find(".icon").toggleClass("icon-fold");
-                $this.next().slideToggle("fast").siblings(".side-sub-menu:visible").
-                      prev("h3").find("i").addClass("icon-fold").end().end().hide();
+				$(this).next().slideToggle("fast").siblings(".side-sub-menu:visible").hide();
+				if($(this).hasClass('current')&&!$(this).hasClass('chover')){
+					if($(this).find('.r17c6').length){
+						$(this).find('.sl i').addClass('r17c5').removeClass('r17c6');
+						$(this).find('.sr i').addClass('r18c13').removeClass('r18c14');
+					}else{
+						$(this).find('.sl i').addClass('r17c6').removeClass('r17c5');
+						$(this).find('.sr i').addClass('r18c14').removeClass('r18c13');
+					}
+				}else{
+					$(this).removeClass('chover');
+					$(this).addClass('current').siblings('h3').removeClass('current');
+					$(this).find('.sl i').addClass('r17c6').removeClass('r17c5');
+					$(this).siblings('h3').find('.sl i').addClass('r17c5').removeClass('r17c6');
+					$(this).find('.sr i').addClass('r18c14').removeClass('r18c11');
+					$(this).siblings('h3').find('.sr i').addClass('r18c11').removeClass('r18c14');
+				}
             });
+			
+            $("#subnav h3").hover(function(){
+				if(!$(this).hasClass('current')){
+					$(this).addClass('current chover');
+					$(this).find('.sr i').addClass('r18c13').removeClass('r18c11');
+				}
+            },function(){
+				if($(this).hasClass('chover')){
+					$(this).removeClass('current');
+					$(this).find('.sr i').addClass('r18c11').removeClass('r18c13');
+				}
+			});
 
             $("#subnav h3 a").click(function(e){e.stopPropagation()});
 
@@ -193,6 +234,17 @@
             }
         }();
     </script>
+    
     <block name="script"></block>
+
+    <script type="text/javascript">
+		+function(){
+			$(".side-sub-menu .current").find('.sr i').addClass('r18c13').removeClass('r18c11');
+			$(".side-sub-menu .current").parent().prev("h3").addClass("current");
+			$(".side-sub-menu .current").parent().prev("h3").find('.sl i').addClass('r17c6').removeClass('r17c5');
+			$(".side-sub-menu .current").parent().prev("h3").find('.sr i').addClass('r18c14').removeClass('r18c11');
+			$(".side-sub-menu .current").parent().siblings(".side-sub-menu:visible").hide();
+		}();
+	</script>
 </body>
 </html>

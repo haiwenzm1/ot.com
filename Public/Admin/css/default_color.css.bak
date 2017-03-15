@@ -9,22 +9,18 @@
  *******************************************/
 
 html,body,input,textarea,select,legend{
-	color:#666;
+	color:#404040;
 	/*全局默认文字颜色*/
-	font: 14px/1.5em "Hiragino Sans GB","Microsoft Yahei";
-	border-radius: 2px;
 }
 a {
-	color: #FF950C;
+	color: #2d7200;
 	/*全局默认链接颜色*/
 }
 a:hover{
-	color: #FF950C;
+	color: #4bbd00;
 	/*全局默认链接悬停颜色*/
 }
-body{
-	padding:50px 0 0 225px
-}
+
 /*************************************************
  * common.css 
  * 描述：定义公共类名
@@ -57,7 +53,7 @@ body{
 }
 .tab-nav .current a,
 .tab-nav .current a:hover {
-	border-color: #3c4355 #e0e0e0 #f6f6f6;
+	border-color: #34b4e0 #e0e0e0 #f6f6f6;
 }
 
 
@@ -139,7 +135,7 @@ body{
 /* 表单组件
 ------------------------------------------ */
 .text,.textarea {
-	border-color: #DDD;
+	border-color: #eeeeee;
 	background-color: #fff;
 }
 select {
@@ -206,9 +202,8 @@ select {
 }
 /* 表头配色 */
 .data-table thead th {
-	color:#666;
-    background-color: #eeeeee;
-	border-top: 2px solid #FF950C;
+	color:#fff;
+    background-color: #353535;
 }
 /* 隔行变色 行默认颜色 */
 .table-striped tbody tr {
@@ -220,9 +215,6 @@ select {
 	background-color: #f2f2f2;
 
 }
-.table-striped tbody tr:hover {
-	background-color: #ffe8cc;
-}
 
 
 /************************************* 
@@ -233,40 +225,27 @@ select {
 
 /* 普通按钮 */
 .btn {
-	border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 2px;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-	background: #FFF;
-    color: #FF950C;
-    border-color: #FF950C;
-	font-weight:normal;
+    color: #edffd1;
+	background-color: #4bbd00;
 }
 .btn:hover {
-	color: #FF950C;
-    background-color: #ffe8cc;
-	border: 1px solid #FF950C;
+    color: #ffffff;
+    background-color: #4cdb00;
 }
 
+/* 表单返回按钮 */
 .btn-return {
-	padding: 10px 50px;
+	color: #fff;
 }
 
 /* 表单提交按钮(确定,保存,提交) */
 .submit-btn {
 	color: #fff;
-	padding: 10px 50px;
-    background-color: #FF950C;
+    background-color: #CC3900;
 }
 .submit-btn:hover {
-    color: #FF950C;
-    background-color: #ffe8cc;
+    color: #fff;
+    background-color: #ff2610;
 }
 
 /* 下拉弹出按钮 */
@@ -293,13 +272,8 @@ select {
 
 /* 头部Logo,主导航*/
 .header {
-	background-color: #3c4355;
+    background-color: #383838;
 }
-.header .logo{
-	border-right: 1px solid #4e5565;
-	width:209px;
-}
-
 /* 主导航 */
 .main-nav a {
     color: #FFF;
@@ -311,7 +285,7 @@ select {
     background-color: #656565;
 }
 .main-nav .current a {
-    background-color: #FF950C;
+    background-color: #86db00;
 }
 
 /* 顶部右侧 用户bar */
@@ -331,100 +305,37 @@ select {
 ------------------------------------------ */
 .sidebar {
 	/* 左侧栏背景 */
-	background: #fff;
-	border-right: 1px solid #ddd;
-	padding-top: 0;
-	width:225px;
+	background: url("../images/bg.png") repeat #6b6b6b;
 }
-
-.subnav {
-    padding-left: 0;
-}
-
-
 /* 子导航Group标题栏 */
 .subnav h3 {
-    color: #7a7a7a;
-	height: 60px;
-	line-height: 60px;
-	font-size:16px;
-	background-color:none;
-	margin-right:0;
-	font-weight: normal;
+    color: #fff;
 }
-
 .subnav h3 a {
-	color: #7a7a7a;
-}
-
-.subnav h3 span {
-	display: block;
-    height: 60px;
-}
-
-.subnav h3 .sl{
-	background-color: #f0f0f0;
-	float:left;
-	margin:0 10px 0 0;
-	width: 60px;
-}
-
-.subnav h3 .sr{
-	float:right;
-	margin:0;
-}
-
-.subnav h3 .myicon {
-	margin:10px 0 0 10px;
-}
-
-.subnav h3.current,.subnav h3:hover {
-	background-color:#ff9100;
-	color:#fff;
-}
-
-.subnav h3:hover .sl, .subnav h3.current .sl{
-	background-color:#f38900;
-}
- 
-.subnav h3 .icon, .subnav h3 .icon-fold, .subnav h3 .recycle {
-    margin: 23px 6px 0 0;
+	color: #fff;
 }
 
 /* 左侧二级菜单 */
-.side-sub-menu, .side-sub-menu li{
-	margin:0;
-}
-
-.side-sub-menu{
-	border-bottom: 1px #e6e6e6 solid;
-}
-
 .side-sub-menu > li > .item {
-    color: #7a7a7a;
-	height: 60px;
-	line-height: 60px;
-	font-size:16px;
-	padding:0 0 0 20px;
+    color: #f1f1f1;
 }
-
-.item .sr{
-	float:right;
-	margin:10px 0 0 0;
-}
-
-.side-sub-menu > li > .item:hover, .side-sub-menu > li.hover > .item{
+.side-sub-menu > li > .item:hover{
 	color: #ffffff;
-	background: #ffa634;
-	margin-right:0;
-	transition: all .2s ease-in;
+	background: #7c7c7c;
 }
-
-.side-sub-menu > .current > .item, .side-sub-menu > .current > .item:hover{
+.side-sub-menu > li > .item:hover{
+	color: #ffffff;
+	background: #7c7c7c;
+}
+.side-sub-menu > .current > .item,
+.side-sub-menu > .hover > .item {
+    color: #414141;
+}
+.side-sub-menu > .current > .item,
+.side-sub-menu > .current > .item:hover {
 	/* 高亮导航 */
-	color: #fff;
-    background: none;
-	background-color:#ffa634 ;
+	color: #414141;
+    background: url(../images/subnav_current.png) no-repeat 165px 12px #f6f6f6;
 }
 
 /* windows开始菜单式子菜单 */

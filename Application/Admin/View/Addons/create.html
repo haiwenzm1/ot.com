@@ -190,7 +190,7 @@ return array(
 		$('.ajax-post_custom').click(function(){
 	        var target,query,form;
 	        var target_form = $(this).attr('target-form');
-	        var check_url = '{:U('checkForm')}';
+	        var check_url = "{:U('checkForm')}";
 			$.ajax({
 			   type: "POST",
 			   url: check_url,
@@ -238,6 +238,6 @@ return array(
 	    });
 
 	    //导航高亮
-	    highlight_subnav('{:U('Addons/index')}');
+	    highlight_subnav("{:U('Addons/index')}");
 	</script>
 </block>

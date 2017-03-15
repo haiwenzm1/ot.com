@@ -6,27 +6,28 @@
     <volist name="__MENU__.child" id="sub_menu">
         <!-- 子导航 -->
         <notempty name="sub_menu">
-            <notempty name="key"><h3><i class="icon icon-unfold"></i>{$key}</h3></notempty>
+            <notempty name="key"><h3><span class="sl"><i class="myicon r17c5"></i></span>{$key}<span class="sr"><i class="myicon r18c11"></i></span></h3></notempty>
             <ul class="side-sub-menu">
                 <volist name="sub_menu" id="menu">
                     <li>
-                        <a class="item" href="{$menu.url|U}">{$menu.title}</a>
+                        <a class="item" href="{$menu.url|U}">{$menu.title}<span class="sr"><i class="myicon r18c11"></i></span></a>
                     </li>
                 </volist>
             </ul>
         </notempty>
         <!-- /子导航 -->
     </volist>
- <h3>
- 	<i class="icon <notin name="Think.ACTION_NAME"  value="mydocument,draftbox,examine">icon-fold</notin>"></i>
- 	个人中心
- </h3>
+	<h3>
+		<span class="sl"><i class="myicon r17c5"></i></span>
+		个人中心
+		<span class="sr"><i class="myicon r18c11"></i></span>
+	</h3>
  	<ul class="side-sub-menu <notin name="Think.ACTION_NAME"  value="mydocument,draftbox,examine">subnav-off</notin>">
- 		<li <eq name="Think.ACTION_NAME" value="mydocument">class="current"</eq>><a class="item" href="{:U('article/mydocument')}">我的文档</a></li>
+ 		<li <eq name="Think.ACTION_NAME" value="mydocument">class="current"</eq>><a class="item" href="{:U('article/mydocument')}">我的文档<span class="sr"><i class="myicon r18c11"></i></span></a></li>
  		<eq name="show_draftbox" value="1">
- 		<li <eq name="Think.ACTION_NAME" value="draftbox">class="current"</eq>><a class="item" href="{:U('article/draftbox')}">草稿箱</a></li>
+ 		<li <eq name="Think.ACTION_NAME" value="draftbox">class="current"</eq>><a class="item" href="{:U('article/draftbox')}">草稿箱<span class="sr"><i class="myicon r18c11"></i></span></a></li>
  		</eq>
-		<li <eq name="Think.ACTION_NAME" value="draftbox">class="examine"</eq>><a class="item" href="{:U('article/examine')}">待审核</a></li>
+		<li <eq name="Think.ACTION_NAME" value="draftbox">class="examine"</eq>><a class="item" href="{:U('article/examine')}">待审核<span class="sr"><i class="myicon r18c11"></i></span></a></li>
  	</ul>
 
     <volist name="nodes" id="sub_menu">

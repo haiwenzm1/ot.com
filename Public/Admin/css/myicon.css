@@ -1,13 +1,13 @@
+
 .myicon {
     background-image: url(/Public/Admin/images/my/icon.png);
-    background-repeat: no-repeat;
-    display: block;
-    width: 40px;
-    height: 40px;
-    outline: 1px red solid;
+    background-repeat: no-repeat !important;
+    display: block !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 
-.r1c1{
+.r1c1 {
 	background-position: -5px -2px;
 }
 
@@ -1402,4 +1402,20 @@
 
 .r18c10{
 	background-position: -404px -755px;
+}
+
+.r18c11{
+	background-position: -448px -755px;
+}
+
+.r18c12{
+	background-position: -493px -755px;
+}
+
+.r18c13{
+	background-position: -538px -755px;
+}
+
+.r18c14{
+	background-position: -582px -755px;
 }
