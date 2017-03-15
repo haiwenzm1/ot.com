@@ -1,5 +1,10 @@
 <extend name="Public/base"/>
 
+<block name="style">
+	<link rel="stylesheet" type="text/css" href="__CSS__/myicon.css" media="all">
+	<link rel="stylesheet" type="text/css" href="__CSS__/my.css" media="all">
+</block>
+
 <block name="body">
 	<div class="main-title">
 		<h2>分类管理</h2>
@@ -17,7 +22,20 @@
 				<div class="order">发布</div>
 				<div class="name">名称</div>
 			</div>
-			{:R('Category/tree', array($tree))}
+
+			<div class="item-wrap">
+				<form class="cf">
+					<div class="fold"><i></i></div>
+					<div class="cat-wrap">
+						<input type="text" name="title" class="text" value="内容分类" readonly>
+					</div>
+				</form>
+				 
+				<div class="item-child">
+					{:R('Category/tree', array($tree))}
+				</div>
+			</div>
+			<div class="cf"></div>
 		</div>
 	</div>
 	<!-- /表格列表 -->
@@ -26,23 +44,31 @@
 <block name="script">
 	<script type="text/javascript">
 		(function($){
-			/* 分类展开收起 */
-			$(".category dd").prev().find(".fold i").addClass("icon-unfold")
-				.click(function(){
-					var self = $(this);
-					if(self.hasClass("icon-unfold")){
-						self.closest("dt").next().slideUp("fast", function(){
-							self.removeClass("icon-unfold").addClass("icon-fold");
-						});
-					} else {
-						self.closest("dt").next().slideDown("fast", function(){
-							self.removeClass("icon-fold").addClass("icon-unfold");
-						});
+			$(function(){
+				$('.item-wrap').each(function(){
+					if($(this).siblings('.item-wrap').length == 0){
+						$(this).find('.item-child').eq(0).css('background','none');
+						$(this).children('form').eq(0).find('.fold').css("background-position","22px -55px");
+					}else{
+						$(this).parent().children('.item-wrap').eq($(this).siblings('.item-wrap').length).find('.item-child').eq(0).css('background','none');
+						$(this).parent().children('.item-wrap').eq($(this).siblings('.item-wrap').length).children('form').eq(0).find('.fold').css("background-position","22px -55px");
 					}
-				});
+				})
+			})
 
-			/* 三级分类删除新增按钮 */
-			$(".category dd dd .add-sub").remove();
+			/* 分类展开收起 */
+			$(".item-child").prev().find(".fold i").addClass("icon-unfold").click(function(){
+				var self = $(this);
+				if(self.hasClass("icon-unfold")){
+					self.parent().parent().parent().find(".item-child").eq(0).slideUp("fast", function(){
+						self.removeClass("icon-unfold").addClass("icon-fold");
+					});
+				} else {
+					self.parent().parent().parent().find(".item-child").eq(0).slideDown("fast", function(){
+						self.removeClass("icon-fold").addClass("icon-unfold");
+					});
+				}
+			});
 
 			/* 实时更新分类信息 */
 			$(".category")

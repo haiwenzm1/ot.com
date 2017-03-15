@@ -95,7 +95,7 @@ body{
     background: #E1E1E1;
 }
 .page .current {
-	border-top: 3px solid #4BBD00;
+	border-top: 3px solid #FF950C;
 	height: 28px;
 	line-height: 26px;
 }
@@ -138,15 +138,24 @@ body{
 
 /* 表单组件
 ------------------------------------------ */
-.text,.textarea {
+.text,.textarea,select {
 	border-color: #DDD;
 	background-color: #fff;
+	color: #666;
 }
-select {
-	border-color: #ccc;
+.text,select{
+	height: 35px;
+    line-height: 35px;
+    padding-left: 8px;
+	padding-right: 8px;
 }
 .must {
 	color: #f00; /* 表单必填项标识字符*/
+}
+
+
+textarea:disabled, input:disabled {
+    background-color: rgb(235, 235, 228);
 }
 
 /* 多行两列表单
@@ -217,7 +226,7 @@ select {
 }
 /* 隔行变色 偶数行配色 */
 .table-striped tbody tr:nth-child(even) {
-	background-color: #f2f2f2;
+	background-color: #fff;
 
 }
 .table-striped tbody tr:hover {
