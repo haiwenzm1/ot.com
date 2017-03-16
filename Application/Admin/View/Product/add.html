@@ -1,0 +1,135 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>{$meta_title}</h2>
+	</div>
+	<form action="{:U()}" method="post" class="form-horizontal">
+		<div class="form-item">
+			<label class="item-label">上级分类<span class="check-tips"></span></label>
+			<div class="controls">
+				<select>
+					{:R('Product/tree', array($tree))}
+				</select>
+
+
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="item-label">
+				分类名称<span class="check-tips">（名称不能为空）</span>
+			</label>
+			<div class="controls">
+				<input type="text" name="title" class="text input-large" value="{$info.title|default=''}">
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="item-label">
+				分类标识<span class="check-tips">（英文字母）</span>
+			</label>
+			<div class="controls">
+				<input type="text" name="name" class="text input-large" value="{$info.name|default=''}">
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="item-label">
+				发布内容<span class="check-tips">（是否允许发布内容）</span>
+			</label>
+			<div class="controls">
+				<label class="inline radio"><input type="radio" name="allow_publish" value="0">不允许</label>
+				<label class="inline radio"><input type="radio" name="allow_publish" value="1" checked>仅允许后台</label>
+				<label class="inline radio"><input type="radio" name="allow_publish" value="2" >允许前后台</label>
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="item-label">
+				是否审核<span class="check-tips">（在该分类下发布的内容是否需要审核）</span>
+			</label>
+			<div class="controls">
+				<label class="inline radio"><input type="radio" name="check" value="0" checked>不需要</label>
+				<label class="inline radio"><input type="radio" name="check" value="1">需要</label>
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="item-label">绑定文档模型<span class="check-tips">（分类支持发布的文档模型）</span></label>
+			<div class="controls">
+				<volist name=":get_document_model()" id="list">
+					<label class="checkbox">
+						<input type="checkbox" name="model[]" value="{$list.id}">{$list.title}
+					</label>
+				</volist>
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="item-label">允许文档类型</label>
+			<div class="controls">
+				<volist name=":C('DOCUMENT_MODEL_TYPE')" id="type">
+					<label class="checkbox">
+						<input type="checkbox" name="type[]" value="{$key}">{$type}
+					</label>
+				</volist>
+			</div>
+		</div>
+		<div class="controls">
+			<label class="item-label">分类图标</label>
+			<input type="file" id="upload_picture">
+			<input type="hidden" name="icon" id="icon" value="{$info['icon']|default=''}"/>
+			<div class="upload-img-box">
+			<notempty name="info['icon']">
+				<div class="upload-pre-item"><img src="__ROOT__{$info.icon|get_cover='path'}"/></div>
+			</notempty>
+			</div>
+		</div>
+			
+		<div class="form-item">
+			<input type="hidden" name="id" value="{$info.id|default=''}">
+			<input type="hidden" name="pid" value="{:isset($category['id'])?$category['id']:$info['pid']}">
+			<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
+			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</div>
+	</form>
+</block>
+
+<block name="script">
+	<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//上传图片
+			$("#upload_picture").uploadify({
+				"height"          : 30,
+				"swf"             : "__STATIC__/uploadify/uploadify.swf",
+				"fileObjName"     : "download",
+				"buttonText"      : "上传图片",
+				"uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+				"width"           : 120,
+				'removeTimeout'	  : 1,
+				'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+				"onUploadSuccess" : uploadPicture,
+				'onFallback' : function() {
+					alert('未检测到兼容版本的Flash.');
+				}
+			});
+
+			function uploadPicture(file, data){
+				var data = $.parseJSON(data);
+				var src = '';
+				if(data.status){
+					$("#icon").val(data.id);
+					src = data.url || '__ROOT__' + data.path;
+					$("#icon").parent().find('.upload-img-box').html(
+						'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+					);
+				} else {
+					updateAlert(data.info);
+					setTimeout(function(){
+						$('#top-alert').find('button').click();
+						$(that).removeClass('disabled').prop('disabled',false);
+					},1500);
+				}
+			}
+		});
+
+		//导航高亮
+		highlight_subnav("{:U('Product/index')}");
+	</script>
+</block>

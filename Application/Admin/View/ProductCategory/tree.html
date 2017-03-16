@@ -8,7 +8,7 @@
 				<input type="text" name="title" class="text" value="{$list.title}">
 			</div>
 			<div class="edit-wrap">
-				<if condition="$list.islast neq 1"><a class="add-sub-cate" title="添加子分类" href="{:U('add?pid='.$list['id'])}">新增</a></if>
+				<if condition="$list.islast neq 1"><a title="添加子分类" href="{:U('add?pid='.$list['id'])}">新增子分类</a></if>
 				<a title="编辑" href="{:U('edit?id='.$list['id'].'&pid='.$list['pid'])}">编辑</a>
 				<a title="{$list.status|show_status_op}" href="{:U('setStatus?ids='.$list['id'].'&status='.abs(1-$list['status']))}" class="ajax-get">{$list.status|show_status_op}</a>
 				<a title="删除" href="{:U('remove?id='.$list['id'])}" class="confirm ajax-get">删除</a>

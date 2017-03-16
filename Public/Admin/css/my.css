@@ -51,7 +51,6 @@
 	width:100%;
 }
 
-/*ÐéÏßÑùÊ½*/
 .item-wrap .item-wrap{
 	padding: 0 0 0 50px;
 }
@@ -67,3 +66,7 @@
 	background-repeat: no-repeat;
 	background-position: 22px -19px;
 }	
+
+select span{
+	padding-left: 20px;
+}
