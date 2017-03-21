@@ -20,18 +20,7 @@
 				<div class="order">排序</div>
 				<div class="name">名称</div>
 			</div>
-			<div class="item-wrap">
-				<form class="cf">
-					<div class="fold"><i></i></div>
-					<div class="cat-wrap">
-						<input type="text" name="title" class="text" value="商品分类" readonly>
-					</div>
-				</form>
-				 
-				<div class="item-child">
-					{:R('ProductCategory/tree', array($tree))}
-				</div>
-			</div>
+			{:R('ProductCategory/tree', array($tree))}
 			<div class="cf"></div>
 		</div>
 	</div>
