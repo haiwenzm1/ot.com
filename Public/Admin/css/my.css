@@ -22,6 +22,11 @@
 	display: block;
 	margin-top:4px;
 }
+.item-wrap .order-wrap input{
+	width:25px;
+}
+
+
 
 .item-wrap .cat-wrap{
 	margin-top:4px;
@@ -52,7 +57,7 @@
 }
 
 .item-wrap .item-wrap{
-	padding: 0 0 0 50px;
+	padding: 0 0 0 43px;
 }
 
 .item-child{
