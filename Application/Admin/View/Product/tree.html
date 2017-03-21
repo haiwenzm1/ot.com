@@ -1,6 +1,8 @@
 <volist name="tree" id="list">
-	<td><option value="{$list.id}">{$list.title}</option></td>
-	<notempty name="list['_']">
-	<td>	{:R('Product/tree', array($list['_']))}</td>
-	</notempty>
+	<div>
+		<span <if condition="$list.islast eq 1">class="islast"</if>>{$list.title}</span>
+		<notempty name="list['_']">
+			<div>{:R('Product/tree', array($list['_']))}</div>
+		</notempty>
+	</div>
 </volist>

@@ -67,6 +67,43 @@
 	background-position: 22px -19px;
 }	
 
-select span{
-	padding-left: 20px;
+.selectwrap{
+	display: block;
+	display: none;
+	margin-top:4px;
+	border: 1px solid #ccc;
+	padding:4px 8px;
+	background-color: #fff;
+}
+
+.selectwrap > div{
+	width:100%;
+	float: left;
+	display: block;
+}
+
+.selectwrap > div div{
+	padding-left: 10px;
+	width:100%;
+	float: left;
+	display: block;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box; /* Safari */
+}
+
+.selectwrap span{
+	width: 100%;
+	display: block;
+	float:left;
+	background-color: #ddd;
+}
+
+.selectwrap span.islast{
+	background-color: #fff;
+}
+
+.selectwrap span.islast:hover{
+	cursor: pointer;
+	background-color: #ffe8cc;
 }

@@ -1,5 +1,10 @@
 <extend name="Public/base"/>
 
+<block name="style">
+	<link rel="stylesheet" type="text/css" href="__CSS__/myicon.css" media="all">
+	<link rel="stylesheet" type="text/css" href="__CSS__/my.css" media="all">
+</block>
+
 <block name="body">
 	<div class="main-title">
 		<h2>{$meta_title}</h2>
@@ -7,12 +12,11 @@
 	<form action="{:U()}" method="post" class="form-horizontal">
 		<div class="form-item">
 			<label class="item-label">上级分类<span class="check-tips"></span></label>
-			<div class="controls">
-				<select>
+			<div class="controls select">
+				<input type="text" name="category" class="text input-large" value="{$info.title|default=''}">
+				<div class="selectwrap input-large cf">
 					{:R('Product/tree', array($tree))}
-				</select>
-
-
+				</div>
 			</div>
 		</div>
 		<div class="form-item">
@@ -127,6 +131,14 @@
 					},1500);
 				}
 			}
+
+			$('.select').click(function(){
+				$('.selectwrap').toggle();
+			});
+		
+			$('.islast').click(function(){
+				$('[name=category]').val($(this).html());
+			});
 		});
 
 		//导航高亮
