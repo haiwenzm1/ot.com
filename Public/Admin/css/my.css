@@ -61,13 +61,13 @@
 }
 
 .item-child{
-	background-image: url(/Public/Admin/images/my/line.jpg);
+	background-image: url(/Public/Admin/images/my/line.png);
 	background-repeat: repeat-y;
 	background-position: 22px 0;
 }
 
 .item-wrap .fold{
-	background-image: url(/Public/Admin/images/my/zTreeStandard.jpg);
+	background-image: url(/Public/Admin/images/my/zTreeStandard.png);
 	background-repeat: no-repeat;
 	background-position: 22px -19px;
 }	
