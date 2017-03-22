@@ -48,6 +48,19 @@ class ProductCategoryModel extends Model{
         /* 获取所有分类 */
         $map  = array('status' => array('gt', -1));
         $list = $this->field($field)->where($map)->order('sort')->select();
+        foreach($list as $key => $value){
+            $list[$key]['tree'] = 0;
+            $pid = $value['pid'];
+            while($pid){
+                $list[$key]['tree'] = $list[$key]['tree'] + 1;
+                foreach($list as $k => $v){
+                    if($pid == $v['id']){
+                        $pid = $v['pid'];
+                        break;
+                    }
+                }
+            }
+        }
         $list = list_to_tree($list, $pk = 'id', $pid = 'pid', $child = '_', $root = $id);
 
         /* 获取返回数据 */
@@ -56,7 +69,7 @@ class ProductCategoryModel extends Model{
         } else { //否则返回所有分类
             $info = $list;
         }
-
+        
         return $info;
     }
 
