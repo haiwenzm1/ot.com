@@ -1,4 +1,4 @@
-<extend name="Public/base"/>
+<extend name="Public/base" />
 
 <block name="style">
 	<link rel="stylesheet" type="text/css" href="__CSS__/myicon.css" media="all">
@@ -7,84 +7,99 @@
 
 <block name="body">
 	<div class="main-title">
-		<h2>分类管理</h2>
+		<h2>{$meta_title}
+			<notempty name="breadcrumb">
+				[
+					<volist name="breadcrumb" id="nav">
+						<if condition="count($breadcrumb) eq $i">
+							<span>{$nav.title}</span>
+						<else />
+							<a <if condition="$nav['id'] eq 0">href="{:U('index')}"<else />href="{:U('index','pid='.$nav['id'])}"</if>>{$nav.title}</a>
+						</if>
+						<if condition="count($breadcrumb) gt $i"><i class="ca"></i></if>
+					</volist>
+				]
+			</notempty>
+		</h2>
 	</div>
-	<!-- 表格列表 -->
-	<div class="tb-unit posr">
-		<div class="tb-unit-bar">
-			<a class="btn" href="{:U('add')}">新 增</a>
-		</div>
-		<div class="category">
-			<div class="hd cf">
-				<div class="fold">折叠</div>
-				<div class="order">排序</div>
-				<div class="name">名称</div>
-			</div>
-			{:R('ProductCategory/tree', array($tree))}
-			<div class="cf"></div>
-		</div>
+
+	<div class="cf">
+		<a class="btn" href="{:U('add','pid='.$pid)}">新 增</a>
+		<a class="btn" href="javascript:;">删 除</a>
+		<button class="btn list_sort" url="{:U('sort',array('pid'=>I('get.pid',0)),'')}">排序</button>
 	</div>
-	<!-- /表格列表 -->
+
+	<div class="data-table table-striped">
+		<table class="productcategory">
+			<thead>
+				<tr>
+					<th>类目</th>
+					<th>ID</th>
+					<th>类型名称</th>
+					<th>类型别名</th>
+					<th>排序</th>
+					<th>创建时间</th>
+					<th>更新时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<notempty name="list">
+					<volist name="list" id="channel">
+						<tr class="form-wrap">
+							<td><a href="{:U('index?pid='.$channel['id'])}"><i <if condition="$channel.islast eq 0"> class="myicon r2c15" <else /> class="myicon r2c14" </if>></i></a></td>
+							<td><input type="text" name="id" class="text input-mini" value="{$channel.id}" readonly></td>
+							<td><input type="text" name="title" class="text" value="{$channel.title}"></a></td>
+							<td><input type="text" name="title" class="text" value="{$channel.title}"></a></td>
+							<td><input type="text" name="sort" class="text input-mini" value="{$channel.sort}"></td>
+							<td>{$channel.create_time|date="Y-m-d H:i:s",###}</td>
+							<td>{$channel.update_time|date="Y-m-d H:i:s",###}</td>
+							<td> 
+								<a title="编辑" href="{:U('edit?id='.$channel['id'].'&pid='.$pid)}"><i class="myicon r13c9"></i></a>
+								<a href="{:U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']))}" title="{$channel.status|show_status_op}" class="ajax-get"><i <if condition="$channel.status eq 0">class="myicon r4c4"<else />class="myicon r16c17"</if>></i></a>
+						 		<a title="删除" href="{:U('del?id='.$channel['id'])}" class="confirm ajax-get"><i class="myicon r7c4"></i></a>
+							</td>
+						</tr>
+					</volist>
+				<else/>
+					<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td>
+				</notempty>
+			</tbody>
+		</table>
+	</div>
 </block>
 
 <block name="script">
 	<script type="text/javascript">
-		(function($){
-			$(function(){
-				$('.item-wrap').each(function(){
-					if($(this).siblings('.item-wrap').length == 0){
-						$(this).find('.item-child').eq(0).css('background','none');
-						$(this).children('form').eq(0).find('.fold').css("background-position","22px -55px");
-					}else{
-						$(this).parent().children('.item-wrap').eq($(this).siblings('.item-wrap').length).find('.item-child').eq(0).css('background','none');
-						$(this).parent().children('.item-wrap').eq($(this).siblings('.item-wrap').length).children('form').eq(0).find('.fold').css("background-position","22px -55px");
-					}
-				})
-			})
+		//导航高亮
+		highlight_subnav("{:U('ProductCategory/index')}");
 
-			/* 分类展开收起 */
-			$(".item-child").prev().find(".fold i").addClass("icon-unfold").click(function(){
-				var self = $(this);
-				
-				if(self.hasClass("icon-unfold")){
-					self.parent().parent().parent().find(".item-child").eq(0).slideUp("fast", function(){
-						self.removeClass("icon-unfold").addClass("icon-fold");
+		(function ($) {
+			$(".data-table").on("focus", "input", function () {
+				var id = $(this).closest(".form-wrap").find("[name='id']").val();
+				var title = $(this).closest(".form-wrap").find("[name='title']").val(); 
+				var sort = $(this).closest(".form-wrap").find("[name='sort']").val();
+				$(this).data('param', title + sort);
+			}).on("blur", "input", function () {
+				var id = $(this).closest(".form-wrap").find("[name='id']").val();
+				var title = $(this).closest(".form-wrap").find("[name='title']").val(); 
+				var sort = $(this).closest(".form-wrap").find("[name='sort']").val();
+				if ($(this).data('param') != (title + sort)) {
+					$.ajax({
+						type: 'post', 
+						url: "{:U('edit')}", 
+						data: { id: id, title: title, sort: sort },
+						cache: false, 
+						dataType: 'json', 
+						success: function (data) {
+							if (data.status == 1) {
+								updateAlert(data.info, 'alert-success');
+								setTimeout(function () { location.href = location.href; }, 500);
+							} else { 
+								updateAlert(data.info); 
+							}
+						}
 					});
-				} else {
-					self.parent().parent().parent().find(".item-child").eq(0).slideDown("fast", function(){
-						self.removeClass("icon-fold").addClass("icon-unfold");
-					});
-				}
-			});
-
-			/* 实时更新分类信息 */
-			$(".category")
-			.on("submit", "form", function(){
-				var self = $(this);
-				$.post(
-					self.attr("action"),
-					self.serialize(),
-					function(data){
-						/* 提示信息 */
-						var name = data.status ? "success" : "error", msg;
-						msg = self.find(".msg").addClass(name).text(data.info)
-									.css("display", "inline-block");
-						setTimeout(function(){
-							msg.fadeOut(function(){
-								msg.text("").removeClass(name);
-							});
-						}, 1000);
-					},
-					"json"
-				);
-				return false;
-			})
-			.on("focus","input",function(){
-				$(this).data('param',$(this).closest("form").serialize());
-			})
-			.on("blur", "input", function(){
-				if($(this).data('param')!=$(this).closest("form").serialize()){
-					$(this).closest("form").submit();
 				}
 			});
 		})(jQuery);

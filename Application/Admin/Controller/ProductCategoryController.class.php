@@ -5,9 +5,11 @@ namespace Admin\Controller;
 class ProductCategoryController extends AdminController {
 
     public function index(){
-        $tree = D('ProductCategory')->getTree(0,'id,name,title,sort,pid,status,islast');
-        $this->assign('tree', $tree);
-       // C('_SYS_GET_PRODUCT_CATEGORY_TREE_', true); //标记系统获取分类树模板
+        $pid = I('pid')?I('pid'):0;
+        $tree = D('ProductCategory')->getCategory($pid);
+        $nav = D('ProductCategory')->getParentCategory($pid);
+        $this->assign('list', $tree);
+        $this->assign('breadcrumb', $nav);
         $this->meta_title = '产品分类';
         $this->display();
     }

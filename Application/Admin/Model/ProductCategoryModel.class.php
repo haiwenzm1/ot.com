@@ -118,4 +118,35 @@ class ProductCategoryModel extends Model{
 
         return $res;
     }
+
+    public function getCategory($pid){
+        /* 获取分类信息 */
+        $map = array();
+        $map['pid'] = $pid;
+        return $this->where($map)->order('sort')->select();
+    }
+
+    /**
+    * 获取参数的所有父级分类
+    * @param int $cid 分类id
+    * @return array 参数分类和父类的信息集合
+    * @author huajie <banhuajie@163.com>
+    */
+    public function getParentCategory($pid){
+        if(empty($pid)){
+            return false;
+        }
+        $cates  =   M('ProductCategory')->field('id,title,pid')->select();
+        $res   =   array();
+        while($pid){
+            foreach ($cates as $key=>$cate){
+                if($cate['id'] == $pid){
+                    $pid = $cate['pid'];
+                    array_unshift($res, $cate);	//将父分类插入到数组第一个元素前
+                }
+            }
+        }
+        array_unshift($res, array('id'=>0,'title'=>'首页','pid' => 0));
+        return $res;
+    }
 }

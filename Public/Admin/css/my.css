@@ -112,3 +112,13 @@
 	cursor: pointer;
 	background-color: #ffe8cc;
 }
+
+
+/*******************************************************************************/
+.form-wrap a{
+	display: inline-block;
+	margin: 0 5px;
+}
+.productcategory *{
+	text-align: center !important;
+}

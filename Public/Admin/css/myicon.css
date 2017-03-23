@@ -7,6 +7,10 @@
     height: 40px !important;
 }
 
+.myicon:hover{
+	background-color: #f38900;
+}
+
 .r1c1 {
 	background-position: -5px -2px;
 }
@@ -498,7 +502,7 @@
 }
 
 .r7c4{
-	background-position: -138px -266px;
+	background-position: -136px -268px;
 }
 
 .r7c5{
@@ -997,7 +1001,7 @@
 }
 
 .r13c9{
-	background-position: -359px -532px;
+	background-position: -359px -533px;
 }
 
 .r13c10{
@@ -1269,7 +1273,7 @@
 }
 
 .r16c17{
-	background-position: -716px -666px;
+	background-position: -715px -669px;
 }
 
 .r16c18{

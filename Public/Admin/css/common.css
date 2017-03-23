@@ -85,8 +85,8 @@ button.close {
 }
 #top-alert {
     display: block;
-    top: 50px;
-    left: 220px;
+    top: 36px;
+    left: 242px;
     right: 20px;
     z-index: 3000;
 	margin-top: 20px;
@@ -94,11 +94,14 @@ button.close {
 	padding-bottom: 12px;
     overflow: hidden;
     font-size: 16px;
+	border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
 }
 #top-alert .close{
     right:35px;
     position: fixed;
-    top:75px;
+    top:66px;
 }
 .alert-content{
 	margin-left: 14px;
