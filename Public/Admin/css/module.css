@@ -76,6 +76,7 @@ select[multiple] {
 .form-horizontal .controls {
 	overflow: hidden;
 	padding: 5px 5px 5px 0;
+	margin-left:0;
 }
 .form-horizontal .controls label + label {
 	margin-left: 15px;

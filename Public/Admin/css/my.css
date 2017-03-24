@@ -26,8 +26,6 @@
 	width:25px;
 }
 
-
-
 .item-wrap .cat-wrap{
 	margin-top:4px;
 	width:auto;
@@ -121,4 +119,75 @@
 }
 .productcategory *{
 	text-align: center !important;
+}
+
+/*******************************************************************************/
+.edit-form {
+	width:100%;
+	float: left;
+	border-top:2px solid #FF950C;
+	padding:20px 0 0 0 ;
+}
+.edit-form .form-item{
+	width:33%;
+	float:left;
+}
+
+.edit-form .item-label{
+	width:30%;
+	height: 37px;
+	line-height: 37px;
+	float:left;
+	margin: 0 0 10px 0;
+	text-align: right;
+	padding: 0 10px;
+}
+
+.edit-form .controls{
+	width:70%;
+	float:left;
+	padding: 0 10px;
+}
+
+.edit-form .controls .text,.edit-form .controls select{
+	width:100%;
+	float:left;
+	padding: 0 10px;
+}
+
+.edit-form .button-wrap{
+	width: 100%;
+	text-align: left;
+	padding-right: 20px;
+}
+
+.edit-form .picture a.inputfile {
+    display: inline-block;
+    height: 40px;
+    line-height: 2;
+    text-align: center;
+    background-color: #ffe8cc;
+    border-color: #ffe8cc;
+    position: relative;
+    overflow: hidden;
+    color: #FF950C;
+    font-size: 14px;
+	font-weight: bold;
+}
+
+.edit-form .picture a.inputfile input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 100px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+
+
+
+.edit-form .button-wrap button{
+	float:right;
 }

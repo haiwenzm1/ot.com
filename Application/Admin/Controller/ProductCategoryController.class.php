@@ -14,40 +14,30 @@ class ProductCategoryController extends AdminController {
         $this->display();
     }
 
-    /**
-     * 显示分类树，仅支持内部调
-     * @param  array $tree 分类树
-     * @author 麦当苗儿 <zuojiazi@vip.qq.com>
-     */
     public function tree($tree = null){
-       // C('_SYS_GET_PRODUCT_CATEGORY_TREE_') || $this->_empty();
         $this->assign('tree', $tree);
         $this->display('tree');
     }
 
     /* 编辑分类 */
     public function edit($id = null, $pid = 0){
-        $Category = D('ProductCategory');
-
-        if(IS_POST){ //提交表单
-            if(false !== $Category->update()){
+        if(IS_POST){
+            if(false !== D('ProductCategory')->update()){
                 $this->success('编辑成功！', U('index'));
             } else {
-                $error = $Category->getError();
+                $error = D('ProductCategory')->getError();
                 $this->error(empty($error) ? '未知错误！' : $error);
             }
         } else {
             $cate = '';
             if($pid){
-                /* 获取上级分类信息 */
-                $cate = $Category->info($pid, 'id,name,title,status');
+                $cate = D('ProductCategory')->info($pid, 'id,name,title,status');
                 if(!($cate && 1 == $cate['status'])){
                     $this->error('指定的上级分类不存在或被禁用！');
                 }
             }
 
-            /* 获取分类信息 */
-            $info = $id ? $Category->info($id) : '';
+            $info = $id ? D('ProductCategory')->info($id) : '';
 
             $this->assign('info',       $info);
             $this->assign('category',   $cate);
