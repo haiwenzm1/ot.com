@@ -106,4 +106,41 @@ class ProductCategoryController extends AdminController {
             $this->error('删除产品分类失败！');
         }
     }
+
+    public function upload(){
+        $file = $_FILES["file"];
+
+        if ($file["error"] > 0) {
+            return array('code' => 0, 'info' => $file["error"]);
+        } else {
+            $upload_conf = C('PICTURE_UPLOAD');
+            $rootPaths = $upload_conf['rootPaths'];
+            $savePaths = $upload_conf['savePaths'];
+            $maxSize = $upload_conf['maxSize'];
+
+            if ($file['size'] > $maxSize) {
+                $this->ajaxReturn(array('code' => 0, 'info' => '上传文件大于2M')); 
+            }
+
+            $dir = $rootPaths.$savePaths.'/'. CONTROLLER_NAME. '/'.date('Ymd');
+
+            if (!is_dir($dir)) {
+                if (!mkdir($dir, 0777, true)) {
+                    $this->ajaxReturn(array('code' => 0, 'info' => '创建目录失败', 'url'=>$dir));
+                }
+            }
+
+            $file_ext = end(explode('.', $file['name']));
+            $new_file = md5(uniqid().rand(0000, 9999).rand(0000, 9999)).'.'.$file_ext;
+            $new_file_dir = $dir.'/'.$new_file;
+            $new_file_url = $savePaths.'/'. CONTROLLER_NAME. '/'.date('Ymd').'/'.$new_file;
+        
+            /* 移动文件 */
+            if (!move_uploaded_file($file['tmp_name'], $new_file_dir)) {
+                $this->ajaxReturn(array('code' => 0, 'info' => '上传失败'));
+            }
+
+            $this->ajaxReturn(array('code' => 1, 'info' => '上传成功', 'url' => $new_file_url));
+        }
+    }
 }
