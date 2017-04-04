@@ -108,46 +108,47 @@ class ProductCategoryController extends AdminController {
     }
     
     public function upload(){
-        // $file = $_FILES["file"];
+        $file = $_FILES["file"];
         
-        // if ($file["error"] > 0) {
-        //     return array('code' => 0, 'info' => $file["error"]);
-        // } else {
-        //     $upload_conf = C('PICTURE_UPLOAD');
-        //     $rootPaths = $upload_conf['rootPaths'];
-        //     $savePaths = $upload_conf['savePaths'];
-        //     $maxSize = $upload_conf['maxSize'];
+        if ($file["error"] > 0) {
+            return array('code' => 0, 'info' => $file["error"]);
+        } else {
+            $upload_conf = C('PICTURE_UPLOAD');
+            $rootPaths = $upload_conf['rootPaths'];
+            $savePaths = $upload_conf['savePaths'];
+            $maxSize = $upload_conf['maxSize'];
             
-        //     if ($file['size'] > $maxSize) {
+            if ($file['size'] > $maxSize) {
                 $this->ajaxReturn( array('code' => 0, 'info' => '上传文件大于2M'));
-        //     }
+            }
             
-        //     $dir = $rootPaths.$savePaths.'/'. CONTROLLER_NAME. '/'.date('Ymd');
+            $dir = $rootPaths.$savePaths.'/'. CONTROLLER_NAME. '/'.date('Ymd');
             
-        //     if (!is_dir($dir)) {
-        //         if (!mkdir($dir, 0777, true)) {
-        //             $this->ajaxReturn(array('code' => 0, 'info' => '创建目录失败', 'url'=>$dir));
-        //         }
-        //     }
+            if (!is_dir($dir)) {
+                if (!mkdir($dir, 0777, true)) {
+                    D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片'.$file['name'].'失败,创建文件夹'.$dir.'失败', 0, UID);
+                    $this->ajaxReturn(array('code' => 0, 'info' => '创建目录失败', 'url'=>$dir));
+                }
+            }
             
-        //     $file_ext = end(explode('.', $file['name']));
-        //     $new_file = md5(uniqid().rand(0000, 9999).rand(0000, 9999)).'.'.$file_ext;
-        //     $new_file_dir = $dir.'/'.$new_file;
-        //     $new_file_url = $savePaths.'/'. CONTROLLER_NAME. '/'.date('Ymd').'/'.$new_file;
+            $file_ext = end(explode('.', $file['name']));
+            $new_file = md5(uniqid().rand(0000, 9999).rand(0000, 9999)).'.'.$file_ext;
+            $new_file_dir = $dir.'/'.$new_file;
+            $new_file_url = $savePaths.'/'. CONTROLLER_NAME. '/'.date('Ymd').'/'.$new_file;
             
-        //     /* 移动文件 */
-        //     if (!move_uploaded_file($file['tmp_name'], $new_file_dir)) {
-        //         D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片失败,移动文件失败', 0, UID);
-        //         $this->ajaxReturn(array('code' => 0, 'info' => '上传失败'));
-        //     }
+            /* 移动文件 */
+            if (!move_uploaded_file($file['tmp_name'], $new_file_dir)) {
+                D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片'.$file['name'].'失败,移动文件失败', 0, UID);
+                $this->ajaxReturn(array('code' => 0, 'info' => '上传失败'));
+            }
             
-         
-           
-            // $result = D('PictureRecord')->addPicture($rid,$new_file_dir,$new_file,$file['name'],$file['size'],$source,$type,UID);
-            // D('OperateLog')->addOperateLog('ProductCategory/upload', $result['info'], $result['code'], UID);
-            // $this->ajaxReturn($result);
-
-           // $this->ajaxReturn(array('code' => 1, 'info' => '上传成功', 'url' => $new_file_url));
+            $result = D('PictureRecord')->addPicture($rid,$new_file_dir,$new_file,$file['name'],$file['size'],$source,$type,UID);
+            D('OperateLog')->addOperateLog('ProductCategory/upload', $result['info'], $result['code'], UID);
+            if($result['code']){
+                $this->ajaxReturn(array('code' => 1, 'info' => '上传成功', 'url' => $new_file_url));
+            }else{
+                $this->ajaxReturn($result);
+            }
         }
     }
 }
