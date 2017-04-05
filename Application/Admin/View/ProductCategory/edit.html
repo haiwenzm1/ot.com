@@ -1,4 +1,4 @@
-<extend name="Public/base"/>
+<extend name="Public/base" />
 
 <block name="script">
 	<link rel="stylesheet" href="__JS__/jcrop/css/jquery.Jcrop.css" type="text/css" />
@@ -32,7 +32,7 @@
 				<input type="text" name="name" class="text" value="{$info.name|default=''}">
 			</div>
 		</div>
-		
+
 		<div class="form-item">
 			<label class="item-label">
 				网页标题
@@ -74,7 +74,7 @@
 				是否是终极栏目
 			</label>
 			<div class="controls">
-				 <select name="islast">
+				<select name="islast">
                      <option value="0" <if condition="$info.islast eq 0">selected</if>>否</option>
 					 <option value="1" <if condition="$info.islast eq 1">selected</if>>是</option>
                 </select>
@@ -86,22 +86,31 @@
 				状态
 			</label>
 			<div class="controls">
-				 <select name="status">
-                     <option value="0" <if condition="$info.status eq 0">selected</if>>禁用</option>
-					 <option value="1" <if condition="$info.status eq 1">selected</if>>正常</option>
+				<select name="status">
+                    <option value="0" <if condition="$info.status eq 0">selected</if>>禁用</option>
+					<option value="1" <if condition="$info.status eq 1">selected</if>>正常</option>
                 </select>
 			</div>
 		</div>
+
 		<div class="form-item picture">
 			<label class="item-label">分类图标</label>
 			<div class="controls">
 				<a href="javascript:;" class="inputfile btn">上传图片
-                    <input class="upload" type="file" name="file" data-limit="1" data-url="{:U('ProductCategory/upload')}" multiple>
+                    <input class="upload" type="file" name="file" data-limit="1" data-url="{:U('ProductCategory/upload',array('rid'=>0,'source'=>0,'type'=>0))}" multiple>
                 </a>
-				<div id="housePictureProgress" class="progress col-xs-offset-2 col-xs-6">
-                            <div class="progress-bar progress-bar-success"></div>
-                        </div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success"></div>
+				</div>
 			</div>
+		</div>
+
+		<div class="cf"></div>
+
+		<div class="form-item picture-wrap">
+			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
+			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
+			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
 		</div>
 
 		<div class="form-item button-wrap">
@@ -111,6 +120,10 @@
 			<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
 		</div>
 	</form>
+
+	<div id="mask-wrap"></div>
+	<div id="mask-content"></div>
+	
 </block>
 
 <block name="script">
@@ -121,32 +134,67 @@
 	<script type="text/javascript" src="__JS__/jqUpload/js/jquery.fileupload.js"></script>
 	<script type="text/javascript">
 		highlight_subnav("{:U('ProductCategory/index')}");
-		
+
 		//上传图片
-		$(function() {
+		$(function () {
+			$(document).on('click','.picture-wrap img',function(){
+				var html = '';
+				html += '<div class="cropWrap"><img id="cropimg" src="' + $(this).attr('src') + '" /><span id="preview_box"></span></div>';
+				html += '<form id="crop_form">';
+				html += '<input type="hidden" id="x" name="img_x" />';
+				html += '<input type="hidden" id="y" name="img_y" />';
+				html += '<input type="hidden" id="w" name="img_w" />';
+				html += '<input type="hidden" id="h" name="img_h" />';
+				html += '</form>';
+				html +='<div class="form-group"><div class="col-sm-offset-4 col-sm-2"><a onclick="saveImg()" class="btn btn-default">保存</a></div><div class=" col-sm-2"><button onclick="cancleEditPic()" class="btn btn-default">取消</button></div></div>';
+				$('#mask-content').empty().append(html);
+				$('#mask-wrap,#mask-content').show();
+
+				$("#cropimg").Jcrop({
+					aspectRatio:1.33,
+					onChange:showCoords,
+					onSelect:showCoords
+				});	
+				function showCoords(obj){
+					$("#x").val(obj.x);
+					$("#y").val(obj.y);
+					$("#w").val(obj.w);
+					$("#h").val(obj.h);
+					if(parseInt(obj.w) > 0){
+						var rx = $("#preview_box").width() / obj.w; 
+						var ry = $("#preview_box").height() / obj.h;
+					}
+				}
+
+
+
+			});
+
 			$('.upload').fileupload({
 				add: function (e, data) {
 				},
 				change: function (e, data) {
 					var limit = $(e.target).data('limit');
 					if ((limit - $(".housePicture").length - data.files.length) < 0) {
-						alert("最多上传 "+ (limit - $(".housePicture").length) +" 张图片");
+						alert("最多上传 " + (limit - $(".housePicture").length) + " 张图片");
 					} else {
 						$('.upload').fileupload({
 							dataType: 'json',
 							add: function (e, data) {
-								if(data.files[0].size < 2000000){
-									if(/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(data.files[0].name)) {
+								if (data.files[0].size < 2000000) {
+									if (/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(data.files[0].name)) {
 										data.submit();
-									}else{
+									} else {
 										alert('图片 ' + data.files[0].name + '的类型不正确,图片类型必须是.gif,jpeg,jpg,png中的一种');
 									}
-								}else{
+								} else {
 									alert('图片 ' + data.files[0].name + '大于2M');
 								}
 							},
 							done: function (e, data) {
 								console.log(data.result);
+
+								$('.picture-wrap').append('<img src="' + data.result['url'] + '" />');
 								// if (data.result.code == 1) {
 								// 	if (data.result.data.code == 0) {
 								// 		alert(data.result.data.msg);
@@ -157,13 +205,13 @@
 							},
 							progressall: function (e, data) {
 								var progress = parseInt(data.loaded / data.total * 100, 10);
-								$('#housePictureProgress .progress-bar').css(
+								$('.progress-bar').css(
 									'width',
 									progress + '%'
 								).show();
 								if (data.loaded == data.total) {
-									//alert('上传成功');
-									$('#housePictureProgress .progress-bar').hide();
+									updateAlert('上传成功', 'alert-success');
+									$('.progress-bar').hide();
 									//window.location.href = window.location.href;
 								}
 							}

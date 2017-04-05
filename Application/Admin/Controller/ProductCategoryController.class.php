@@ -109,7 +109,10 @@ class ProductCategoryController extends AdminController {
     
     public function upload(){
         $file = $_FILES["file"];
-        
+        $rid = intval(I('rid'));
+        $source = intval(I('source'));
+        $type = intval(I('type'));
+
         if ($file["error"] > 0) {
             return array('code' => 0, 'info' => $file["error"]);
         } else {
@@ -139,10 +142,12 @@ class ProductCategoryController extends AdminController {
             /* 移动文件 */
             if (!move_uploaded_file($file['tmp_name'], $new_file_dir)) {
                 D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片'.$file['name'].'失败,移动文件失败', 0, UID);
+
+           
                 $this->ajaxReturn(array('code' => 0, 'info' => '上传失败'));
             }
             
-            $result = D('PictureRecord')->addPicture($rid,$new_file_dir,$new_file,$file['name'],$file['size'],$source,$type,UID);
+            $result = D('PictureRecord')->addPicture($rid,$new_file_url,$new_file,$file['name'],$file['size'],$source,$type,UID);
             D('OperateLog')->addOperateLog('ProductCategory/upload', $result['info'], $result['code'], UID);
             if($result['code']){
                 $this->ajaxReturn(array('code' => 1, 'info' => '上传成功', 'url' => $new_file_url));

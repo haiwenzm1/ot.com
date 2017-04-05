@@ -1,193 +1,267 @@
-.item-wrap{
-	display:block;
-	float:left;
-	width:100%;
-	margin:0;
+.item-wrap {
+	display: block;
+	float: left;
+	width: 100%;
+	margin: 0;
 	padding: 0;
-	box-sizing:border-box;
-	-moz-box-sizing:border-box; /* Firefox */
-	-webkit-box-sizing:border-box; /* Safari */
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	/* Firefox */
+	-webkit-box-sizing: border-box;
+	/* Safari */
 }
 
-.item-wrap form{
-	width:100%;
+.item-wrap form {
+	width: 100%;
 }
 
 .item-wrap form:hover .cat-wrap input {
-	background-color:#E7E7E7;
+	background-color: #E7E7E7;
 }
 
-.item-wrap .order-wrap{
-	float:left;
+.item-wrap .order-wrap {
+	float: left;
 	display: block;
-	margin-top:4px;
-}
-.item-wrap .order-wrap input{
-	width:25px;
+	margin-top: 4px;
 }
 
-.item-wrap .cat-wrap{
-	margin-top:4px;
-	width:auto;
-	float:left;
-	box-sizing:border-box;
-	-moz-box-sizing:border-box; /* Firefox */
-	-webkit-box-sizing:border-box; /* Safari */
+.item-wrap .order-wrap input {
+	width: 25px;
 }
 
-.item-wrap .order-wrap input{
-	text-align:center;
+.item-wrap .cat-wrap {
+	margin-top: 4px;
+	width: auto;
+	float: left;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	/* Firefox */
+	-webkit-box-sizing: border-box;
+	/* Safari */
 }
 
-.item-wrap .edit-wrap{
-	float:right;
-	padding:0 10px 0 0;
-	margin-top:4px;
-	width:auto;
+.item-wrap .order-wrap input {
+	text-align: center;
 }
 
-.item-wrap .item-child{
-	margin:0;
-	padding:0;
-	float:left;
-	display:block;
-	width:100%;
+.item-wrap .edit-wrap {
+	float: right;
+	padding: 0 10px 0 0;
+	margin-top: 4px;
+	width: auto;
 }
 
-.item-wrap .item-wrap{
+.item-wrap .item-child {
+	margin: 0;
+	padding: 0;
+	float: left;
+	display: block;
+	width: 100%;
+}
+
+.item-wrap .item-wrap {
 	padding: 0 0 0 43px;
 }
 
-.item-child{
+.item-child {
 	background-image: url(/Public/Admin/images/my/line.png);
 	background-repeat: repeat-y;
 	background-position: 22px 0;
 }
 
-.item-wrap .fold{
+.item-wrap .fold {
 	background-image: url(/Public/Admin/images/my/zTreeStandard.png);
 	background-repeat: no-repeat;
 	background-position: 22px -19px;
-}	
+}
 
-.selectwrap{
+.selectwrap {
 	display: block;
 	display: none;
-	margin-top:4px;
+	margin-top: 4px;
 	border: 1px solid #ccc;
-	padding:4px 8px;
+	padding: 4px 8px;
 	background-color: #fff;
 }
 
-.selectwrap > div{
-	width:100%;
+.selectwrap > div {
+	width: 100%;
 	float: left;
 	display: block;
 }
 
-.selectwrap > div div{
+.selectwrap > div div {
 	padding-left: 10px;
-	width:100%;
+	width: 100%;
 	float: left;
 	display: block;
-	box-sizing:border-box;
-	-moz-box-sizing:border-box; /* Firefox */
-	-webkit-box-sizing:border-box; /* Safari */
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	/* Firefox */
+	-webkit-box-sizing: border-box;
+	/* Safari */
 }
 
-.selectwrap span{
+.selectwrap span {
 	width: 100%;
 	display: block;
-	float:left;
+	float: left;
 	background-color: #ddd;
 }
 
-.selectwrap span.islast{
+.selectwrap span.islast {
 	background-color: #fff;
 }
 
-.selectwrap span.islast:hover{
+.selectwrap span.islast:hover {
 	cursor: pointer;
 	background-color: #ffe8cc;
 }
 
 
 /*******************************************************************************/
-.form-wrap a{
+
+.form-wrap a {
 	display: inline-block;
 	margin: 0 5px;
 }
-.productcategory *{
+
+.productcategory * {
 	text-align: center !important;
 }
 
+
 /*******************************************************************************/
+
 .edit-form {
-	width:100%;
+	width: 100%;
 	float: left;
-	border-top:2px solid #FF950C;
-	padding:20px 0 0 0 ;
-}
-.edit-form .form-item{
-	width:33%;
-	float:left;
+	border-top: 2px solid #FF950C;
+	padding: 20px 0 0 0;
 }
 
-.edit-form .item-label{
-	width:30%;
+.edit-form .form-item {
+	width: 33%;
+	float: left;
+}
+
+.edit-form .item-label {
+	width: 30%;
 	height: 37px;
 	line-height: 37px;
-	float:left;
+	float: left;
 	margin: 0 0 10px 0;
 	text-align: right;
 	padding: 0 10px;
 }
 
-.edit-form .controls{
-	width:70%;
-	float:left;
+.edit-form .controls {
+	width: 70%;
+	float: left;
 	padding: 0 10px;
 }
 
-.edit-form .controls .text,.edit-form .controls select{
-	width:100%;
-	float:left;
+.edit-form .controls .text, .edit-form .controls select {
+	width: 100%;
+	float: left;
 	padding: 0 10px;
 }
 
-.edit-form .button-wrap{
+.edit-form .button-wrap {
 	width: 100%;
 	text-align: left;
 	padding-right: 20px;
 }
 
 .edit-form .picture a.inputfile {
-    display: inline-block;
-    height: 40px;
-    line-height: 2;
-    text-align: center;
-    background-color: #ffe8cc;
-    border-color: #ffe8cc;
-    position: relative;
-    overflow: hidden;
-    color: #FF950C;
-    font-size: 14px;
+	display: inline-block;
+	height: 40px;
+	line-height: 2;
+	text-align: center;
+	background-color: #ffe8cc;
+	border-color: #ffe8cc;
+	position: relative;
+	overflow: hidden;
+	color: #FF950C;
+	font-size: 14px;
 	font-weight: bold;
+	width: 28%;
+	margin-right: 0;
 }
 
 .edit-form .picture a.inputfile input {
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 100px;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 100px;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+	height: 50px;
 }
 
+.edit-form .button-wrap button {
+	float: right;
+}
 
+.progress {
+	height: 40px;
+	width: 70%;
+	float: right;
+}
 
+.progress-bar {
+	float: left;
+	width: 0;
+	height: 100%;
+	font-size: 12px;
+	line-height: 20px;
+	color: #fff;
+	text-align: center;
+	background-color: #008B00;
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+	-webkit-transition: width .6s ease;
+	-o-transition: width .6s ease;
+	transition: width .6s ease;
+}
 
-.edit-form .button-wrap button{
-	float:right;
+.edit-form .picture-wrap {
+	width: 100%;
+}
+
+.edit-form .picture-wrap img {
+	width: 18%;
+	margin: 0 1%;
+	cursor: pointer;
+}
+
+#mask-wrap {
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: #777;
+	z-index: 1001;
+	-moz-opacity: 0.7;
+	opacity: .70;
+	filter: alpha(opacity=70);
+}
+
+#mask-content {
+	display: none;
+	position: fixed;
+	top: 1%;
+	left: 22%;
+	width: 56%;
+	height: 98%;
+	z-index: 1002;
+	overflow: auto;
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 2px;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
 }
