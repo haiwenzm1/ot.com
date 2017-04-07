@@ -2,48 +2,60 @@
  * 自定义配色css文件放在defaut_color的同级目录,然后在 "系统/配置管理" 中为"COLOR_STYLE"增加一行配置项
  *********************************************/
 
+
 /********************************************
  * base.css
  * 描述：重置页面元素并设置布局样式
  * 作用范围： 全局
  *******************************************/
 
-html,body,input,textarea,select,legend{
-	color:#666;
+html, body, input, textarea, select, legend {
+	color: #666;
 	/*全局默认文字颜色*/
-	font: 14px/1.5em "Hiragino Sans GB","Microsoft Yahei";
+	font: 14px/1.5em "Hiragino Sans GB", "Microsoft Yahei";
 	border-radius: 2px;
 }
+
 a {
 	color: #FF950C;
 	/*全局默认链接颜色*/
 }
-a:hover{
+
+a:hover {
 	color: #FF950C;
 	/*全局默认链接悬停颜色*/
 }
-body{
-	padding:50px 0 0 225px
+
+body {
+	padding: 50px 0 0 225px
 }
+
+
 /*************************************************
  * common.css 
  * 描述：定义公共类名
  * 作用范围: 公共，独立样式
  *************************************************/
 
+
 /* 文章搜索/用户搜素 下拉弹出按钮 实心小箭头 */
+
 .arrow-down {
 	border-top-color: #000;
 }
+
 .arrow-up {
 	border-bottom-color: #000;
 }
+
 .arrow-left {
 	border-right-color: #000;
 }
+
 .arrow-right {
 	border-left-color: #000;
 }
+
 
 /********************************************** 
  * module.css 
@@ -51,84 +63,103 @@ body{
  * 作用范围: 公共，组件模块
  ***********************************************/
 
+
 /* 文章新增编辑页,权限授权页,分类编辑页 tab标签 */
+
 .tab-nav {
 	border-bottom-color: #e0e0e0;
 }
-.tab-nav .current a,
-.tab-nav .current a:hover {
+
+.tab-nav .current a, .tab-nav .current a:hover {
 	border-color: #3c4355 #e0e0e0 #f6f6f6;
 }
 
 
 /* (暂未使用) 面包屑导航 */
+
 .breadcrumb {
 	color: #999;
 }
+
 .tags-crumb li {
 	background-color: #e0e0e0;
 }
+
 .tags-crumb .current {
 	background-color: #f60;
 }
+
 .tags-crumb .current a {
 	color: #fff;
 }
+
 .tags-crumb li i {
 	border-left-color: #fff
 }
+
 .tags-crumb li b {
 	border-left-color: #e0e0e0
 }
+
 .tags-crumb .current b {
 	border-left-color: #f60;
-}	
+}
+
 
 /* 列表分页 */
-.page a,
-.page span {
-    color: #686868;
-    border: 1px solid #CCCCCC;
+
+.page a, .page span {
+	color: #686868;
+	border: 1px solid #CCCCCC;
 }
-.page a:hover
- {
-    background: #E1E1E1;
+
+.page a:hover {
+	background: #E1E1E1;
 }
+
 .page .current {
 	border-top: 3px solid #FF950C;
 	height: 28px;
 	line-height: 26px;
 }
 
+
 /* uploadify插件上传按钮 */
+
 .uploadify-button {
 	color: #fff;
 	background-color: #27ae60;
 }
 
+
 /* 分类管理/分类授权 树形菜单（目前只支持3级）
 ------------------------------------------ */
+
 .category .hd {
 	border-bottom-color: #d4d4d4;
-	color:#fff;
+	color: #fff;
 	background-color: #353535;
 }
+
 .category .cate-item dt {
 	border-bottom-color: #E7E7E7;
 }
+
 .category .name .error {
 	color: #B94A48;
 }
+
 .category .name .success {
 	color: #468847;
 }
 
 .close {
-    color: #000000;
-    text-shadow: 0 1px 0 #ffffff;
-    opacity: 0.2;
-    filter: alpha(opacity=20);
+	color: #000000;
+	text-shadow: 0 1px 0 #ffffff;
+	opacity: 0.2;
+	filter: alpha(opacity=20);
 }
+
 
 /******************************************** 
  * form.css 
@@ -136,97 +167,129 @@ body{
  * 作用范围: 公共，表单模块，表单布局
  *********************************************/
 
+
 /* 表单组件
 ------------------------------------------ */
-.text,.textarea,select {
+
+.text, .textarea, select {
 	border-color: #DDD;
 	background-color: #fff;
 	color: #666;
 }
-input[type="text"],select{
+
+input[type="text"], select {
 	height: 35px;
-    line-height: 35px;
+	line-height: 35px;
 	margin: 0;
 }
+
 .must {
-	color: #f00; /* 表单必填项标识字符*/
+	color: #f00;
+	/* 表单必填项标识字符*/
 }
 
 textarea:disabled, input:disabled {
-    background-color: rgb(235, 235, 228);
+	background-color: rgb(235, 235, 228);
 }
+
 
 /* 多行两列表单
 ------------------------------------------ */
+
 .form-horizontal .item-label .check-tips {
-	color: #aaa; /* 表单label后面的提示文字 */
+	color: #aaa;
+	/* 表单label后面的提示文字 */
 }
+
 .form-horizontal .controls .check-tips {
-	color: #999; /*表单ajax操作完成后返回的提示文字*/
+	color: #999;
+	/*表单ajax操作完成后返回的提示文字*/
 }
+
 
 /* 搜索表单
 ------------------------------------------ */
-.search-form .sleft {/* 高级搜索左边的搜索框 */
+
+.search-form .sleft {
+	/* 高级搜索左边的搜索框 */
 	border-color: #ebebeb;
 	background-color: #fff;
 }
 
+
 /* 状态搜索下拉选项 */
+
 .search-form .drop-down ul {
 	background-color: #fff;
 	border-color: #ebebeb;
 }
+
 .search-form .drop-down ul li {
 	border-top-color: #ebebeb;
 }
+
 .search-form .drop-down ul a {
 	color: #404040;
 }
+
 .search-form .drop-down ul a:hover {
 	background-color: #f0f0f0;
 }
+
 .search-form .sch-btn:hover {
 	/* 搜索提交按钮 */
 	color: #fff;
 }
 
-.focus{
+.focus {
 	border: 1px solid #d1d1d1;
 	box-shadow: 0 0 12px #ECECEC;
 }
+
+
 /*********************************************
  * table.css 
  * 描述：定义数据表格样式
  * 作用范围: 公共，表格模块
  **********************************************/
 
+
 /* 内容区 行默认颜色*/
+
 .data-table tbody tr {
 	background-color: #ffffff;
 	color: #686868;
 }
-.data-table thead th,
-.data-table tbody td {
+
+.data-table thead th, .data-table tbody td {
 	/*非隔行变色时 用于行区分的单元格底线颜色 */
-    border-bottom-color:  #f4f4f4;
+	border-bottom-color: #f4f4f4;
 }
+
+
 /* 表头配色 */
+
 .data-table thead th {
-	color:#666;
-    background-color: #eeeeee;
+	color: #666;
+	background-color: #eeeeee;
 	border-top: 2px solid #FF950C;
 }
+
+
 /* 隔行变色 行默认颜色 */
+
 .table-striped tbody tr {
 	background-color: #fefefe;
 	color: #686868;
 }
+
+
 /* 隔行变色 偶数行配色 */
+
 .table-striped tbody tr:nth-child(even) {
 	background-color: #fff;
-
 }
+
 .table-striped tbody tr:hover {
 	background-color: #ffe8cc;
 }
@@ -238,26 +301,29 @@ textarea:disabled, input:disabled {
  * 作用范围: 公共，按钮组，单独按钮
  *************************************/
 
+
 /* 普通按钮 */
+
 .btn {
 	border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 2px;
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 2px;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	background: #FFF;
-    color: #FF950C;
-    border-color: #FF950C;
-	font-weight:normal;
+	color: #FF950C;
+	border-color: #FF950C;
+	font-weight: normal;
 }
+
 .btn:hover {
 	color: #FF950C;
-    background-color: #ffe8cc;
+	background-color: #ffe8cc;
 	border: 1px solid #FF950C;
 }
 
@@ -265,29 +331,35 @@ textarea:disabled, input:disabled {
 	padding: 10px 50px;
 }
 
+
 /* 表单提交按钮(确定,保存,提交) */
+
 .submit-btn {
 	color: #fff;
 	padding: 10px 50px;
-    background-color: #FF950C;
-}
-.submit-btn:hover {
-    color: #FF950C;
-    background-color: #ffe8cc;
+	background-color: #FF950C;
 }
 
+.submit-btn:hover {
+	color: #FF950C;
+	background-color: #ffe8cc;
+}
+
+
 /* 下拉弹出按钮 */
-.btn-group .dropdown,
-.btn-group-click .dropdown {
+
+.btn-group .dropdown, .btn-group-click .dropdown {
 	border-color: #ccc;
 	background-color: #fff;
 }
-.btn-group .dropdown a:hover,
-.btn-group-click .dropdown a:hover {
-    background-color: #eee;
+
+.btn-group .dropdown a:hover, .btn-group-click .dropdown a:hover {
+	background-color: #eee;
 }
 
+
 /* 被禁用的按钮 */
+
 .btn.disabled {
 	background-color: #8d8d8d;
 	cursor: not-allowed;
@@ -298,65 +370,80 @@ textarea:disabled, input:disabled {
  * style.css
  *************************************/
 
+
 /* 头部Logo,主导航*/
+
 .header {
-	background-color: #3c4355;
+	background-color: rgb(52, 73, 94);
 }
-.header .logo{
+
+.header .logo {
 	border-right: 1px solid #4e5565;
-	width:209px;
+	width: 209px;
 }
+
 
 /* 主导航 */
+
 .main-nav a {
-    color: #FFF;
-}
-.main-nav a:hover {
-    background-color:#656565;
-}
-.main-nav .current{
-    background-color: #656565;
-}
-.main-nav .current a {
-    background-color: #FF950C;
+	color: #FFF;
 }
 
+.main-nav a:hover {
+	background-color: #656565;
+}
+
+.main-nav .current {
+	background-color: #656565;
+}
+
+.main-nav .current a {
+	background-color: #FF950C;
+}
+
+
 /* 顶部右侧 用户bar */
+
 .header .user-menu {
-    border-color: #ddd;
-    background-color: #fff;
+	border-color: #ddd;
+	background-color: #fff;
 }
+
 .header .user-menu li {
-    border-bottom-color: #ddd;
+	border-bottom-color: #ddd;
 }
+
 .header .user-menu a:hover {
-    color: #424242;
-    background-color: #f5f5f5;
+	color: #424242;
+	background-color: #f5f5f5;
 }
+
 
 /* 边栏导航样式
 ------------------------------------------ */
+
 .sidebar {
 	/* 左侧栏背景 */
 	background: #fff;
 	border-right: 1px solid #ddd;
 	padding-top: 0;
-	width:225px;
+	width: 225px;
 }
 
 .subnav {
-    padding-left: 0;
+	padding-left: 0;
 }
 
 
 /* 子导航Group标题栏 */
+
 .subnav h3 {
-    color: #7a7a7a;
+	color: #7a7a7a;
 	height: 60px;
 	line-height: 60px;
-	font-size:16px;
-	background-color:none;
-	margin-right:0;
+	font-size: 16px;
+	background-color: none;
+	margin-right: 0;
 	font-weight: normal;
 }
 
@@ -366,112 +453,122 @@ textarea:disabled, input:disabled {
 
 .subnav h3 span {
 	display: block;
-    height: 60px;
+	height: 60px;
 }
 
-.subnav h3 .sl{
-	background-color: #f0f0f0;
-	float:left;
-	margin:0 10px 0 0;
+.subnav h3 .sl {
+	float: left;
+	margin: 0 10px 0 0;
 	width: 60px;
 }
 
-.subnav h3 .sr{
-	float:right;
-	margin:0;
+.subnav h3 .sr {
+	float: right;
+	margin: 0;
 }
 
 .subnav h3 .myicon {
-	margin:10px 0 0 10px;
+	margin: 10px 0 0 10px;
 }
 
-.subnav h3.current,.subnav h3:hover {
-	background-color:#ff9100;
-	color:#fff;
+.subnav h3.current, .subnav h3:hover {
+	background-color: #ff9100;
+	color: #fff;
 }
 
-.subnav h3:hover .sl, .subnav h3.current .sl{
-	background-color:#f38900;
-}
- 
 .subnav h3 .icon, .subnav h3 .icon-fold, .subnav h3 .recycle {
-    margin: 23px 6px 0 0;
+	margin: 23px 6px 0 0;
 }
+
 
 /* 左侧二级菜单 */
-.side-sub-menu, .side-sub-menu li{
-	margin:0;
+
+.side-sub-menu, .side-sub-menu li {
+	margin: 0;
 }
 
-.side-sub-menu{
+.side-sub-menu {
 	border-bottom: 1px #e6e6e6 solid;
+	background-color: #ffe8cc;
 }
 
 .side-sub-menu > li > .item {
-    color: #7a7a7a;
+	color: #7a7a7a;
 	height: 60px;
 	line-height: 60px;
-	font-size:16px;
-	padding:0 0 0 20px;
+	font-size: 16px;
+	padding: 0 0 0 20px;
 }
 
-.item .sr{
-	float:right;
-	margin:10px 0 0 0;
+.item .sr {
+	float: right;
+	margin: 10px 0 0 0;
 }
 
-.side-sub-menu > li > .item:hover, .side-sub-menu > li.hover > .item{
+.side-sub-menu > li > .item:hover, .side-sub-menu > li.hover > .item {
 	color: #ffffff;
 	background: #ffa634;
-	margin-right:0;
+	margin-right: 0;
 	transition: all .2s ease-in;
 }
 
-.side-sub-menu > .current > .item, .side-sub-menu > .current > .item:hover{
+.side-sub-menu > .current > .item, .side-sub-menu > .current > .item:hover {
 	/* 高亮导航 */
 	color: #fff;
-    background: none;
-	background-color:#ffa634 ;
+	background: none;
+	background-color: #ffa634;
 }
 
+
 /* windows开始菜单式子菜单 */
+
 .side-sub-menu li .subitem {
-    border-color: #ccc;
-    background-color: #fff;
+	border-color: #ccc;
+	background-color: #fff;
 }
+
 .side-sub-menu .subitem .item:hover {
-    background: url(../images/subnav_current.png) no-repeat 130px 12px #f5f5f5;
+	background: url(../images/subnav_current.png) no-repeat 130px 12px #f5f5f5;
 }
+
 
 /* 后台主内容区域
 ------------------------------------------------- */
+
 .main {
 	background-color: #f6f6f6;
 }
+
 .main-title h2 {
-    color: #445566;   
-}
-.main-title .ca {
-	/* 内容列表 面包屑 */
-    background: url(../images/subnav_current.png) no-repeat center center;
+	color: #445566;
 }
 
-/* 访问授权页面 大类区块 */
-.checkmod {
-    border-color: #ebebeb;
+.main-title .ca {
+	/* 内容列表 面包屑 */
+	background: url(../images/subnav_current.png) no-repeat center center;
 }
+
+
+/* 访问授权页面 大类区块 */
+
+.checkmod {
+	border-color: #ebebeb;
+}
+
 .checkmod dt {
-    border-bottom-color: #ebebeb;
-    background-color: #ECECEC;
+	border-bottom-color: #ebebeb;
+	background-color: #ECECEC;
 }
 
 
 /* 版权信息 */
+
 .cont-ft {
-    background-color: #f6f6f6;
+	background-color: #f6f6f6;
 }
+
 .copyright {
-    border-top-color: #ccc;
+	border-top-color: #ccc;
 }
 
 
@@ -479,83 +576,101 @@ textarea:disabled, input:disabled {
  *  登陆页面css
  ***********************************/
 
-/* body 配色*/
-#login-page {
-    color: #000;
-    background-color: #30333F;
-}
 
+/* body 配色*/
+
+#login-page {
+	color: #000;
+	background-color: #fff;
+	padding-left: 0;
+}
 
 #login-page .login-form {
-    background-color: #fff;
-    box-shadow: 0 0 26px #041A36;
-    border-top-color: #42EC00;
-}
-#login-page .login-form h3 {
-    color: #8D9CAA;
-}
-#login-page .login-form .check-tips {
-    color: #ff0000;
-}
-#login-page .login-form .item {
-    border-color:  #ececec;
-}
-#login-page .login-form .focus {
-    border-color: #A6E1F3;
-    box-shadow: 0 0 12px #BAF7FF;
-}
-#login-page .login-form .icon-login-user,
-#login-page .login-form .icon-login-pwd,
-#login-page .login-form .icon-login-verifycode {
-    background: url("../images/icon24_login.png") no-repeat;
-}
-#login-page .login-form .icon-login-user {
-    background-position: 0 0;
-}
-#login-page .login-form .icon-login-pwd {
-    background-position: -48px 0;
-}
-#login-page .login-form .icon-login-verifycode {
-    background-position: -24px 0;
-}
-#login-page .login-form input {
-    background-color: #fff;
-    color:#686868;
-}
-#login-page .login-form .login-btn {
-    color: #FFFFFF;
-    background-color: #40C402;
-}
-#login-page .login-form .login-btn:hover {
-    background-color: #42EC00;
-}
-#login-page .login-form .login-btn[disabled] {
-    opacity: 0.6;
-    filter: alpha(opacity=60);
-    cursor: default;
-    box-shadow: none;
-}
-#login-page .icon-loading {
-    background: url(../images/loading_icon.gif) no-repeat 0 0;
+	background-color: #fff;
+	box-shadow: 0 0 26px #041A36;
+	border-top-color: #FF950C;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
 }
 
+#login-page .login-form h3 {
+	color: #8D9CAA;
+}
+
+#login-page .login-form .check-tips {
+	color: #ff0000;
+	text-align: center;
+}
+
+#login-page .login-form .item {
+	border-color: #ccc;
+}
+
+#login-page .login-form .focus {
+	border-color: #A6E1F3;
+	box-shadow: 0 0 12px #BAF7FF;
+}
+
+#login-page .login-form .icon-login-user, #login-page .login-form .icon-login-pwd, #login-page .login-form .icon-login-verifycode {
+	background: url("../images/icon24_login.png") no-repeat;
+}
+
+#login-page .login-form .icon-login-user {
+	background-position: 0 0;
+}
+
+#login-page .login-form .icon-login-pwd {
+	background-position: -48px 0;
+}
+
+#login-page .login-form .icon-login-verifycode {
+	background-position: -24px 0;
+}
+
+#login-page .login-form input {
+	background-color: #fff;
+	color: #686868;
+}
+
+#login-page .login-form .login-btn {
+	color: #FFFFFF;
+	background-color: #f38900;
+}
+
+#login-page .login-form .login-btn:hover {
+	background-color: #FF950C;
+	/*color: #f38900;*/
+}
+
+#login-page .login-form .login-btn[disabled] {
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	cursor: default;
+	box-shadow: none;
+}
+
+#login-page .icon-loading {
+	background: url(../images/loading_icon.gif) no-repeat 0 0;
+}
 
 #login-page input:-webkit-autofill {
 	box-shadow: 0 0 0px 1000px white inset;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
 }
+
 #login-page .logo-img {
-    background: url(../images/logo.png) no-repeat 0 center;
+	background: url(../images/logo.png) no-repeat 0 center;
 }
 
-#login-page .welcome{
-    color:#ddd;
+#login-page .welcome {
+	color: #ddd;
 }
 
-#login-page .reloadverify{
-    color:#69C3FF;
+#login-page .reloadverify {
+	color: #69C3FF;
 }
 
-#login-page img.verifyimg{
+#login-page img.verifyimg {
 	border-color: #ececec;
 }
