@@ -1,8 +1,14 @@
 <volist name="tree" id="list">
-	<div>
-		<span <if condition="$list.islast eq 1">class="islast"</if>>{$list.title}</span>
-		<notempty name="list['_']">
-			<div>{:R('Product/tree', array($list['_']))}</div>
-		</notempty>
-	</div>
+	<if condition="$list.tree eq 0"></div><div></if>
+	<span data="span{$list['tree']}" <if condition="$list.islast eq 1">class="islast"</if> <if condition="$list.tree gt 0">style="padding-left: {$list['tree']*16}px;"</if>>
+		<if condition="$list.tree gt 0"><i class="slide-icon"></i></if>
+		<if condition="$list.islast eq 1">
+			<i class="itext" data-id="{$list.id}">{$list.title}</i>
+		<else />
+			{$list.title}
+		</if>
+	</span>
+	<notempty name="list['_']">
+		{:R('Product/tree', array($list['_']))}
+	</notempty>
 </volist>

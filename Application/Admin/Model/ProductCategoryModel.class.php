@@ -74,19 +74,6 @@ class ProductCategoryModel extends Model{
     }
 
     /**
-     * 获取指定分类的同级分类
-     * @param  integer $id    分类ID
-     * @param  boolean $field 查询字段
-     * @return array
-     * @author 麦当苗儿 <zuojiazi@vip.qq.com>
-     */
-    public function getSameLevel($id, $field = true){
-        $info = $this->info($id, 'pid');
-        $map = array('pid' => $info['pid'], 'status' => 1);
-        return $this->field($field)->where($map)->order('sort')->select();
-    }
-
-    /**
      * 更新分类信息
      * @return boolean 更新状态
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>

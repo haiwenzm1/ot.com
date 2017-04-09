@@ -79,4 +79,18 @@ class ActionController extends AdminController {
         }
     }
 
+    /**
+     * 操作日志列表
+     * @author haiwen
+     */
+    public function operateLog(){
+        //获取列表数据
+        $map['status']    =   array('gt', -1);
+        $list   =   $this->lists('OperateLog', $map);
+        int_to_string($list,array('status'=>array(1=>'成功',-1=>'删除',0=>'失败')));
+        $this->assign('_list', $list);
+        $this->meta_title = '操作日志';
+        $this->display();
+    }
+
 }

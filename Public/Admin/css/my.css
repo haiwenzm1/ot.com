@@ -75,49 +75,6 @@
 	background-position: 22px -19px;
 }
 
-.selectwrap {
-	display: block;
-	display: none;
-	margin-top: 4px;
-	border: 1px solid #ccc;
-	padding: 4px 8px;
-	background-color: #fff;
-}
-
-.selectwrap > div {
-	width: 100%;
-	float: left;
-	display: block;
-}
-
-.selectwrap > div div {
-	padding-left: 10px;
-	width: 100%;
-	float: left;
-	display: block;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	/* Firefox */
-	-webkit-box-sizing: border-box;
-	/* Safari */
-}
-
-.selectwrap span {
-	width: 100%;
-	display: block;
-	float: left;
-	background-color: #ddd;
-}
-
-.selectwrap span.islast {
-	background-color: #fff;
-}
-
-.selectwrap span.islast:hover {
-	cursor: pointer;
-	background-color: #ffe8cc;
-}
-
 
 /*******************************************************************************/
 
@@ -262,6 +219,62 @@
 	background-color: #fff;
 	padding: 10px;
 	border-radius: 2px;
-	-webkit-border-radius:2px;
-	-moz-border-radius:2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+
+.selectwrap {
+	display: block;
+	display: none;
+	margin-top: 4px;
+	border: 1px solid #ccc;
+	padding: 8px;
+	background-color: #fff;
+}
+
+.selectwrap > div {
+	width: 100%;
+	float: left;
+	display: block;
+	background-color: #ececec;
+}
+
+.selectwrap span {
+	width: 100%;
+	display: block;
+	float: left;
+	background-color: #ececec;
+}
+
+.selectwrap span.islast {
+	background-color: #fff;
+}
+
+.selectwrap span.islast:hover {
+	cursor: pointer;
+	background-color: #ffe8cc;
+}
+
+.selectwrap .slide-icon {
+	background: url(/Public/Admin/images/my/zTreeStandard.png) no-repeat 0 -25px;
+	width: 16px;
+	height: 21px;
+	display: block;
+	float: left;
+	margin-right: 2px;
+}
+
+.selectwrap .slide-icon-last {
+	background: url(/Public/Admin/images/my/zTreeStandard.png) no-repeat 0 -61px;
+	width: 16px;
+	height: 21px;
+	display: block;
+	float: left;
+	margin-right: 2px;
+}
+
+.selectwrap [data=span0] {
+	background-color: cornflowerblue;
+	color: #fff;
+	padding-left: 4px;
 }

@@ -7,9 +7,9 @@ class ProductCategoryController extends AdminController {
     public function index(){
         $pid = I('pid')?I('pid'):0;
         $tree = D('ProductCategory')->getCategory($pid);
-        $nav = D('ProductCategory')->getParentCategory($pid);
+        $breadcrumb = D('ProductCategory')->getParentCategory($pid);
         $this->assign('list', $tree);
-        $this->assign('breadcrumb', $nav);
+        $this->assign('breadcrumb', $breadcrumb);
         $this->meta_title = '产品分类';
         $this->display();
     }
