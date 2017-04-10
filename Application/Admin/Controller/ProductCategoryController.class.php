@@ -9,6 +9,7 @@ class ProductCategoryController extends AdminController {
         $tree = D('ProductCategory')->getCategory($pid);
         $breadcrumb = D('ProductCategory')->getParentCategory($pid);
         $this->assign('list', $tree);
+        $this->assign('pid', $pid);
         $this->assign('breadcrumb', $breadcrumb);
         $this->meta_title = '产品分类';
         $this->display();
@@ -22,10 +23,13 @@ class ProductCategoryController extends AdminController {
     /* 编辑分类 */
     public function edit($id = null, $pid = 0){
         if(IS_POST){
+            $_POST['updater'] = UID;
             if(false !== D('ProductCategory')->update()){
+                D('OperateLog')->addOperateLog('ProductCategory/edit', json_encode($_POST), 1, UID);
                 $this->success('编辑成功！', U('index'));
             } else {
                 $error = D('ProductCategory')->getError();
+                D('OperateLog')->addOperateLog('ProductCategory/edit', json_encode($_POST).(empty($error) ? '未知错误！' : $error), 0, UID);
                 $this->error(empty($error) ? '未知错误！' : $error);
             }
         } else {
@@ -36,9 +40,7 @@ class ProductCategoryController extends AdminController {
                     $this->error('指定的上级分类不存在或被禁用！');
                 }
             }
-            
             $info = $id ? D('ProductCategory')->info($id) : '';
-            
             $this->assign('info',       $info);
             $this->assign('category',   $cate);
             $this->meta_title = '编辑分类';
@@ -48,20 +50,27 @@ class ProductCategoryController extends AdminController {
     
     /* 新增分类 */
     public function add($pid = 0){
-        $Category = D('ProductCategory');
-        
         if(IS_POST){ //提交表单
-            if(false !== $Category->update()){
+            $breadcrumb = D('ProductCategory')->getParentCategory($pid);
+            $category = '';
+            foreach($breadcrumb as $e){
+                if($e[id]){
+                    $category = $category.$e['title'];
+                }
+            }
+            $_POST['name'] = get_pinyin($category.$_POST['title'],1);
+            $_POST['creator'] = $_POST['updater'] = UID;
+            if(false !== D('ProductCategory')->update()){
                 $this->success('新增成功！', U('index'));
             } else {
-                $error = $Category->getError();
+                $error = D('ProductCategory')->getError();
                 $this->error(empty($error) ? '未知错误！' : $error);
             }
         } else {
             $cate = array();
             if($pid){
                 /* 获取上级分类信息 */
-                $cate = $Category->info($pid, 'id,name,title,status');
+                $cate = D('ProductCategory')->info($pid, 'id,name,title,status');
                 if(!($cate && 1 == $cate['status'])){
                     $this->error('指定的上级分类不存在或被禁用！');
                 }
@@ -70,7 +79,7 @@ class ProductCategoryController extends AdminController {
             /* 获取分类信息 */
             $this->assign('category', $cate);
             $this->meta_title = '新增分类';
-            $this->display('edit');
+            $this->display();
         }
     }
     

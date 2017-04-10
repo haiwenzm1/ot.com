@@ -93,16 +93,7 @@ class ProductCategoryModel extends Model{
 
         //更新分类缓存
         S('sys_category_list', null);
-
-        /* 添加或更新数据 */
-        if(empty($data['id'])){
-            //记录行为
-            action_log('add_product_category', 'productcategory', $data['id'] ? $data['id'] : $res, UID);
-        }else{
-            //记录行为
-            action_log('update_product_category', 'productcategory', $data['id'] ? $data['id'] : $res, UID);
-        }
-
+        
         return $res;
     }
 

@@ -5,14 +5,14 @@
 		<h2>{$meta_title}
 			<notempty name="breadcrumb">
 				[
-					<volist name="breadcrumb" id="nav">
-						<if condition="count($breadcrumb) eq $i">
-							<span>{$nav.title}</span>
+				<volist name="breadcrumb" id="nav">
+					<if condition="count($breadcrumb) eq $i">
+						<span>{$nav.title}</span>
 						<else />
-							<a <if condition="$nav['id'] eq 0">href="{:U('index')}"<else />href="{:U('index','pid='.$nav['id'])}"</if>>{$nav.title}</a>
-						</if>
-						<if condition="count($breadcrumb) gt $i"><i class="ca"></i></if>
-					</volist>
+						<a <if condition="$nav['id'] eq 0">href="{:U('index')}"<else />href="{:U('index','pid='.$nav['id'])}"</if>>{$nav.title}</a>
+					</if>
+					<if condition="count($breadcrumb) gt $i"><i class="ca"></i></if>
+				</volist>
 				]
 			</notempty>
 		</h2>
@@ -30,6 +30,7 @@
 				<tr>
 					<th>类目</th>
 					<th>ID</th>
+					<th>分类标识</th>
 					<th>分类名称</th>
 					<th>分类别名</th>
 					<th>排序</th>
@@ -44,19 +45,21 @@
 						<tr class="form-wrap">
 							<td><a <if condition="$channel.islast eq 0">href="{:U('index?pid='.$channel['id'])}"</if>><i <if condition="$channel.islast eq 0"> class="myicon r2c15" <else /> class="myicon r2c14" </if>></i></a></td>
 							<td><input type="text" name="id" class="text input-mini" value="{$channel.id}" readonly></td>
-							<td><input type="text" name="name" class="text" value="{$channel.name}" readonly></a></td>
-							<td><input type="text" name="title" class="text" value="{$channel.title}"></a></td>
+							<td><input type="text" name="name" class="text" value="{$channel.name}" readonly></td>
+							<td><input type="text" name="title" class="text" value="{$channel.title}" readonly></td>
+							<td><input type="text" name="nickname" class="text" value="{$channel.nickname}"></td>
 							<td><input type="text" name="sort" class="text input-mini" value="{$channel.sort}"></td>
-							<td>{$channel.create_time|date="Y-m-d H:i:s",###}</td>
-							<td>{$channel.update_time|date="Y-m-d H:i:s",###}</td>
-							<td> 
+							<td><span>{$channel.create_time|date="Y-m-d H:i:s",###}</span></td>
+							<td><span>{$channel.update_time|date="Y-m-d H:i:s",###}</span></td>
+							<td>
 								<a title="编辑" href="{:U('edit?id='.$channel['id'].'&pid='.$pid)}"><i class="myicon r13c9"></i></a>
-								<a href="{:U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']))}" title="{$channel.status|show_status_op}" class="ajax-get"><i <if condition="$channel.status eq 0">class="myicon r4c4"<else />class="myicon r16c17"</if>></i></a>
-						 		<a title="删除" href="{:U('del?id='.$channel['id'])}" class="confirm ajax-get"><i class="myicon r7c4"></i></a>
+								<a href="{:U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']))}" title="{$channel.status|show_status_op}"
+								 class="ajax-get"><i <if condition="$channel.status eq 0">class="myicon r4c4"<else />class="myicon r16c17"</if>></i></a>
+								<a title="删除" href="{:U('del?id='.$channel['id'])}" class="confirm ajax-get"><i class="myicon r7c4"></i></a>
 							</td>
 						</tr>
 					</volist>
-				<else/>
+					<else/>
 					<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td>
 				</notempty>
 			</tbody>
@@ -72,26 +75,27 @@
 		(function ($) {
 			$(".data-table").on("focus", "input", function () {
 				var id = $(this).closest(".form-wrap").find("[name='id']").val();
-				var title = $(this).closest(".form-wrap").find("[name='title']").val(); 
+				var nickname = $(this).closest(".form-wrap").find("[name='nickname']").val();
 				var sort = $(this).closest(".form-wrap").find("[name='sort']").val();
-				$(this).data('param', title + sort);
+				$(this).data('param', nickname + sort);
 			}).on("blur", "input", function () {
 				var id = $(this).closest(".form-wrap").find("[name='id']").val();
-				var title = $(this).closest(".form-wrap").find("[name='title']").val(); 
+				var title = $(this).closest(".form-wrap").find("[name='title']").val();
+				var nickname = $(this).closest(".form-wrap").find("[name='nickname']").val();
 				var sort = $(this).closest(".form-wrap").find("[name='sort']").val();
-				if ($(this).data('param') != (title + sort)) {
+				if ($(this).data('param') != (nickname + sort)) {
 					$.ajax({
-						type: 'post', 
-						url: "{:U('edit')}", 
-						data: { id: id, title: title, sort: sort },
-						cache: false, 
-						dataType: 'json', 
+						type: 'post',
+						url: "{:U('edit',array('pid'=>$pid))}",
+						data: { id: id, title: title, nickname: nickname, sort: sort },
+						cache: false,
+						dataType: 'json',
 						success: function (data) {
 							if (data.status == 1) {
 								updateAlert(data.info, 'alert-success');
 								setTimeout(function () { location.href = location.href; }, 500);
-							} else { 
-								updateAlert(data.info); 
+							} else {
+								updateAlert(data.info);
 							}
 						}
 					});
