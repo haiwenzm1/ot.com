@@ -264,6 +264,7 @@ textarea:disabled, input:disabled {
 .data-table thead th, .data-table tbody td {
 	/*非隔行变色时 用于行区分的单元格底线颜色 */
 	border-bottom-color: #f4f4f4;
+	text-align: center;
 }
 
 
@@ -273,25 +274,25 @@ textarea:disabled, input:disabled {
 	color: #666;
 	background-color: #eeeeee;
 	border-top: 2px solid #FF950C;
+	font-weight: bold;
 }
 
 
 /* 隔行变色 行默认颜色 */
 
 .table-striped tbody tr {
-	background-color: #fefefe;
 	color: #686868;
 }
 
 
 /* 隔行变色 偶数行配色 */
 
-.table-striped tbody tr:nth-child(even) {
-	background-color: #fff;
-}
-
 .table-striped tbody tr:hover {
 	background-color: #ffe8cc;
+}
+
+.table-striped tbody>tr:nth-child(odd)>td, .table-striped tbody>tr:nth-child(odd)>th {
+	background: none;
 }
 
 

@@ -90,47 +90,7 @@
 
 /*******************************************************************************/
 
-.edit-form {
-	width: 100%;
-	float: left;
-	border-top: 2px solid #FF950C;
-	padding: 20px 0 0 0;
-}
-
-.edit-form .form-item {
-	width: 33%;
-	float: left;
-}
-
-.edit-form .item-label {
-	width: 30%;
-	height: 37px;
-	line-height: 37px;
-	float: left;
-	margin: 0 0 10px 0;
-	text-align: right;
-	padding: 0 10px;
-}
-
-.edit-form .controls {
-	width: 70%;
-	float: left;
-	padding: 0 10px;
-}
-
-.edit-form .controls .text, .edit-form .controls select {
-	width: 100%;
-	float: left;
-	padding: 0 10px;
-}
-
-.edit-form .button-wrap {
-	width: 100%;
-	text-align: left;
-	padding-right: 20px;
-}
-
-.edit-form .picture a.inputfile {
+.picture a.inputfile {
 	display: inline-block;
 	height: 40px;
 	line-height: 2;
@@ -143,10 +103,11 @@
 	font-size: 14px;
 	font-weight: bold;
 	width: 28%;
+	max-width: 100px;
 	margin-right: 0;
 }
 
-.edit-form .picture a.inputfile input {
+.picture a.inputfile input {
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -155,10 +116,6 @@
 	filter: alpha(opacity=0);
 	cursor: pointer;
 	height: 50px;
-}
-
-.edit-form .button-wrap button {
-	float: right;
 }
 
 .progress {
@@ -183,14 +140,30 @@
 	transition: width .6s ease;
 }
 
-.edit-form .picture-wrap {
+.picture-wrap {
 	width: 100%;
+	clear: both;
+	float: left;
 }
 
-.edit-form .picture-wrap img {
-	width: 18%;
-	margin: 0 1%;
+.picture-wrap div {
+	width: 19%;
+	margin: 0 1% 1% 0;
+	float: left;
+}
+
+.picture-wrap div img {
+	width: 100%;
 	cursor: pointer;
+	float: left;
+}
+
+.picture-wrap div .del-pic {
+	z-index: 1000;
+	float: right;
+	width: 40px;
+	height: 40px;
+	margin-top: -40px;
 }
 
 #mask-wrap {
@@ -221,56 +194,6 @@
 	border-radius: 2px;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
-}
-
-.selectwrap {
-	display: block;
-	display: none;
-	margin-top: 4px;
-	border: 1px solid #ccc;
-	padding: 8px;
-	background-color: #fff;
-}
-
-.selectwrap > div {
-	width: 100%;
-	float: left;
-	display: block;
-	background-color: #ececec;
-}
-
-.selectwrap span {
-	width: 100%;
-	display: block;
-	float: left;
-	background-color: #ececec;
-}
-
-.selectwrap span.islast {
-	background-color: #fff;
-}
-
-.selectwrap span.islast:hover {
-	cursor: pointer;
-	background-color: #ffe8cc;
-}
-
-.selectwrap .slide-icon {
-	background: url(/Public/Admin/images/my/zTreeStandard.png) no-repeat 0 -25px;
-	width: 16px;
-	height: 21px;
-	display: block;
-	float: left;
-	margin-right: 2px;
-}
-
-.selectwrap .slide-icon-last {
-	background: url(/Public/Admin/images/my/zTreeStandard.png) no-repeat 0 -61px;
-	width: 16px;
-	height: 21px;
-	display: block;
-	float: left;
-	margin-right: 2px;
 }
 
 .selectwrap [data=span0] {

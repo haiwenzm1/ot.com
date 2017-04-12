@@ -21,20 +21,17 @@
 	<div class="cf">
 		<a class="btn" href="{:U('add','pid='.$pid)}">新 增</a>
 		<a class="btn" href="javascript:;">删 除</a>
-		<button class="btn list_sort" url="{:U('sort',array('pid'=>I('get.pid',0)),'')}">排序</button>
+		<button class="btn" onclick="javascript:history.back(-1);return false;">返 回</button>
 	</div>
 
 	<div class="data-table table-striped">
-		<table class="productcategory">
+		<table>
 			<thead>
 				<tr>
-					<th>类目</th>
 					<th>ID</th>
-					<th>分类标识</th>
 					<th>分类名称</th>
 					<th>分类别名</th>
 					<th>排序</th>
-					<th>创建时间</th>
 					<th>更新时间</th>
 					<th>操作</th>
 				</tr>
@@ -43,19 +40,18 @@
 				<notempty name="list">
 					<volist name="list" id="channel">
 						<tr class="form-wrap">
-							<td><a <if condition="$channel.islast eq 0">href="{:U('index?pid='.$channel['id'])}"</if>><i <if condition="$channel.islast eq 0"> class="myicon r2c15" <else /> class="myicon r2c14" </if>></i></a></td>
-							<td><input type="text" name="id" class="text input-mini" value="{$channel.id}" readonly></td>
-							<td><input type="text" name="name" class="text" value="{$channel.name}" readonly></td>
-							<td><input type="text" name="title" class="text" value="{$channel.title}" readonly></td>
+							<td>{$channel.id}<input type="hidden" name="id" value="{$channel.id}"></td>
+							<td>
+								<if condition="$channel.islast eq 0"><a href="{:U('index?pid='.$channel['id'])}">{$channel.title}</a><else />{$channel.title}</if>
+								<input type="hidden" name="title" value="{$channel.title}">
+							</td>
 							<td><input type="text" name="nickname" class="text" value="{$channel.nickname}"></td>
 							<td><input type="text" name="sort" class="text input-mini" value="{$channel.sort}"></td>
-							<td><span>{$channel.create_time|date="Y-m-d H:i:s",###}</span></td>
 							<td><span>{$channel.update_time|date="Y-m-d H:i:s",###}</span></td>
 							<td>
-								<a title="编辑" href="{:U('edit?id='.$channel['id'].'&pid='.$pid)}"><i class="myicon r13c9"></i></a>
-								<a href="{:U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']))}" title="{$channel.status|show_status_op}"
-								 class="ajax-get"><i <if condition="$channel.status eq 0">class="myicon r4c4"<else />class="myicon r16c17"</if>></i></a>
-								<a title="删除" href="{:U('del?id='.$channel['id'])}" class="confirm ajax-get"><i class="myicon r7c4"></i></a>
+								<a href="{:U('edit?id='.$channel['id'].'&pid='.$pid)}">编辑</a>
+								<a href="{:U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']))}" class="confirm ajax-get">{$channel.status|show_status_op}</a>
+								<a href="{:U('del?id='.$channel['id'])}" class="confirm ajax-get">删除</a>
 							</td>
 						</tr>
 					</volist>
@@ -96,6 +92,7 @@
 								setTimeout(function () { location.href = location.href; }, 500);
 							} else {
 								updateAlert(data.info);
+								setTimeout(function () { $('#top-alert').removeClass('block').slideUp(200); }, 1500);
 							}
 						}
 					});

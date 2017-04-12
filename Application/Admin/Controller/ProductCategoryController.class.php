@@ -20,6 +20,11 @@ class ProductCategoryController extends AdminController {
         $this->display('tree');
     }
     
+    public function trees($tree = null){
+        $this->assign('tree', $tree);
+        $this->display('trees');
+    }
+    
     /* 编辑分类 */
     public function edit($id = null, $pid = 0){
         if(IS_POST){
@@ -39,6 +44,8 @@ class ProductCategoryController extends AdminController {
                 if(!($cate && 1 == $cate['status'])){
                     $this->error('指定的上级分类不存在或被禁用！');
                 }
+                $breadcrumb = D('ProductCategory')->getParentCategory($pid);
+                $this->assign('breadcrumb', $breadcrumb);
             }
             $info = $id ? D('ProductCategory')->info($id) : '';
             $this->assign('info',       $info);
@@ -75,7 +82,8 @@ class ProductCategoryController extends AdminController {
                     $this->error('指定的上级分类不存在或被禁用！');
                 }
             }
-            
+            $tree = D('ProductCategory')->getTree(0,'id,name,title,sort,pid,status,islast');
+            $this->assign('tree', $tree);
             /* 获取分类信息 */
             $this->assign('category', $cate);
             $this->meta_title = '新增分类';
@@ -121,7 +129,7 @@ class ProductCategoryController extends AdminController {
         $rid = intval(I('rid'));
         $source = intval(I('source'));
         $type = intval(I('type'));
-
+        
         if ($file["error"] > 0) {
             return array('code' => 0, 'info' => $file["error"]);
         } else {
@@ -151,15 +159,13 @@ class ProductCategoryController extends AdminController {
             /* 移动文件 */
             if (!move_uploaded_file($file['tmp_name'], $new_file_dir)) {
                 D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片'.$file['name'].'失败,移动文件失败', 0, UID);
-
-           
                 $this->ajaxReturn(array('code' => 0, 'info' => '上传失败'));
             }
             
-            $result = D('PictureRecord')->addPicture($rid,$new_file_url,$new_file,$file['name'],$file['size'],$source,$type,UID);
-            D('OperateLog')->addOperateLog('ProductCategory/upload', $result['info'], $result['code'], UID);
+            $result = D('PictureRecord')->addPicture('ProductCategory/upload',$rid,$new_file_url,$new_file,$file['name'],$file['size'],$source,$type,UID);
+           
             if($result['code']){
-                $this->ajaxReturn(array('code' => 1, 'info' => '上传成功', 'url' => $new_file_url));
+                $this->ajaxReturn(array('code' => 1, 'info' => '上传成功', 'url' => $new_file_url,'pic_id'=>$result['id']));
             }else{
                 $this->ajaxReturn($result);
             }

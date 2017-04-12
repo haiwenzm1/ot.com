@@ -1,27 +1,35 @@
 <extend name="Public/base" />
 
-<block name="script">
-	<link rel="stylesheet" href="__JS__/jcrop/css/jquery.Jcrop.css" type="text/css" />
-</block>
-
 <block name="body">
 	<div class="main-title">
-		<h2>{:isset($info['id'])?'编辑"'.($info['title']).'"':'新增'}分类</h2>
+		<h2>
+			编辑分类 [
+			<notempty name="breadcrumb">
+				<volist name="breadcrumb" id="nav">
+					<a <if condition="$nav['id'] eq 0">href="{:U('index')}"<else />href="{:U('index','pid='.$nav['id'])}"</if>>{$nav.title}</a>
+					<if condition="count($breadcrumb) gt $i"><i class="ca"></i></if>
+				</volist>
+				<i class="ca"></i>
+			</notempty>
+			{$info['title']} ]
+		</h2>
 	</div>
 
-	<form action="{:U()}" method="post" class="form-horizontal edit-form">
+	<form action="{:U()}" method="post" class="form-horizontal">
 		<div class="form-item">
-			<label class="item-label">上级分类</label>
+			<label class="item-label">
+				上级分类<span class="must">*</span>
+			</label>
 			<div class="controls">
-				<input type="text" class="text" disabled="disabled" value="{$category['title']|default='无'}" readonly/>
+				<input type="text" class="text input-large" disabled="disabled" value="{$category['title']|default='无'}" readonly/>
 			</div>
 		</div>
 		<div class="form-item">
 			<label class="item-label">
-				<span class="must">*</span>分类名称
+				分类名称<span class="must">*</span>
 			</label>
 			<div class="controls">
-				<input type="text" class="text" disabled="disabled" value="{$info.title|default=''}">
+				<input type="text" class="text input-large" disabled="disabled" value="{$info.title|default=''}">
 			</div>
 		</div>
 		<div class="form-item">
@@ -29,7 +37,7 @@
 				分类别名
 			</label>
 			<div class="controls">
-				<input type="text" name="name" class="text" value="{$info.name|default=''}">
+				<input type="text" name="name" class="text input-large" value="{$info.name|default=''}">
 			</div>
 		</div>
 
@@ -38,7 +46,7 @@
 				网页标题
 			</label>
 			<div class="controls">
-				<input type="text" name="meta_title" class="text" value="{$info.meta_title|default=0}">
+				<input type="text" name="meta_title" class="text input-large" value="{$info.meta_title|default=0}">
 			</div>
 		</div>
 
@@ -47,7 +55,7 @@
 				关键字
 			</label>
 			<div class="controls">
-				<input type="text" name="keywords" class="text" value="{$info.keywords|default=0}">
+				<input type="text" name="keywords" class="text input-large" value="{$info.keywords|default=0}">
 			</div>
 		</div>
 
@@ -56,7 +64,7 @@
 				描述
 			</label>
 			<div class="controls">
-				<input type="text" name="description" class="text" value="{$info.description|default=0}">
+				<textarea name="description" rows="6" class="input-large" value="{$info.description|default=0}"></textarea>
 			</div>
 		</div>
 
@@ -65,16 +73,16 @@
 				排序
 			</label>
 			<div class="controls">
-				<input type="text" name="sort" class="text" value="{$info.sort|default=0}">
+				<input type="text" name="sort" class="text input-large" value="{$info.sort|default=0}">
 			</div>
 		</div>
 
 		<div class="form-item">
 			<label class="item-label">
-				是否是终极栏目
+				是否是终极栏目<span class="must">(只有终极栏目才能添加产品)</span>
 			</label>
 			<div class="controls">
-				<select name="islast">
+				<select name="islast" class="input-large">
                      <option value="0" <if condition="$info.islast eq 0">selected</if>>否</option>
 					 <option value="1" <if condition="$info.islast eq 1">selected</if>>是</option>
                 </select>
@@ -83,10 +91,10 @@
 
 		<div class="form-item">
 			<label class="item-label">
-				状态
+				状态<span class="must">(只有正常状态才能添在前台显示)</span>
 			</label>
 			<div class="controls">
-				<select name="status">
+				<select name="status" class="input-large">
                     <option value="0" <if condition="$info.status eq 0">selected</if>>禁用</option>
 					<option value="1" <if condition="$info.status eq 1">selected</if>>正常</option>
                 </select>
@@ -102,81 +110,61 @@
 				<div class="progress">
 					<div class="progress-bar progress-bar-success"></div>
 				</div>
+				<div class="picture-wrap">
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic" data-id="1"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
+				</div>
 			</div>
-		</div>
-
-		<div class="cf"></div>
-
-		<div class="form-item picture-wrap">
-			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
-			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
-			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
 		</div>
 
 		<div class="form-item button-wrap">
 			<input type="hidden" name="id" value="{$info.id|default=''}">
 			<input type="hidden" name="pid" value="{:isset($category['id'])?$category['id']:$info['pid']}">
-			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
 			<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
+			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
 		</div>
 	</form>
 
 	<div id="mask-wrap"></div>
 	<div id="mask-content"></div>
-	
+
 </block>
 
 <block name="script">
-	<script type="text/javascript" src="__JS__/jcrop/js/jquery.browser.js"></script>
-	<script type="text/javascript" src="__JS__/jcrop/js/jquery.Jcrop.js"></script>
 	<script type="text/javascript" src="__JS__/jqUpload/js/vendor/jquery.ui.widget.js"></script>
 	<script type="text/javascript" src="__JS__/jqUpload/js/jquery.iframe-transport.js"></script>
 	<script type="text/javascript" src="__JS__/jqUpload/js/jquery.fileupload.js"></script>
 	<script type="text/javascript">
 		highlight_subnav("{:U('ProductCategory/index')}");
 
+		$(document).on('click','.del-pic',function(){
+			if(confirm("提示: 是否要删除图片?")){
+				var id = $(this).data('id');
+				console.log(id);
+				$(this).parent().remove();
+			}
+		});
+
+
 		//上传图片
 		$(function () {
-			$(document).on('click','.picture-wrap img',function(){
-				var html = '';
-				html += '<div class="cropWrap"><img id="cropimg" src="' + $(this).attr('src') + '" /><span id="preview_box"></span></div>';
-				html += '<form id="crop_form">';
-				html += '<input type="hidden" id="x" name="img_x" />';
-				html += '<input type="hidden" id="y" name="img_y" />';
-				html += '<input type="hidden" id="w" name="img_w" />';
-				html += '<input type="hidden" id="h" name="img_h" />';
-				html += '</form>';
-				html +='<div class="form-group"><div class="col-sm-offset-4 col-sm-2"><a onclick="saveImg()" class="btn btn-default">保存</a></div><div class=" col-sm-2"><button onclick="cancleEditPic()" class="btn btn-default">取消</button></div></div>';
-				$('#mask-content').empty().append(html);
-				$('#mask-wrap,#mask-content').show();
-
-				$("#cropimg").Jcrop({
-					aspectRatio:1.33,
-					onChange:showCoords,
-					onSelect:showCoords
-				});	
-				function showCoords(obj){
-					$("#x").val(obj.x);
-					$("#y").val(obj.y);
-					$("#w").val(obj.w);
-					$("#h").val(obj.h);
-					if(parseInt(obj.w) > 0){
-						var rx = $("#preview_box").width() / obj.w; 
-						var ry = $("#preview_box").height() / obj.h;
-					}
-				}
-
-
-
-			});
-
 			$('.upload').fileupload({
 				add: function (e, data) {
 				},
 				change: function (e, data) {
 					var limit = $(e.target).data('limit');
-					if ((limit - $(".housePicture").length - data.files.length) < 0) {
-						alert("最多上传 " + (limit - $(".housePicture").length) + " 张图片");
+					var cur_num = $(e.target).closest('.inputfile').siblings('.picture-wrap').find('img').length;
+					if ((limit - cur_num - data.files.length) < 0) {
+						updateAlert("最多上传 " + ((limit - cur_num) < 0 ? 0 : (limit - cur_num)) + " 张图片");
+						setTimeout(function () { $('#top-alert').removeClass('block').slideUp(200); }, 1500);
 					} else {
 						$('.upload').fileupload({
 							dataType: 'json',
@@ -185,23 +173,16 @@
 									if (/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(data.files[0].name)) {
 										data.submit();
 									} else {
-										alert('图片 ' + data.files[0].name + '的类型不正确,图片类型必须是.gif,jpeg,jpg,png中的一种');
+										updateAlert('图片 ' + data.files[0].name + '的类型不正确,图片类型必须是.gif,jpeg,jpg,png中的一种');
+										setTimeout(function () { $('#top-alert').removeClass('block').slideUp(200); }, 1500);
 									}
 								} else {
-									alert('图片 ' + data.files[0].name + '大于2M');
+									updateAlert('图片 ' + data.files[0].name + '大于2M');
+									setTimeout(function () { $('#top-alert').removeClass('block').slideUp(200); }, 1500);
 								}
 							},
 							done: function (e, data) {
-								console.log(data.result);
-
-								$('.picture-wrap').append('<img src="' + data.result['url'] + '" />');
-								// if (data.result.code == 1) {
-								// 	if (data.result.data.code == 0) {
-								// 		alert(data.result.data.msg);
-								// 	}
-								// } else {
-								// 	alert(data.result.msg);
-								// }
+								$('.picture-wrap').append('<div><img src="' + data.result['url'] + '" /><input type="hidden" name= "" value= "' + data.result['pic_id'] +'"></div>');
 							},
 							progressall: function (e, data) {
 								var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -211,8 +192,7 @@
 								).show();
 								if (data.loaded == data.total) {
 									updateAlert('上传成功', 'alert-success');
-									$('.progress-bar').hide();
-									//window.location.href = window.location.href;
+									setTimeout(function () { $('.progress-bar').hide(); $('#top-alert').removeClass('block').slideUp(200); }, 1500);
 								}
 							}
 						});

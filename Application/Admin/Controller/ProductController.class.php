@@ -12,9 +12,6 @@ class ProductController extends AdminController {
     public function add(){
         $this->meta_title = '新增产品';
         $tree = D('ProductCategory')->getTree(0,'id,name,title,sort,pid,status,islast');
-        // echo '<pre>';
-        // print_r($tree);
-        // exit;
         $this->assign('tree', $tree);
         $this->display();
     }

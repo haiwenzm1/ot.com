@@ -14,7 +14,7 @@ class PictureRecordModel extends Model{
         array('type','require','图片类型必须')     //默认情况下用正则进行验证
     );
     
-    public function addPicture($rid,$path,$name,$oname,$size,$source,$type,$uid){
+    public function addPicture($model,$rid,$path,$name,$oname,$size,$source,$type,$uid){
         $data = array();
         
         $data['rid'] = $rid;
@@ -33,15 +33,25 @@ class PictureRecordModel extends Model{
         $data['utime'] = time();
         $data['version'] = 0;
         
+        $result = array('code'=>1,'info'=>'','id'=>0);
+
         if($this->create($data)){
-            $result = $this->add($data); // 写入数据到数据库
-            if($result){
-                return  array('code'=>1,'info'=>'上传图片'.$name.'成功,id='.$result);
+            $r = $this->add($data); // 写入数据到数据库
+            if($r){
+                $result['code'] = 1;
+                $result['info'] = '上传图片'.$name.'成功,id='.$result;
+                $result['id'] = $result;
             } else{
-                return  array('code'=>0,'info'=>'上传图片'.$name.'失败');
+                $result['code'] = 0;
+                $result['info'] = '上传图片'.$name.'失败';
             }
         }else{
-            return  array('code'=>0,'info'=>'上传图片'.$name.'失败,'.$this->getError());
+            $result['code'] = 0;
+            $result['info'] = '上传图片'.$name.'失败,'.$this->getError();
         }
+
+        D('OperateLog')->addOperateLog($model, $result['info'], $result['code'], $uid);
+        
+        return $result;
     }
 }

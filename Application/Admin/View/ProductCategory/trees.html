@@ -1,0 +1,7 @@
+<volist name="tree" id="list">
+	<if condition="$list.tree eq 0"></div><div></if>
+	<option><php>while($list['tree']){echo '&nbsp;&nbsp;'; $list['tree']--;}</php>|_{$list.title}</option>
+	<notempty name="list['_']">
+		{:R('ProductCategory/trees', array($list['_']))}
+	</notempty>
+</volist>
