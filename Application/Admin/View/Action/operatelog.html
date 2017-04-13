@@ -39,8 +39,10 @@
 							<td><span>{$vo.create_time|time_format}</span></td>
 							<td><span>{:long2ip($vo['action_ip'])}</span></td>
 							<td>
-								<a href="{:U('Action/edit?id='.$vo['id'])}">详细</a>
-								<a class="confirm ajax-get" href="{:U('Action/remove?ids='.$vo['id'])}">删除</a>
+								<span>
+									<a href="{:U('Action/edit?id='.$vo['id'])}">详细</a>
+									<a class="confirm ajax-get" href="{:U('Action/remove?ids='.$vo['id'])}">删除</a>
+								</span>
 							</td>
 						</tr>
 					</volist>
