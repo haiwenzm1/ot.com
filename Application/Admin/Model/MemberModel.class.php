@@ -22,7 +22,7 @@ class MemberModel extends Model {
         array('nickname', '', '昵称被占用', self::EXISTS_VALIDATE, 'unique'), //用户名被占用
     );
 
-    public function lists($status = 1, $order = 'uid DESC', $field = true){
+    public function lists($status = 1, $order = 'uid DESC', $field = true) {
         $map = array('status' => $status);
         return $this->field($field)->where($map)->order($order)->select();
     }
@@ -32,10 +32,10 @@ class MemberModel extends Model {
      * @param  integer $uid 用户ID
      * @return boolean      ture-登录成功，false-登录失败
      */
-    public function login($uid){
+    public function login($uid) {
         /* 检测是否在当前应用注册 */
         $user = $this->field(true)->find($uid);
-        if(!$user || 1 != $user['status']) {
+        if (!$user || 1 != $user['status']) {
             $this->error = '用户不存在或已被禁用！'; //应用级别禁用
             return false;
         }
@@ -52,7 +52,7 @@ class MemberModel extends Model {
      * 注销当前用户
      * @return void
      */
-    public function logout(){
+    public function logout() {
         session('user_auth', null);
         session('user_auth_sign', null);
     }
@@ -61,20 +61,20 @@ class MemberModel extends Model {
      * 自动登录用户
      * @param  integer $user 用户信息数组
      */
-    private function autoLogin($user){
+    private function autoLogin($user) {
         /* 更新登录信息 */
         $data = array(
-            'uid'             => $user['uid'],
-            'login'           => array('exp', '`login`+1'),
+            'uid' => $user['uid'],
+            'login' => array('exp', '`login`+1'),
             'last_login_time' => NOW_TIME,
-            'last_login_ip'   => get_client_ip(1),
+            'last_login_ip' => get_client_ip(1),
         );
         $this->save($data);
 
         /* 记录登录SESSION和COOKIES */
         $auth = array(
-            'uid'             => $user['uid'],
-            'username'        => $user['nickname'],
+            'uid' => $user['uid'],
+            'username' => $user['nickname'],
             'last_login_time' => $user['last_login_time'],
         );
 
@@ -83,8 +83,8 @@ class MemberModel extends Model {
 
     }
 
-    public function getNickName($uid){
-        return $this->where(array('uid'=>(int)$uid))->getField('nickname');
+    public function getNickName($uid) {
+        return $this->where(array('uid' => (int) $uid))->getField('nickname');
     }
 
 }

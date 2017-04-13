@@ -16,14 +16,14 @@
 			<thead>
 				<tr>
 					<th class="row-selected row-selected"><input class="check-all" type="checkbox" /></th>
-					<th class="">编号</th>
+					<th class=""><span>编号<span></th>
 					<th class="">操作方法</th>
 					<th class="">操作内容</th>
-					<th class="">操作结果</th>
-					<th class="">执行者</th>
-					<th class="">执行时间</th>
-					<th class="">执行IP</th>
-					<th class="">操作</th>
+					<th class=""><span>操作结果</span></th>
+					<th class=""><span>执行者</span></th>
+					<th class=""><span>执行时间</span></th>
+					<th class=""><span>执行IP</span></th>
+					<th class=""><span>操作</span></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,10 +32,10 @@
 						<tr>
 							<td><input class="ids" type="checkbox" name="ids[]" value="{$vo.id}" /></td>
 							<td>{$vo.id} </td>
-							<td>{$vo['model']}</td>
+							<td><span>{$vo['model']}<span></td>
 							<td>{$vo['remark']}</td>
 							<td>{$vo['status_text']}</td>
-							<td>{:get_nickname($vo['creator'])}</td>
+							<td><span>{:get_nickname($vo['creator'])}</span></td>
 							<td><span>{$vo.create_time|time_format}</span></td>
 							<td><span>{:long2ip($vo['action_ip'])}</span></td>
 							<td>

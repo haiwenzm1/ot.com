@@ -9,6 +9,7 @@
 
 namespace Admin\Model;
 use Think\Model;
+
 /**
  * 配置模型
  * @author 麦当苗儿 <zuojiazi@vip.qq.com>
@@ -18,7 +19,7 @@ class ConfigModel extends Model {
     protected $_validate = array(
         array('name', 'require', '标识不能为空', self::EXISTS_VALIDATE, 'regex', self::MODEL_BOTH),
         array('name', '', '标识已经存在', self::VALUE_VALIDATE, 'unique', self::MODEL_BOTH),
-        array('title', 'require', '名称不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
+        array('title', 'require', '名称不能为空', self::MUST_VALIDATE, 'regex', self::MODEL_BOTH),
     );
 
     protected $_auto = array(
@@ -33,12 +34,12 @@ class ConfigModel extends Model {
      * @return array 配置数组
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
-    public function lists(){
-        $map    = array('status' => 1);
-        $data   = $this->where($map)->field('type,name,value')->select();
-        
+    public function lists() {
+        $map = array('status' => 1);
+        $data = $this->where($map)->field('type,name,value')->select();
+
         $config = array();
-        if($data && is_array($data)){
+        if ($data && is_array($data)) {
             foreach ($data as $value) {
                 $config[$value['name']] = $this->parse($value['type'], $value['value']);
             }
@@ -52,20 +53,20 @@ class ConfigModel extends Model {
      * @param  string  $value 配置值
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
-    private function parse($type, $value){
+    private function parse($type, $value) {
         switch ($type) {
-            case 3: //解析数组
-                $array = preg_split('/[,;\r\n]+/', trim($value, ",;\r\n"));
-                if(strpos($value,':')){
-                    $value  = array();
-                    foreach ($array as $val) {
-                        list($k, $v) = explode(':', $val);
-                        $value[$k]   = $v;
-                    }
-                }else{
-                    $value =    $array;
+        case 3: //解析数组
+            $array = preg_split('/[,;\r\n]+/', trim($value, ",;\r\n"));
+            if (strpos($value, ':')) {
+                $value = array();
+                foreach ($array as $val) {
+                    list($k, $v) = explode(':', $val);
+                    $value[$k] = $v;
                 }
-                break;
+            } else {
+                $value = $array;
+            }
+            break;
         }
         return $value;
     }

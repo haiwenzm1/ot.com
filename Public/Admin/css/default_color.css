@@ -265,6 +265,13 @@ textarea:disabled, input:disabled {
 	/*非隔行变色时 用于行区分的单元格底线颜色 */
 	border-bottom-color: #f4f4f4;
 	text-align: center;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.data-table thead th span, .data-table tbody td span {
+	word-break: normal;
+	white-space: nowrap;
 }
 
 

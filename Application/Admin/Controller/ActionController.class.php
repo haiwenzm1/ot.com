@@ -19,14 +19,14 @@ class ActionController extends AdminController {
      * 行为日志列表
      * @author huajie <banhuajie@163.com>
      */
-    public function actionLog(){
+    public function actionLog() {
         //获取列表数据
-        $map['status']    =   array('gt', -1);
-        $list   =   $this->lists('ActionLog', $map);
+        $map['status'] = array('gt', -1);
+        $list = $this->lists('ActionLog', $map);
         int_to_string($list);
-        foreach ($list as $key=>$value){
-            $model_id                  =   get_document_field($value['model'],"name","id");
-            $list[$key]['model_id']    =   $model_id ? $model_id : 0;
+        foreach ($list as $key => $value) {
+            $model_id = get_document_field($value['model'], "name", "id");
+            $list[$key]['model_id'] = $model_id ? $model_id : 0;
         }
         $this->assign('_list', $list);
         $this->meta_title = '行为日志';
@@ -37,7 +37,7 @@ class ActionController extends AdminController {
      * 查看行为日志
      * @author huajie <banhuajie@163.com>
      */
-    public function edit($id = 0){
+    public function edit($id = 0) {
         empty($id) && $this->error('参数错误！');
 
         $info = M('ActionLog')->field(true)->find($id);
@@ -52,17 +52,17 @@ class ActionController extends AdminController {
      * @param mixed $ids
      * @author huajie <banhuajie@163.com>
      */
-    public function remove($ids = 0){
+    public function remove($ids = 0) {
         empty($ids) && $this->error('参数错误！');
-        if(is_array($ids)){
+        if (is_array($ids)) {
             $map['id'] = array('in', $ids);
-        }elseif (is_numeric($ids)){
+        } elseif (is_numeric($ids)) {
             $map['id'] = $ids;
         }
         $res = M('ActionLog')->where($map)->delete();
-        if($res !== false){
+        if ($res !== false) {
             $this->success('删除成功！');
-        }else {
+        } else {
             $this->error('删除失败！');
         }
     }
@@ -70,11 +70,11 @@ class ActionController extends AdminController {
     /**
      * 清空日志
      */
-    public function clear(){
+    public function clear() {
         $res = M('ActionLog')->where('1=1')->delete();
-        if($res !== false){
+        if ($res !== false) {
             $this->success('日志清空成功！');
-        }else {
+        } else {
             $this->error('日志清空失败！');
         }
     }
@@ -83,11 +83,11 @@ class ActionController extends AdminController {
      * 操作日志列表
      * @author haiwen
      */
-    public function operateLog(){
+    public function operateLog() {
         //获取列表数据
-        $map['status']    =   array('gt', -1);
-        $list   =   $this->lists('OperateLog', $map);
-        int_to_string($list,array('status'=>array(1=>'成功',-1=>'删除',0=>'失败')));
+        $map['status'] = array('gt', -1);
+        $list = $this->lists('OperateLog', $map);
+        int_to_string($list, array('status' => array(1 => '成功', -1 => '删除', 0 => '失败')));
         $this->assign('_list', $list);
         $this->meta_title = '操作日志';
         $this->display();

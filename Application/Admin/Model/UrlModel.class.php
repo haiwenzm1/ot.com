@@ -34,31 +34,31 @@ class UrlModel extends Model {
      * @return boolean fasle 失败 ， 成功 返回完整的数据
      * @author huajie <banhuajie@163.com>
      */
-    public function update($data){
+    public function update($data) {
         /* 获取数据对象 */
         $data = empty($data) ? $_POST : $data;
         $data = $this->create($data);
-        if(empty($data)){
+        if (empty($data)) {
             return false;
         }
 
         /* 如果链接已存在则直接返回 */
         $info = $this->getByUrl($data['url']);
-        if(!empty($info)){
+        if (!empty($info)) {
             return $info;
         }
 
         /* 添加或新增行为 */
-        if(empty($data['id'])){ //新增数据
+        if (empty($data['id'])) { //新增数据
             $id = $this->add();
             $data['id'] = $id;
-            if(!$id){
+            if (!$id) {
                 $this->error = '新增链接出错！';
                 return false;
             }
         } else { //更新数据
             $status = $this->save(); //更新基础内容
-            if(false === $status){
+            if (false === $status) {
                 $this->error = '更新链接出错！';
                 return false;
             }

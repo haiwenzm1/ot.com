@@ -8,7 +8,6 @@
 // +----------------------------------------------------------------------
 
 namespace Admin\Controller;
-use User\Api\UserApi as UserApi;
 
 /**
  * 后台首页控制器
@@ -20,8 +19,8 @@ class IndexController extends AdminController {
      * 后台首页
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
-    public function index(){
-        if(UID){
+    public function index() {
+        if (UID) {
             $this->meta_title = '管理首页';
             $this->display();
         } else {

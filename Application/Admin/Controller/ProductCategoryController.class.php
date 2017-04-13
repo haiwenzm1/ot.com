@@ -3,9 +3,9 @@
 namespace Admin\Controller;
 
 class ProductCategoryController extends AdminController {
-    
-    public function index(){
-        $pid = I('pid')?I('pid'):0;
+
+    public function index() {
+        $pid = I('pid') ? I('pid') : 0;
         $tree = D('ProductCategory')->getCategory($pid);
         $breadcrumb = D('ProductCategory')->getParentCategory($pid);
         $this->assign('list', $tree);
@@ -14,75 +14,77 @@ class ProductCategoryController extends AdminController {
         $this->meta_title = '产品分类';
         $this->display();
     }
-    
-    public function tree($tree = null){
+
+    public function tree($tree = null) {
         $this->assign('tree', $tree);
         $this->display('tree');
     }
-    
-    public function trees($tree = null){
+
+    public function trees($tree = null) {
         $this->assign('tree', $tree);
         $this->display('trees');
     }
-    
+
     /* 编辑分类 */
-    public function edit($id = null, $pid = 0){
-        if(IS_POST){
+    public function edit($id = null, $pid = 0) {
+        if (IS_POST) {
             $_POST['updater'] = UID;
-            if(false !== D('ProductCategory')->update()){
+            $_POST['nickname'] = $_POST['nickname'] ? $_POST['nickname'] : $_POST['title'];
+            if (false !== D('ProductCategory')->update()) {
                 D('OperateLog')->addOperateLog('ProductCategory/edit', json_encode($_POST), 1, UID);
                 $this->success('编辑成功！', U('index'));
             } else {
                 $error = D('ProductCategory')->getError();
-                D('OperateLog')->addOperateLog('ProductCategory/edit', json_encode($_POST).(empty($error) ? '未知错误！' : $error), 0, UID);
+                D('OperateLog')->addOperateLog('ProductCategory/edit', json_encode($_POST) . (empty($error) ? '未知错误！' : $error), 0, UID);
                 $this->error(empty($error) ? '未知错误！' : $error);
             }
         } else {
             $cate = '';
-            if($pid){
+            if ($pid) {
                 $cate = D('ProductCategory')->info($pid, 'id,name,title,status');
-                if(!($cate && 1 == $cate['status'])){
+                if (!($cate && 1 == $cate['status'])) {
                     $this->error('指定的上级分类不存在或被禁用！');
                 }
                 $breadcrumb = D('ProductCategory')->getParentCategory($pid);
                 $this->assign('breadcrumb', $breadcrumb);
             }
             $info = $id ? D('ProductCategory')->info($id) : '';
-            $this->assign('info',       $info);
-            $this->assign('category',   $cate);
+            $this->assign('info', $info);
+            $this->assign('category', $cate);
             $this->meta_title = '编辑分类';
             $this->display();
         }
     }
-    
+
     /* 新增分类 */
-    public function add($pid = 0){
-        if(IS_POST){ //提交表单
+    public function add() {
+        if (IS_POST) { //提交表单
             $breadcrumb = D('ProductCategory')->getParentCategory($pid);
             $category = '';
-            foreach($breadcrumb as $e){
-                if($e[id]){
-                    $category = $category.$e['title'];
+            foreach ($breadcrumb as $e) {
+                if ($e[id]) {
+                    $category = $category . $e['title'];
                 }
             }
-            $_POST['name'] = get_pinyin($category.$_POST['title'],1);
+            $_POST['name'] = get_pinyin($category . $_POST['title'], 1);
             $_POST['creator'] = $_POST['updater'] = UID;
-            if(false !== D('ProductCategory')->update()){
+            if (false !== D('ProductCategory')->update()) {
                 $this->success('新增成功！', U('index'));
             } else {
                 $error = D('ProductCategory')->getError();
                 $this->error(empty($error) ? '未知错误！' : $error);
             }
         } else {
+            $pid = intval(I('pid')) ? intval(I('pid')) : 0;
             $cate = array();
-            if($pid){
+            if ($pid) {
                 /* 获取上级分类信息 */
                 $cate = D('ProductCategory')->info($pid, 'id,name,title,status');
-                if(!($cate && 1 == $cate['status'])){
+                if (!($cate && 1 == $cate['status'])) {
                     $this->error('指定的上级分类不存在或被禁用！');
                 }
             }
-            $tree = D('ProductCategory')->getTree(0,'id,name,title,sort,pid,status,islast');
+            $tree = D('ProductCategory')->getTree(0, 'id,name,title,sort,pid,status,islast');
             $this->assign('tree', $tree);
             /* 获取分类信息 */
             $this->assign('category', $cate);
@@ -90,46 +92,46 @@ class ProductCategoryController extends AdminController {
             $this->display();
         }
     }
-    
+
     /**
-    * 删除一个分类
-    * @author huajie <banhuajie@163.com>
-    */
-    public function remove(){
+     * 删除一个分类
+     * @author huajie <banhuajie@163.com>
+     */
+    public function remove() {
         $cate_id = I('id');
-        if(empty($cate_id)){
+        if (empty($cate_id)) {
             $this->error('参数错误!');
         }
-        
+
         //判断该分类下有没有子分类，有则不允许删除
-        $child = M('ProductCategory')->where(array('pid'=>$cate_id))->field('id')->select();
-        if(!empty($child)){
+        $child = M('ProductCategory')->where(array('pid' => $cate_id))->field('id')->select();
+        if (!empty($child)) {
             $this->error('请先删除该产品分类下的子分类');
         }
-        
+
         //判断该分类下有没有内容
-        $document_list = M('Product')->where(array('category_id'=>$cate_id))->field('id')->select();
-        if(!empty($document_list)){
+        $document_list = M('Product')->where(array('category_id' => $cate_id))->field('id')->select();
+        if (!empty($document_list)) {
             $this->error('请先删除该产品分类下的商品（包含回收站）');
         }
-        
+
         //删除该分类信息
         $res = M('ProductCategory')->delete($cate_id);
-        if($res !== false){
+        if ($res !== false) {
             //记录行为
             action_log('delete_product_category', 'productcategory', $cate_id, UID);
             $this->success('删除产品分类成功！');
-        }else{
+        } else {
             $this->error('删除产品分类失败！');
         }
     }
-    
-    public function upload(){
+
+    public function upload() {
         $file = $_FILES["file"];
         $rid = intval(I('rid'));
         $source = intval(I('source'));
         $type = intval(I('type'));
-        
+
         if ($file["error"] > 0) {
             return array('code' => 0, 'info' => $file["error"]);
         } else {
@@ -137,36 +139,36 @@ class ProductCategoryController extends AdminController {
             $rootPaths = $upload_conf['rootPaths'];
             $savePaths = $upload_conf['savePaths'];
             $maxSize = $upload_conf['maxSize'];
-            
+
             if ($file['size'] > $maxSize) {
-                $this->ajaxReturn( array('code' => 0, 'info' => '上传文件大于2M'));
+                $this->ajaxReturn(array('code' => 0, 'info' => '上传文件大于2M'));
             }
-            
-            $dir = $rootPaths.$savePaths.'/'. CONTROLLER_NAME. '/'.date('Ymd');
-            
+
+            $dir = $rootPaths . $savePaths . '/' . CONTROLLER_NAME . '/' . date('Ymd');
+
             if (!is_dir($dir)) {
                 if (!mkdir($dir, 0777, true)) {
-                    D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片'.$file['name'].'失败,创建文件夹'.$dir.'失败', 0, UID);
-                    $this->ajaxReturn(array('code' => 0, 'info' => '创建目录失败', 'url'=>$dir));
+                    D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片' . $file['name'] . '失败,创建文件夹' . $dir . '失败', 0, UID);
+                    $this->ajaxReturn(array('code' => 0, 'info' => '创建目录失败', 'url' => $dir));
                 }
             }
-            
+
             $file_ext = end(explode('.', $file['name']));
-            $new_file = md5(uniqid().rand(0000, 9999).rand(0000, 9999)).'.'.$file_ext;
-            $new_file_dir = $dir.'/'.$new_file;
-            $new_file_url = $savePaths.'/'. CONTROLLER_NAME. '/'.date('Ymd').'/'.$new_file;
-            
+            $new_file = md5(uniqid() . rand(0000, 9999) . rand(0000, 9999)) . '.' . $file_ext;
+            $new_file_dir = $dir . '/' . $new_file;
+            $new_file_url = $savePaths . '/' . CONTROLLER_NAME . '/' . date('Ymd') . '/' . $new_file;
+
             /* 移动文件 */
             if (!move_uploaded_file($file['tmp_name'], $new_file_dir)) {
-                D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片'.$file['name'].'失败,移动文件失败', 0, UID);
+                D('OperateLog')->addOperateLog('ProductCategory/upload', '上传图片' . $file['name'] . '失败,移动文件失败', 0, UID);
                 $this->ajaxReturn(array('code' => 0, 'info' => '上传失败'));
             }
-            
-            $result = D('PictureRecord')->addPicture('ProductCategory/upload',$rid,$new_file_url,$new_file,$file['name'],$file['size'],$source,$type,UID);
-           
-            if($result['code']){
-                $this->ajaxReturn(array('code' => 1, 'info' => '上传成功', 'url' => $new_file_url,'pic_id'=>$result['id']));
-            }else{
+
+            $result = D('PictureRecord')->addPicture('ProductCategory/upload', $rid, $new_file_url, $new_file, $file['name'], $file['size'], $source, $type, UID);
+
+            if ($result['code']) {
+                $this->ajaxReturn(array('code' => 1, 'info' => '上传成功', 'url' => $new_file_url, 'pic_id' => $result['id']));
+            } else {
                 $this->ajaxReturn($result);
             }
         }

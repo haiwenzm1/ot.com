@@ -9,32 +9,31 @@
 		<h2>{$meta_title}</h2>
 	</div>
 
-	<form action="{:U()}" method="post" class="form-horizontal edit-form">
+	<form action="{:U()}" method="post" class="form-horizontal">
 		<div class="form-item">
-			<label class="item-label">上级分类</label>
+			<label class="item-label">
+				上级分类<span class="must">(*选定后不能更改)</span>
+			</label>
 			<div class="controls">
-				<input type="text" class="text" name="category" value="{$category['title']|default='无'}" />
-				<select class="selectwrap input-large cf">
-					<div>
-						{:R('ProductCategory/trees', array($tree))}
-					</div>
+				<select class="input-large" name="pid" multiple="multiple" size="6">
+					{:R('ProductCategory/trees', array($tree))}
 				</select>
 			</div>
 		</div>
 		<div class="form-item">
 			<label class="item-label">
-				<span class="must">*</span>分类名称
+				分类名称<span class="must">(*填写后不能更改)</span>
 			</label>
 			<div class="controls">
-				<input type="text" class="text" disabled="disabled" value="{$info.title|default=''}">
+				<input type="text" name="title" class="text input-large" value="">
 			</div>
 		</div>
 		<div class="form-item">
 			<label class="item-label">
-				分类别名
+				分类别名<span class="must">(默认为分类名称)</span>
 			</label>
 			<div class="controls">
-				<input type="text" name="name" class="text" value="{$info.name|default=''}">
+				<input type="text" name="nickname" class="text input-large" value="">
 			</div>
 		</div>
 
@@ -43,7 +42,7 @@
 				网页标题
 			</label>
 			<div class="controls">
-				<input type="text" name="meta_title" class="text" value="{$info.meta_title|default=0}">
+				<input type="text" name="meta_title" class="text input-large" value="">
 			</div>
 		</div>
 
@@ -52,7 +51,7 @@
 				关键字
 			</label>
 			<div class="controls">
-				<input type="text" name="keywords" class="text" value="{$info.keywords|default=0}">
+				<input type="text" name="keywords" class="text input-large" value="">
 			</div>
 		</div>
 
@@ -61,7 +60,7 @@
 				描述
 			</label>
 			<div class="controls">
-				<input type="text" name="description" class="text" value="{$info.description|default=0}">
+				<textarea name="description" class="input-large" rows="6"></textarea>
 			</div>
 		</div>
 
@@ -70,16 +69,16 @@
 				排序
 			</label>
 			<div class="controls">
-				<input type="text" name="sort" class="text" value="{$info.sort|default=0}">
+				<input type="text" name="sort" class="text input-large" value="">
 			</div>
 		</div>
 
 		<div class="form-item">
 			<label class="item-label">
-				是否是终极栏目
+				是否是终极栏目<span class="must">(只有终极栏目才能添加产品)</span>
 			</label>
 			<div class="controls">
-				<select name="islast">
+				<select name="islast" class="input-large">
                      <option value="0" <if condition="$info.islast eq 0">selected</if>>否</option>
 					 <option value="1" <if condition="$info.islast eq 1">selected</if>>是</option>
                 </select>
@@ -91,9 +90,9 @@
 				状态
 			</label>
 			<div class="controls">
-				<select name="status">
-                    <option value="0" <if condition="$info.status eq 0">selected</if>>禁用</option>
+				<select name="status" class="input-large">
 					<option value="1" <if condition="$info.status eq 1">selected</if>>正常</option>
+                    <option value="0" <if condition="$info.status eq 0">selected</if>>禁用</option>
                 </select>
 			</div>
 		</div>
@@ -107,28 +106,22 @@
 				<div class="progress">
 					<div class="progress-bar progress-bar-success"></div>
 				</div>
+				<div class="picture-wrap">
+				</div>
 			</div>
-		</div>
-
-		<div class="cf"></div>
-
-		<div class="form-item picture-wrap">
-			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
-			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
-			<img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg">
 		</div>
 
 		<div class="form-item button-wrap">
 			<input type="hidden" name="id" value="{$info.id|default=''}">
 			<input type="hidden" name="pid" value="{:isset($category['id'])?$category['id']:$info['pid']}">
+			<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定{$category['id']}</button>
 			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
-			<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
 		</div>
 	</form>
 
 	<div id="mask-wrap"></div>
 	<div id="mask-content"></div>
-	
+
 </block>
 
 <block name="script">
@@ -140,25 +133,9 @@
 	<script type="text/javascript">
 		highlight_subnav("{:U('ProductCategory/index')}");
 
-		$(function(){
-			$('.selectwrap span').each(function(){
-				if($(this).nextAll("[data='"+ $(this).attr('data') +"']").length == 0){
-					$(this).find('.slide-icon').removeClass('slide-icon').addClass('slide-icon-last');
-				}
-			});
-			$('[name=category]').focus(function(){
-				$('.selectwrap').show();
-			}).blur(function(){
-				$('.islast').click(function(){
-					$('[name=category]').val($(this).find('.itext').data('id')+' - '+$(this).find('.itext').html());
-				});
-				setTimeout(function(){$('.selectwrap').hide()},200);
-			});
-		});
-
 		//上传图片
 		$(function () {
-			$(document).on('click','.picture-wrap img',function(){
+			$(document).on('click', '.picture-wrap img', function () {
 				var html = '';
 				html += '<div class="cropWrap"><img id="cropimg" src="' + $(this).attr('src') + '" /><span id="preview_box"></span></div>';
 				html += '<form id="crop_form">';
@@ -167,22 +144,22 @@
 				html += '<input type="hidden" id="w" name="img_w" />';
 				html += '<input type="hidden" id="h" name="img_h" />';
 				html += '</form>';
-				html +='<div class="form-group"><div class="col-sm-offset-4 col-sm-2"><a onclick="saveImg()" class="btn btn-default">保存</a></div><div class=" col-sm-2"><button onclick="cancleEditPic()" class="btn btn-default">取消</button></div></div>';
+				html += '<div class="form-group"><div class="col-sm-offset-4 col-sm-2"><a onclick="saveImg()" class="btn btn-default">保存</a></div><div class=" col-sm-2"><button onclick="cancleEditPic()" class="btn btn-default">取消</button></div></div>';
 				$('#mask-content').empty().append(html);
 				$('#mask-wrap,#mask-content').show();
 
 				$("#cropimg").Jcrop({
-					aspectRatio:1.33,
-					onChange:showCoords,
-					onSelect:showCoords
-				});	
-				function showCoords(obj){
+					aspectRatio: 1.33,
+					onChange: showCoords,
+					onSelect: showCoords
+				});
+				function showCoords(obj) {
 					$("#x").val(obj.x);
 					$("#y").val(obj.y);
 					$("#w").val(obj.w);
 					$("#h").val(obj.h);
-					if(parseInt(obj.w) > 0){
-						var rx = $("#preview_box").width() / obj.w; 
+					if (parseInt(obj.w) > 0) {
+						var rx = $("#preview_box").width() / obj.w;
 						var ry = $("#preview_box").height() / obj.h;
 					}
 				}
