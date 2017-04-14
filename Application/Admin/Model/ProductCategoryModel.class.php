@@ -78,8 +78,8 @@ class ProductCategoryModel extends Model{
      * @return boolean 更新状态
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
-    public function update(){
-        $data = $this->create();
+    public function update($data){
+        $data = $this->create($data);
         if(!$data){ //数据对象创建错误
             return false;
         }

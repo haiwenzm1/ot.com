@@ -39,8 +39,8 @@ class PictureRecordModel extends Model {
             $r = $this->add($data); // 写入数据到数据库
             if ($r) {
                 $result['code'] = 1;
-                $result['info'] = '上传图片' . $name . '成功,id=' . $result;
-                $result['id'] = $result;
+                $result['info'] = '上传图片' . $name . '成功,id=' . $r;
+                $result['id'] = $r;
             } else {
                 $result['code'] = 0;
                 $result['info'] = '上传图片' . $name . '失败';

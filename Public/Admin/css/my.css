@@ -167,7 +167,7 @@
 }
 
 #mask-wrap {
-	display: none;
+	display: block;
 	position: fixed;
 	top: 0%;
 	left: 0%;
@@ -181,7 +181,7 @@
 }
 
 #mask-content {
-	display: none;
+	display: block;
 	position: fixed;
 	top: 1%;
 	left: 22%;
@@ -194,6 +194,16 @@
 	border-radius: 2px;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
+}
+
+#mask-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#mask-close:hover{
+	text-decoration: none;
 }
 
 .selectwrap [data=span0] {

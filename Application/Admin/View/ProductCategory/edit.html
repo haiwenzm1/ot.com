@@ -21,7 +21,7 @@
 				上级分类
 			</label>
 			<div class="controls">
-				<input type="text" class="text input-large" disabled="disabled" value="{$category['title']|default='无'}" readonly />
+				<input type="text" class="text input-large" disabled="disabled" value="{$category['title']|default='无'}" />
 			</div>
 		</div>
 		<div class="form-item">
@@ -37,7 +37,7 @@
 				分类标识
 			</label>
 			<div class="controls">
-				<input type="text" class="text input-large" name="name" value="{$info.name|default=''}" readonly />
+				<input type="text" class="text input-large" disabled="disabled" value="{$info.name|default=''}" />
 			</div>
 		</div>
 		<div class="form-item">
@@ -54,7 +54,7 @@
 				网页标题
 			</label>
 			<div class="controls">
-				<input type="text" name="meta_title" class="text input-large" value="{$info.meta_title|default=0}">
+				<input type="text" name="meta_title" class="text input-large" value="{$info.meta_title|default=''}">
 			</div>
 		</div>
 
@@ -63,7 +63,7 @@
 				关键字
 			</label>
 			<div class="controls">
-				<input type="text" name="keywords" class="text input-large" value="{$info.keywords|default=0}">
+				<input type="text" name="keywords" class="text input-large" value="{$info.keywords|default=''}">
 			</div>
 		</div>
 
@@ -72,7 +72,7 @@
 				描述
 			</label>
 			<div class="controls">
-				<textarea name="description" rows="6" class="input-large" value="{$info.description|default=0}"></textarea>
+				<textarea name="description" rows="6" class="input-large" value="{$info.description|default=''}"></textarea>
 			</div>
 		</div>
 
@@ -115,34 +115,22 @@
 				<a href="javascript:;" class="inputfile btn">上传图片
                     <input class="upload" type="file" name="file" data-limit="1" data-url="{:U('ProductCategory/upload',array('rid'=>0,'source'=>0,'type'=>0))}" multiple>
                 </a>
+				<input type="hidden" name="picid" value="{$info.cover|default=0}" />
 				<div class="progress">
 					<div class="progress-bar progress-bar-success"></div>
 				</div>
 				<div class="picture-wrap">
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic" data-id="1"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
-					<div><img src="/Uploads/ProductCategory/20170405/f3f88122a4f05c2a9802a38944dd6e0a.jpg"><a href="javascript:;" class="del-pic"><i class="myicon r7c4"></i></a></div>
 				</div>
 			</div>
 		</div>
 
 		<div class="form-item button-wrap">
-			<input type="hidden" name="id" value="{$info.id|default=''}">
-			<input type="hidden" name="pid" value="{:isset($category['id'])?$category['id']:$info['pid']}">
+			<input type="hidden" name="id" value="{$info.id|default=0}">
+			<input type="hidden" name="id" value="{$info.pid|default=0}">
 			<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
 			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
 		</div>
 	</form>
-
-	<div id="mask-wrap"></div>
-	<div id="mask-content"></div>
 
 </block>
 
@@ -153,10 +141,9 @@
 	<script type="text/javascript">
 		highlight_subnav("{:U('ProductCategory/index')}");
 
-		$(document).on('click','.del-pic',function(){
-			if(confirm("提示: 是否要删除图片?")){
+		$(document).on('click', '.del-pic', function () {
+			if (confirm("提示: 是否要删除图片?")) {
 				var id = $(this).data('id');
-				console.log(id);
 				$(this).parent().remove();
 			}
 		});
@@ -170,8 +157,7 @@
 					var limit = $(e.target).data('limit');
 					var cur_num = $(e.target).closest('.inputfile').siblings('.picture-wrap').find('img').length;
 					if ((limit - cur_num - data.files.length) < 0) {
-						updateAlert("最多上传 " + ((limit - cur_num) < 0 ? 0 : (limit - cur_num)) + " 张图片");
-						setTimeout(function () { $('#top-alert').removeClass('block').slideUp(200); }, 1500);
+						alertTips("最多上传 " + ((limit - cur_num) < 0 ? 0 : (limit - cur_num)) + " 张图片", 1500);
 					} else {
 						$('.upload').fileupload({
 							dataType: 'json',
@@ -180,16 +166,14 @@
 									if (/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(data.files[0].name)) {
 										data.submit();
 									} else {
-										updateAlert('图片 ' + data.files[0].name + '的类型不正确,图片类型必须是.gif,jpeg,jpg,png中的一种');
-										setTimeout(function () { $('#top-alert').removeClass('block').slideUp(200); }, 1500);
+										alertTips('图片 ' + data.files[0].name + '的类型不正确,图片类型必须是.gif,jpeg,jpg,png中的一种', 1500);
 									}
 								} else {
-									updateAlert('图片 ' + data.files[0].name + '大于2M');
-									setTimeout(function () { $('#top-alert').removeClass('block').slideUp(200); }, 1500);
+									alertTips('图片 ' + data.files[0].name + '大于2M', 1500);
 								}
 							},
 							done: function (e, data) {
-								$('.picture-wrap').append('<div><img src="' + data.result['url'] + '" /><input type="hidden" name= "" value= "' + data.result['pic_id'] +'"></div>');
+								$('.picture-wrap').append('<div><img src="' + data.result['url'] + '"><input type="hidden" name="picid" value= "' + data.result['pic_id'] + '"><a href="javascript:;" class="del-pic" data-id="' + data.result['pic_id'] + '"><i class="myicon r7c4"></i></a></div>');
 							},
 							progressall: function (e, data) {
 								var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -198,8 +182,7 @@
 									progress + '%'
 								).show();
 								if (data.loaded == data.total) {
-									updateAlert('上传成功', 'alert-success');
-									setTimeout(function () { $('.progress-bar').hide(); $('#top-alert').removeClass('block').slideUp(200); }, 1500);
+									alertTips('上传成功', 1500, 1);
 								}
 							}
 						});

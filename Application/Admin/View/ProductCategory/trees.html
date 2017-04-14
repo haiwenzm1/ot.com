@@ -1,5 +1,5 @@
 <volist name="tree" id="list">
-	<option value="{$list.id}" <php>if($list['islast'] == 1) {echo 'disabled="disabled"';}else if($list['id'] == $category['id']) {echo 'selected = "selected"';}</php><php>if($list['pid']==0) echo 'style="background-color:#ffe8cc;"';</php>>
+	<option value="{$list.id}" <php>if($list['islast'] == 1) {echo 'disabled="disabled"';}else if($list['id'] == $pid) {echo 'selected = "selected"';}</php><php>if($list['pid']==0) echo 'style="background-color:#ffe8cc;"';</php>>
 		<php>while($list['tree']){echo '&nbsp;&nbsp;&nbsp;&nbsp;'; $list['tree']--;}</php>|-{$list.title}
 	</option>
 	<notempty name="list['_']">

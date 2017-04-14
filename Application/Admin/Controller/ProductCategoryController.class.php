@@ -26,19 +26,33 @@ class ProductCategoryController extends AdminController {
     }
 
     /* 编辑分类 */
-    public function edit($id = null, $pid = 0) {
+    public function edit() {
         if (IS_POST) {
-            $_POST['updater'] = UID;
-            $_POST['nickname'] = $_POST['nickname'] ? $_POST['nickname'] : $_POST['title'];
-            if (false !== D('ProductCategory')->update()) {
-                D('OperateLog')->addOperateLog('ProductCategory/edit', json_encode($_POST), 1, UID);
+            $data = array();
+            $data['id'] = trim(I('id'));
+            $data['picid'] = trim(I('picid'));
+            $data['title'] = trim(I('title'));
+            $data['nickname'] = trim(I('nickname'))?trim(I('nickname')):$data['title'];
+            $data['meta_title'] = trim(I('meta_title'));
+            $data['keywords'] = trim(I('keywords'));
+            $data['description'] = trim(I('description'));
+            $data['sort'] = trim(I('sort'));
+            $data['islast'] = trim(I('islast'));
+            $data['status'] = trim(I('status'));
+            $data['updater'] = UID;
+            $data['update_time'] = time();
+           
+            if (false !== D('ProductCategory')->update($data)) {
+                D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, json_encode($_POST), 1, UID);
                 $this->success('编辑成功！', U('index'));
             } else {
                 $error = D('ProductCategory')->getError();
-                D('OperateLog')->addOperateLog('ProductCategory/edit', json_encode($_POST) . (empty($error) ? '未知错误！' : $error), 0, UID);
-                $this->error(empty($error) ? '未知错误！' : $error);
+                $error = empty($error) ? '未知错误！' : $error;
+                D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, json_encode($_POST) . $error, 0, UID);
+                $this->error($error);
             }
         } else {
+            $pid = intval(I('pid')) ? intval(I('pid')) : 0;
             $cate = '';
             if ($pid) {
                 $cate = D('ProductCategory')->info($pid, 'id,name,title,status');
@@ -59,35 +73,42 @@ class ProductCategoryController extends AdminController {
     /* 新增分类 */
     public function add() {
         if (IS_POST) { //提交表单
-            $breadcrumb = D('ProductCategory')->getParentCategory($pid);
+            $data = array();
+            $data['pid'] = trim(I('pid')) ? trim(I('pid')) : 0;
+            $data['title'] = trim(I('title')) ? trim(I('title')) : $this->error('分类名称不能为空');
+            $data['nickname'] = trim(I('nickname')) ? trim(I('nickname')) : trim(I('title'));
+            $data['meta_title'] = trim(I('meta_title'));
+            $data['keywords'] = trim(I('keywords'));
+            $data['description'] = trim(I('description'));
+            $data['sort'] = trim(I('sort')) ? trim(I('sort')) : 0;
+            $data['islast'] = trim(I('islast'));
+            $data['status'] = trim(I('status'));
+            $data['cover'] = trim(I('picid')) ? trim(I('picid')) : 0;
+            $breadcrumb = D('ProductCategory')->getParentCategory($data['pid']);
             $category = '';
             foreach ($breadcrumb as $e) {
                 if ($e[id]) {
                     $category = $category . $e['title'];
                 }
             }
-            $_POST['name'] = get_pinyin($category . $_POST['title'], 1);
-            $_POST['creator'] = $_POST['updater'] = UID;
-            if (false !== D('ProductCategory')->update()) {
-                $this->success('新增成功！', U('index'));
+            $data['name'] = get_pinyin($category . $data['title'], 1);
+            $data['creator'] = $data['updater'] = UID;
+            $data['create_time'] = $data['update_time'] = time();
+
+            if (false !== D('ProductCategory')->update($data)) {
+                D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, '新增产品成功！' . json_encode($data), 1, UID);
+                $this->success('新增成功！', U('index', array('pid' => $data['pid'])));
             } else {
                 $error = D('ProductCategory')->getError();
-                $this->error(empty($error) ? '未知错误！' : $error);
+                $error = empty($error) ? '未知错误！' : $error;
+                D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, '新增产品分类失败！' . json_encode($data) . $error, 0, UID);
+                $this->error($error);
             }
         } else {
             $pid = intval(I('pid')) ? intval(I('pid')) : 0;
-            $cate = array();
-            if ($pid) {
-                /* 获取上级分类信息 */
-                $cate = D('ProductCategory')->info($pid, 'id,name,title,status');
-                if (!($cate && 1 == $cate['status'])) {
-                    $this->error('指定的上级分类不存在或被禁用！');
-                }
-            }
             $tree = D('ProductCategory')->getTree(0, 'id,name,title,sort,pid,status,islast');
             $this->assign('tree', $tree);
-            /* 获取分类信息 */
-            $this->assign('category', $cate);
+            $this->assign('pid', $pid);
             $this->meta_title = '新增分类';
             $this->display();
         }
