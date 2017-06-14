@@ -9,31 +9,27 @@
 	<div class="main-title">
 		<h2>{$meta_title}</h2>
 	</div>
-	<form action="{:U()}" method="post" class="form-horizontal">
-		<div class="form-item">
-			<label class="item-label">上级分类<span class="check-tips"></span></label>
-			<div class="controls select">
-				<input type="text" name="category" class="text input-large" value="{$info.title|default=''}">
-				<div class="selectwrap input-large cf">
-					<div>
-						{:R('Product/tree', array($tree))}
-					</div>
-				</div>
-			</div>
-		</div>
+
+	<form action="{:U('add')}" method="post" class="form-horizontal">
 		<div class="form-item">
 			<label class="item-label">
-				分类名称<span class="check-tips">（名称不能为空）</span>
+				产品名称<span class="check-tips">（名称不能为空）</span>
 			</label>
 			<div class="controls">
 				<input type="text" name="title" class="text input-large" value="{$info.title|default=''}">
 			</div>
 		</div>
-		 
+		
+		<div class="form-item">
+			<label class="item-label">上级分类<span class="check-tips"></span></label>
+			<div class="controls select">
+				<select class="input-large" name="catId" size="6">
+					{:R('Product/tree', array($tree))}
+				</select>
+			</div>
+		</div>
 			
 		<div class="form-item">
-			<input type="hidden" name="id" value="{$info.id|default=''}">
-			<input type="hidden" name="pid" value="{:isset($category['id'])?$category['id']:$info['pid']}">
 			<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
 			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
 		</div>
@@ -44,21 +40,5 @@
 	<script type="text/javascript">
 		//导航高亮
 		highlight_subnav("{:U('Product/index')}");
-
-		$(function(){
-			$('.selectwrap span').each(function(){
-				if($(this).nextAll("[data='"+ $(this).attr('data') +"']").length == 0){
-					$(this).find('.slide-icon').removeClass('slide-icon').addClass('slide-icon-last');
-				}
-			});
-			$('[name=category]').focus(function(){
-				$('.selectwrap').show();
-			}).blur(function(){
-				$('.islast').click(function(){
-					$('[name=category]').val($(this).find('.itext').data('id')+' - '+$(this).find('.itext').html());
-				});
-				setTimeout(function(){$('.selectwrap').hide()},200);
-			});
-		});
 	</script>
 </block>

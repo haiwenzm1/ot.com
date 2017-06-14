@@ -15,8 +15,8 @@
 		</h2>
 	</div>
 
-	<form action="{:U()}" method="post" class="form-horizontal">
-		<div class="form-item">
+	<form action="{:U('edit')}" method="post" class="form-horizontal">
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				上级分类
 			</label>
@@ -24,15 +24,8 @@
 				<input type="text" class="text input-large" disabled="disabled" value="{$category['title']|default='无'}" />
 			</div>
 		</div>
-		<div class="form-item">
-			<label class="item-label">
-				分类名称
-			</label>
-			<div class="controls">
-				<input type="text" class="text input-large" name="title" value="{$info.title|default=''}" readonly />
-			</div>
-		</div>
-		<div class="form-item">
+
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				分类标识
 			</label>
@@ -40,7 +33,17 @@
 				<input type="text" class="text input-large" disabled="disabled" value="{$info.name|default=''}" />
 			</div>
 		</div>
-		<div class="form-item">
+
+		<div class="form-item div-horizontal">
+			<label class="item-label">
+				分类名称
+			</label>
+			<div class="controls">
+				<input type="text" class="text input-large" name="title" value="{$info.title|default=''}" readonly />
+			</div>
+		</div>
+		
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				分类别名
 			</label>
@@ -49,7 +52,7 @@
 			</div>
 		</div>
 
-		<div class="form-item">
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				网页标题
 			</label>
@@ -58,7 +61,7 @@
 			</div>
 		</div>
 
-		<div class="form-item">
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				关键字
 			</label>
@@ -67,7 +70,7 @@
 			</div>
 		</div>
 
-		<div class="form-item">
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				描述
 			</label>
@@ -76,7 +79,7 @@
 			</div>
 		</div>
 
-		<div class="form-item">
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				排序
 			</label>
@@ -85,7 +88,7 @@
 			</div>
 		</div>
 
-		<div class="form-item">
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				是否是终极栏目<span class="must">(只有终极栏目才能添加产品)</span>
 			</label>
@@ -97,7 +100,7 @@
 			</div>
 		</div>
 
-		<div class="form-item">
+		<div class="form-item div-horizontal">
 			<label class="item-label">
 				状态<span class="must">(只有正常状态才能添在前台显示)</span>
 			</label>
@@ -109,7 +112,7 @@
 			</div>
 		</div>
 
-		<div class="form-item picture">
+		<div class="form-item div-horizontal picture">
 			<label class="item-label">分类图标</label>
 			<div class="controls">
 				<a href="javascript:;" class="inputfile btn">上传图片
@@ -126,7 +129,6 @@
 
 		<div class="form-item button-wrap">
 			<input type="hidden" name="id" value="{$info.id|default=0}">
-			<input type="hidden" name="id" value="{$info.pid|default=0}">
 			<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
 			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
 		</div>

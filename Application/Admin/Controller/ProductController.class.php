@@ -10,19 +10,35 @@ class ProductController extends AdminController {
     }
 
     public function add() {
-        $this->meta_title = '新增产品';
-        $tree = D('ProductCategory')->getTree(0, 'id,name,title,sort,pid,status,islast');
-        $this->assign('tree', $tree);
-        $this->display();
+        if(IS_POST){
+            $data = array();
+            $data['title'] = trim(I('title')) ? trim(I('title')) : $this->error('产品名称不能为空');
+            $data['cat_id'] = trim(I('catId')) ? trim(I('catId')) : $this->error('请选择分类');
+            $ProductCategoryInfo = D('ProductCategory')->info($data['cat_id'],"title");
+            $data['cat_name'] = $ProductCategoryInfo['title'];
+            $data['status'] = 0;
+            $data['creator'] = $data['updater'] = UID;
+            $data['create_time'] = $data['update_time'] = time();
+
+print_r($data);
+            // if (false !== D('ProductCategory')->add($data)) {
+            //     D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, '新增产品成功！' . json_encode($data), 1, UID);
+            //     $this->success('新增成功！', U('index', array('pid' => $data['pid'])));
+            // } else {
+            //     $error = D('ProductCategory')->getError();
+            //     $error = empty($error) ? '未知错误！' : $error;
+            //     D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, '新增产品分类失败！' . json_encode($data) . $error, 0, UID);
+            //     $this->error($error);
+            // }
+        }else{
+            $this->meta_title = '新增产品';
+            $tree = D('ProductCategory')->getTree(0, 'id,name,title,sort,pid,status,islast');
+            $this->assign('tree', $tree);
+            $this->display();
+        }
     }
 
-    /**
-     * 显示分类树，仅支持内部调
-     * @param  array $tree 分类树
-     * @author 麦当苗儿 <zuojiazi@vip.qq.com>
-     */
     public function tree($tree = null) {
-        // C('_SYS_GET_PRODUCT_CATEGORY_TREE_') || $this->_empty();
         $this->assign('tree', $tree);
         $this->display('tree');
     }

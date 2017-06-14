@@ -21,7 +21,9 @@
 	<div class="cf">
 		<a class="btn" href="{:U('add','pid='.$pid)}">新 增</a>
 		<a class="btn" href="javascript:;">删 除</a>
-		<button class="btn" onclick="javascript:history.back(-1);return false;">返 回</button>
+		<if condition="$pid neq 0">
+			<button class="btn pull-right" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</if>
 	</div>
 
 	<div class="data-table table-striped">
@@ -42,7 +44,8 @@
 						<tr class="form-wrap">
 							<td>{$channel.id}<input type="hidden" name="id" value="{$channel.id}"></td>
 							<td>
-								<if condition="$channel.islast eq 0"><a href="{:U('index?pid='.$channel['id'])}">{$channel.title}</a><else />{$channel.title}</if>
+								<if condition="$channel.islast eq 0"><a href="{:U('index?pid='.$channel['id'])}">{$channel.title}</a>
+									<else />{$channel.title}</if>
 								<input type="hidden" name="title" value="{$channel.title}">
 							</td>
 							<td><input type="text" name="nickname" class="text" value="{$channel.nickname}"></td>

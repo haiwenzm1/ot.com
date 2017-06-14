@@ -53,6 +53,7 @@ class ProductCategoryController extends AdminController {
             }
         } else {
             $pid = intval(I('pid')) ? intval(I('pid')) : 0;
+            $id = intval(I('id')) ? intval(I('id')) : 0;
             $cate = '';
             if ($pid) {
                 $cate = D('ProductCategory')->info($pid, 'id,name,title,status');
@@ -83,7 +84,7 @@ class ProductCategoryController extends AdminController {
             $data['sort'] = trim(I('sort')) ? trim(I('sort')) : 0;
             $data['islast'] = trim(I('islast'));
             $data['status'] = trim(I('status'));
-            $data['cover'] = trim(I('picid')) ? trim(I('picid')) : 0;
+            $data['picid'] = trim(I('picid')) ? trim(I('picid')) : 0;
             $breadcrumb = D('ProductCategory')->getParentCategory($data['pid']);
             $category = '';
             foreach ($breadcrumb as $e) {

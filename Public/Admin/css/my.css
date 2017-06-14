@@ -1,4 +1,4 @@
-.item-wrap {
+/*.item-wrap {
 	display: block;
 	float: left;
 	width: 100%;
@@ -6,9 +6,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	/* Firefox */
 	-webkit-box-sizing: border-box;
-	/* Safari */
 }
 
 .item-wrap form {
@@ -35,9 +33,7 @@
 	float: left;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	/* Firefox */
 	-webkit-box-sizing: border-box;
-	/* Safari */
 }
 
 .item-wrap .order-wrap input {
@@ -73,7 +69,7 @@
 	background-image: url(/Public/Admin/images/my/zTreeStandard.png);
 	background-repeat: no-repeat;
 	background-position: 22px -19px;
-}
+}*/
 
 
 /*******************************************************************************/
@@ -197,12 +193,12 @@
 }
 
 #mask-close {
-    position: absolute;
-    right: 0;
-    top: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
-#mask-close:hover{
+#mask-close:hover {
 	text-decoration: none;
 }
 
