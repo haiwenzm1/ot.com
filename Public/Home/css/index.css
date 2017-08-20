@@ -1,0 +1,69 @@
+/* 主控制按钮样式 */
+
+#main-controller {
+    width: 14px;
+    height: auto;
+    position: absolute;
+    top: 198px;
+    right: 3%;
+    z-index: 1000;
+}
+
+#main-controller a {
+    width: 14px;
+    height: 14px;
+    background: url(../images/index/dot.png) no-repeat;
+    margin: 8px 0;
+    float: left;
+    cursor: pointer;
+}
+
+#main-controller a:hover,
+#main-controller a.active {
+    background: url(../images/index/dot-hover.png) no-repeat;
+}
+
+.index-content-wrap {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.banner2 {
+    width: 85%;
+    margin: 100px auto;
+    position: relative;
+}
+
+.banner2 .banner2-img {
+    width: 100%;
+    display: none;
+}
+
+.banner2 .banner2-img img {
+    width: 100%;
+}
+
+.banner2 .banner2-left-arrow {
+    width: 79px;
+    height: 67px;
+    position: absolute;
+    top: 0;
+    left: -34px;
+    background: url(../images/index/arrow-left.png) no-repeat;
+}
+
+.banner2 .banner2-right-arrow {
+    width: 79px;
+    height: 67px;
+    position: absolute;
+    top: 0;
+    right: -34px;
+    background: url(../images/index/arrow-right.png) no-repeat;
+}
+
+.banner3 {
+    width: 100%;
+    margin: 100px auto;
+    position: relative;
+}

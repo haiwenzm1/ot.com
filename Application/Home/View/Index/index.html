@@ -1,0 +1,99 @@
+<extend name="Public/layout" />
+
+<block name="style">
+    <link type="text/css" href="__CSS__/index.css" rel="stylesheet">
+</block>
+
+<block name="body">
+    <div class="cf"></div>
+
+    <div id="main-controller">
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </div>
+
+    <div class="index-content-wrap">
+        <div class="banner2">
+            <a class="banner2-img" href="javascript:;"><img src="__IMG__/index/banner2/1.png" /></a>
+            <a class="banner2-img" href="javascript:;"><img src="__IMG__/index/banner2/2.png" /></a>
+            <a class="banner2-img" href="javascript:;"><img src="__IMG__/index/banner2/3.png" /></a>
+            <a class="banner2-img" href="javascript:;"><img src="__IMG__/index/banner2/4.png" /></a>
+            <a class="banner2-left-arrow" href="javascript:;"></a>
+            <a class="banner2-right-arrow" href="javascript:;"></a>
+        </div>
+        <div class="cf"></div>
+    </div>
+    <div class="index-content-wrap">
+        <div class="banner3"><img src="__IMG__/index/banner2/1.png" /></div>
+        <div class="cf"></div>
+    </div>
+    <div class="index-content-wrap">3<img src="__IMG__/index/banner2/1.png" />
+        <div class="cf"></div>
+    </div>
+    <div class="index-content-wrap">4<img src="__IMG__/index/banner2/1.png" />
+        <div class="cf"></div>
+    </div>
+    <div class="index-content-wrap">5<img src="__IMG__/index/banner2/1.png" />
+        <div class="cf"></div>
+    </div>
+    <div class="index-content-wrap">6
+        <div class="cf"></div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        function mainControllerTop() {
+            setMainMinHeight();
+            var elementTop = ($('#main').height() - $('#main-controller').height()) / 2;
+            $('#main-controller').css('top', elementTop + 'px');
+        }
+
+        function findDimensions() {
+            var elementTop = ($('.banner2').height() - $('.banner2-left-arrow').height()) / 2;
+            $('.banner2-left-arrow').css('top', elementTop + 'px');
+            $('.banner2-right-arrow').css('top', elementTop + 'px');
+
+            mainControllerTop();
+        }
+
+        $(function () {
+            $('#main-controller a').eq(0).addClass('active');
+            $(".index-content-wrap").eq(0).show();
+            $(".banner2-img").eq(0).addClass('banner2-img-active').show();
+            findDimensions();
+            window.onresize = findDimensions;
+
+            $('body').on('click', '.banner2-right-arrow', function () {
+                var currentIndex = $('.banner2-img').index($('.banner2-img-active'));
+                $(".banner2-img").eq(currentIndex).removeClass('banner2-img-active').hide();
+                if (currentIndex + 1 == $(".banner2-img").length) {
+                    currentIndex = -1;
+                }
+                $(".banner2-img").eq(currentIndex + 1).addClass('banner2-img-active').show();
+            });
+
+            $('body').on('click', '.banner2-left-arrow', function () {
+                var currentIndex = $('.banner2-img').index($('.banner2-img-active'));
+                $(".banner2-img").eq(currentIndex).removeClass('banner2-img-active').hide();
+                if (currentIndex == 0) {
+                    currentIndex = $(".banner2-img").length;
+                }
+                $(".banner2-img").eq(currentIndex - 1).addClass('banner2-img-active').show();
+            });
+
+
+            $('body').on('click', '#main-controller a', function () {
+                $(this).addClass('active').siblings().removeClass('active');
+                var currentIndex = $('#main-controller a').index($(this));
+                $('.index-content-wrap').eq(currentIndex).show();
+                $('.index-content-wrap').eq(currentIndex).siblings('.index-content-wrap').hide();
+                findDimensions();
+            });
+        })
+    </script>
+</block>

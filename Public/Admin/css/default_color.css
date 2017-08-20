@@ -9,7 +9,12 @@
  * 作用范围： 全局
  *******************************************/
 
-html, body, input, textarea, select, legend {
+html,
+body,
+input,
+textarea,
+select,
+legend {
     color: #666;
     /*全局默认文字颜色*/
     font: 14px/1.5em "Hiragino Sans GB", "Microsoft Yahei";
@@ -74,7 +79,8 @@ body {
     border-bottom-color: #e0e0e0;
 }
 
-.tab-nav .current a, .tab-nav .current a:hover {
+.tab-nav .current a,
+.tab-nav .current a:hover {
     border-color: #3c4355 #e0e0e0 #f6f6f6;
 }
 
@@ -112,7 +118,8 @@ body {
 
 /* 列表分页 */
 
-.page a, .page span {
+.page a,
+.page span {
     color: #686868;
     border: 1px solid #CCCCCC;
 }
@@ -179,13 +186,16 @@ body {
 /* 表单组件
 ------------------------------------------ */
 
-.text, .textarea, select {
+.text,
+.textarea,
+select {
     border-color: #DDD;
     background-color: #fff;
     color: #666;
 }
 
-input[type="text"], select {
+input[type="text"],
+select {
     height: 35px;
     line-height: 35px;
     margin: 0;
@@ -196,7 +206,8 @@ input[type="text"], select {
     /* 表单必填项标识字符*/
 }
 
-textarea:disabled, input:disabled {
+textarea:disabled,
+input:disabled {
     background-color: rgb(235, 235, 228);
 }
 
@@ -269,7 +280,8 @@ textarea:disabled, input:disabled {
     color: #686868;
 }
 
-.data-table thead th, .data-table tbody td {
+.data-table thead th,
+.data-table tbody td {
     /*非隔行变色时 用于行区分的单元格底线颜色 */
     border-bottom-color: #f4f4f4;
     text-align: center;
@@ -277,7 +289,8 @@ textarea:disabled, input:disabled {
     word-break: break-all;
 }
 
-.data-table thead th span, .data-table tbody td span {
+.data-table thead th span,
+.data-table tbody td span {
     word-break: normal;
     white-space: nowrap;
 }
@@ -306,7 +319,8 @@ textarea:disabled, input:disabled {
     background-color: #ffe8cc;
 }
 
-.table-striped tbody>tr:nth-child(odd)>td, .table-striped tbody>tr:nth-child(odd)>th {
+.table-striped tbody>tr:nth-child(odd)>td,
+.table-striped tbody>tr:nth-child(odd)>th {
     background: none;
 }
 
@@ -364,12 +378,14 @@ textarea:disabled, input:disabled {
 
 /* 下拉弹出按钮 */
 
-.btn-group .dropdown, .btn-group-click .dropdown {
+.btn-group .dropdown,
+.btn-group-click .dropdown {
     border-color: #ccc;
     background-color: #fff;
 }
 
-.btn-group .dropdown a:hover, .btn-group-click .dropdown a:hover {
+.btn-group .dropdown a:hover,
+.btn-group-click .dropdown a:hover {
     background-color: #eee;
 }
 
@@ -462,6 +478,7 @@ textarea:disabled, input:disabled {
     margin-right: 0;
     font-weight: normal;
     background-color: #ffa634;
+    border-bottom: 1px solid #fff;
 }
 
 .subnav h3 a {
@@ -488,19 +505,23 @@ textarea:disabled, input:disabled {
     margin: 10px 0 0 10px;
 }
 
-.subnav h3.current, .subnav h3:hover {
+.subnav h3.current,
+.subnav h3:hover {
     background-color: #ff9100;
     color: #fff;
 }
 
-.subnav h3 .icon, .subnav h3 .icon-fold, .subnav h3 .recycle {
+.subnav h3 .icon,
+.subnav h3 .icon-fold,
+.subnav h3 .recycle {
     margin: 23px 6px 0 0;
 }
 
 
 /* 左侧二级菜单 */
 
-.side-sub-menu, .side-sub-menu li {
+.side-sub-menu,
+.side-sub-menu li {
     margin: 0;
 }
 
@@ -521,14 +542,16 @@ textarea:disabled, input:disabled {
     margin: 10px 0 0 0;
 }
 
-.side-sub-menu>li>.item:hover, .side-sub-menu>li.hover>.item {
+.side-sub-menu>li>.item:hover,
+.side-sub-menu>li.hover>.item {
     color: #7a7a7a;
     background: #ffe8cc;
     margin-right: 0;
     transition: all .2s ease-in;
 }
 
-.side-sub-menu>.current>.item, .side-sub-menu>.current>.item:hover {
+.side-sub-menu>.current>.item,
+.side-sub-menu>.current>.item:hover {
     /* 高亮导航 */
     /*color: #fff;*/
     background: none;
@@ -628,7 +651,9 @@ textarea:disabled, input:disabled {
     box-shadow: 0 0 12px #BAF7FF;
 }
 
-#login-page .login-form .icon-login-user, #login-page .login-form .icon-login-pwd, #login-page .login-form .icon-login-verifycode {
+#login-page .login-form .icon-login-user,
+#login-page .login-form .icon-login-pwd,
+#login-page .login-form .icon-login-verifycode {
     background: url("../images/icon24_login.png") no-repeat;
 }
 

@@ -44,7 +44,7 @@ class ProductCategoryController extends AdminController {
            
             if (false !== D('ProductCategory')->update($data)) {
                 D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, json_encode($_POST), 1, UID);
-                $this->success('编辑成功！', U('index'));
+                $this->success('编辑产品分类成功！', U('index'));
             } else {
                 $error = D('ProductCategory')->getError();
                 $error = empty($error) ? '未知错误！' : $error;
@@ -66,7 +66,7 @@ class ProductCategoryController extends AdminController {
             $info = $id ? D('ProductCategory')->info($id) : '';
             $this->assign('info', $info);
             $this->assign('category', $cate);
-            $this->meta_title = '编辑分类';
+            $this->meta_title = '编辑产品分类';
             $this->display();
         }
     }
@@ -97,8 +97,8 @@ class ProductCategoryController extends AdminController {
             $data['create_time'] = $data['update_time'] = time();
 
             if (false !== D('ProductCategory')->update($data)) {
-                D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, '新增产品成功！' . json_encode($data), 1, UID);
-                $this->success('新增成功！', U('index', array('pid' => $data['pid'])));
+                D('OperateLog')->addOperateLog(CONTROLLER_NAME . '/' . ACTION_NAME, '新增产品分类成功！' . json_encode($data), 1, UID);
+                $this->success('新增产品分类成功！', U('index', array('pid' => $data['pid'])));
             } else {
                 $error = D('ProductCategory')->getError();
                 $error = empty($error) ? '未知错误！' : $error;
@@ -110,7 +110,7 @@ class ProductCategoryController extends AdminController {
             $tree = D('ProductCategory')->getTree(0, 'id,name,title,sort,pid,status,islast');
             $this->assign('tree', $tree);
             $this->assign('pid', $pid);
-            $this->meta_title = '新增分类';
+            $this->meta_title = '新增产品分类';
             $this->display();
         }
     }
