@@ -184,6 +184,7 @@ textarea {
     width: 100%;
     height: auto;
     padding: 10px 0;
+    position: relative;
     background-color: #fff;
     min-width: 1000px;
     text-align: center;

@@ -1,13 +1,33 @@
 <extend name="Public/layout" />
 
 <block name="style">
+    <link type="text/css" href="__CSS__/jquery.fullPage.css" rel="stylesheet">
+    <link type="text/css" href="__CSS__/animate.min.css" rel="stylesheet">
     <link type="text/css" href="__CSS__/index.css" rel="stylesheet">
 </block>
 
 <block name="body">
-    <div class="cf"></div>
+    <div class="section banner1">
+        <div class="slide"><img class="banner1-img" src="__IMG__/index/banner2/1.png" /></div>
+        <div class="slide"><img class="banner1-img" src="__IMG__/index/banner2/2.png" /></div>
+        <div class="slide"><img class="banner1-img" src="__IMG__/index/banner2/3.png" /></div>
+        <div class="slide"><img class="banner1-img" src="__IMG__/index/banner2/4.png" /></div>
+    </div>
+    <div class="section banner2">
+        <a href="javascript:;" id="banner2-a"><img src="__IMG__/index/banner3/plus.png" /></a>
+    </div>
+    <div class="section banner3">
 
-    <div id="main-controller">
+
+        <h3>第三屏</h3>
+        <p>绑定的菜单没有默认的样式，你需要自行编写</p>
+    </div>
+    <div class="section banner4">
+        <h3>第四屏</h3>
+        <p>这是最后一屏</p>
+    </div>
+
+    <!-- <div id="main-controller">
         <a href="javascript:;"></a>
         <a href="javascript:;"></a>
         <a href="javascript:;"></a>
@@ -28,7 +48,7 @@
         <div class="cf"></div>
     </div>
     <div class="index-content-wrap">
-        <div class="banner3"><img src="__IMG__/index/banner2/1.png" /></div>
+        <div class="banner3"><img class="bg-img" src="__IMG__/index/banner3/bg.jpg" /><a href="javascript:;" id="banner3-a"><img class="bg-img" src="__IMG__/index/banner3/plus.png" /></a></div>
         <div class="cf"></div>
     </div>
     <div class="index-content-wrap">3<img src="__IMG__/index/banner2/1.png" />
@@ -42,58 +62,54 @@
     </div>
     <div class="index-content-wrap">6
         <div class="cf"></div>
-    </div>
+    </div> -->
 </block>
 
 <block name="script">
+    <script src="__JS__/jquery.fullPage.min.js"></script>
+    <script src="__JS__/jquery.easing.min.js"></script>
     <script type="text/javascript">
-        function mainControllerTop() {
-            setMainMinHeight();
-            var elementTop = ($('#main').height() - $('#main-controller').height()) / 2;
-            $('#main-controller').css('top', elementTop + 'px');
-        }
-
-        function findDimensions() {
-            var elementTop = ($('.banner2').height() - $('.banner2-left-arrow').height()) / 2;
-            $('.banner2-left-arrow').css('top', elementTop + 'px');
-            $('.banner2-right-arrow').css('top', elementTop + 'px');
-
-            mainControllerTop();
-        }
-
         $(function () {
-            $('#main-controller a').eq(0).addClass('active');
-            $(".index-content-wrap").eq(0).show();
-            $(".banner2-img").eq(0).addClass('banner2-img-active').show();
-            findDimensions();
-            window.onresize = findDimensions;
-
-            $('body').on('click', '.banner2-right-arrow', function () {
-                var currentIndex = $('.banner2-img').index($('.banner2-img-active'));
-                $(".banner2-img").eq(currentIndex).removeClass('banner2-img-active').hide();
-                if (currentIndex + 1 == $(".banner2-img").length) {
-                    currentIndex = -1;
+            $('#main').fullpage({
+                paddingTop: "100px",
+                paddingBottom: "100px",
+                'navigation': true,
+                afterLoad: function (anchorLink, index) {
+                    if (index == 2) {
+                        $('.banner2').find('a').delay(100).animate({
+                            left: '20%'
+                        }, 1500, 'easeOutExpo');
+                    }
+                },
+                onLeave: function (index, direction) {
+                    if (index == '2') {
+                        $('.banner2').find('a').delay(100).animate({
+                            left: '-80%'
+                        }, 1500, 'easeOutExpo');
+                    }
                 }
-                $(".banner2-img").eq(currentIndex + 1).addClass('banner2-img-active').show();
             });
 
-            $('body').on('click', '.banner2-left-arrow', function () {
-                var currentIndex = $('.banner2-img').index($('.banner2-img-active'));
-                $(".banner2-img").eq(currentIndex).removeClass('banner2-img-active').hide();
-                if (currentIndex == 0) {
-                    currentIndex = $(".banner2-img").length;
+            $(window).resize(function () {
+                autoScrolling();
+            });
+
+            function autoScrolling() {
+                var $ww = $(window).width();
+                if ($ww < 1024) {
+                    $.fn.fullpage.setAutoScrolling(false);
+                } else {
+                    $.fn.fullpage.setAutoScrolling(true);
                 }
-                $(".banner2-img").eq(currentIndex - 1).addClass('banner2-img-active').show();
-            });
+                setTimeout(function () {
+                    var arroePosition = ($('.banner1').width() - $('.banner1-img').width() - $('.fp-controlArrow.fp-prev').width()) / 2;
+                    $('.fp-controlArrow.fp-prev').css("left", arroePosition + 'px');
+                    $('.fp-controlArrow.fp-next').css("right", arroePosition + 'px');
+                }, 500)
 
+            }
 
-            $('body').on('click', '#main-controller a', function () {
-                $(this).addClass('active').siblings().removeClass('active');
-                var currentIndex = $('#main-controller a').index($(this));
-                $('.index-content-wrap').eq(currentIndex).show();
-                $('.index-content-wrap').eq(currentIndex).siblings('.index-content-wrap').hide();
-                findDimensions();
-            });
-        })
+            autoScrolling();
+        });
     </script>
 </block>
