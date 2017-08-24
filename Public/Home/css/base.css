@@ -3,52 +3,22 @@
  * 作用范围：公共
  */
 
-html,
-body {
+html, body {
     font: 14px/1.5 "microsoft yahei", Helvetica, Tahoma, Arial, "Microsoft jhengHei", sans-serif;
     color: #404040;
     background: url(../images/public/body_bg.png) repeat;
 }
 
-body,
-p,
-pre,
-blockquote,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-form,
-fieldset,
-legend,
-select,
-input,
-textarea,
-button,
-table,
-caption,
-tr,
-th,
-td {
+body, p, pre, blockquote, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td {
     margin: 0;
     padding: 0;
 }
 
-ol,
-ul {
+ol, ul {
     list-style: none;
 }
 
-fieldset,
-img {
+fieldset, img {
     border: 0 none;
 }
 
@@ -61,11 +31,7 @@ a {
     text-decoration: none;
 }
 
-input,
-button,
-textarea,
-select,
-option {
+input, button, textarea, select, option {
     font-family: inherit;
     font-size: 100%;
     outline: 0;
@@ -83,8 +49,7 @@ textarea {
     *zoom: 1;
 }
 
-.cf:before,
-.cf:after {
+.cf:before, .cf:after {
     display: table;
     content: "";
 }
@@ -139,7 +104,11 @@ textarea {
     line-height: 86px;
     text-align: justify;
     text-align-last: justify;
-    border-bottom: 4px solid #ee5322;
+    border-bottom: 4px solid #fff;
+}
+
+.main_nav li a.active, .main_nav li a:hover {
+    border-bottom-color: #ee5322;
 }
 
 .social_icon {
@@ -182,7 +151,7 @@ textarea {
 
 #footer {
     width: 100%;
-    height: auto;
+    height: 41px;
     padding: 10px 0;
     position: relative;
     background-color: #fff;

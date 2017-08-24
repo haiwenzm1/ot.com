@@ -9,7 +9,7 @@
 <block name="body">
     <div class="section banner2">
         <div class="slide">
-            <div class="wrap">
+            <div class="banner2-wrap">
                 <img class="banner2-img-1" rel="10.2%" dir="left" src="__IMG__/index/banner2/1/1.png">
                 <img class="banner2-img-2" rel="19.5%" dir="left" src="__IMG__/index/banner2/1/2.png">
                 <img class="banner2-img-3" rel="10.8%" dir="top" src="__IMG__/index/banner2/1/3.png">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="slide">
-            <div class="wrap">
+            <div class="banner2-wrap">
                 <img class="banner2-img-1" rel="10.2%" dir="left" src="__IMG__/index/banner2/1/1.png">
                 <img class="banner2-img-2" rel="19.5%" dir="left" src="__IMG__/index/banner2/1/2.png">
                 <img class="banner2-img-3" rel="10.8%" dir="top" src="__IMG__/index/banner2/1/3.png">
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="slide">
-            <div class="wrap">
+            <div class="banner2-wrap">
                 <img class="banner2-img-1" rel="10.2%" dir="left" src="__IMG__/index/banner2/1/1.png">
                 <img class="banner2-img-2" rel="19.5%" dir="left" src="__IMG__/index/banner2/1/2.png">
                 <img class="banner2-img-3" rel="10.8%" dir="top" src="__IMG__/index/banner2/1/3.png">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="slide">
-            <div class="wrap">
+            <div class="banner2-wrap">
                 <img class="banner2-img-1" rel="10.2%" dir="left" src="__IMG__/index/banner2/1/1.png">
                 <img class="banner2-img-2" rel="19.5%" dir="left" src="__IMG__/index/banner2/1/2.png">
                 <img class="banner2-img-3" rel="10.8%" dir="top" src="__IMG__/index/banner2/1/3.png">
@@ -61,10 +61,32 @@
         <a href="javascript:;" id="banner3-a"><img src="__IMG__/index/banner3/plus.png" /></a>
     </div>
     <div class="section banner4">
-        <h3>第三屏</h3>
-        <p>绑定的菜单没有默认的样式，你需要自行编写</p>
+        <div class="slide">
+            <div class="banner4-wrap">
+                <img class="banner4-img-2" rel="81%" dir="bottom" src="__IMG__/index/banner4/1/2.png">
+                <img class="banner4-img-1" src="__IMG__/index/banner4/1/1.jpg">
+            </div>
+        </div>
+        <div class="slide">
+            <div class="banner4-wrap">
+                <img class="banner4-img-2" rel="81%" dir="bottom" src="__IMG__/index/banner4/1/2.png">
+                <img class="banner4-img-1" src="__IMG__/index/banner4/1/1.jpg">
+            </div>
+        </div>
+        <div class="slide">
+            <div class="banner4-wrap">
+                <img class="banner4-img-2" rel="81%" dir="bottom" src="__IMG__/index/banner4/1/2.png">
+                <img class="banner4-img-1" src="__IMG__/index/banner4/1/1.jpg">
+            </div>
+        </div>
+        <div class="slide">
+            <div class="banner4-wrap">
+                <img class="banner4-img-2" rel="81%" dir="bottom" src="__IMG__/index/banner4/1/2.png">
+                <img class="banner4-img-1" src="__IMG__/index/banner4/1/1.jpg">
+            </div>
+        </div>
     </div>
-    <div class="section banner4">
+    <div class="section banner5">
         <h3>第四屏</h3>
         <p>这是最后一屏</p>
     </div>
@@ -80,32 +102,59 @@
                 paddingBottom: "170px",
                 'navigation': true,
                 afterRender: function () {
-                    banner2In(0);
+                    bannerIn('banner2', 0);
                 },
                 afterLoad: function (anchorLink, index) {
+                    if (index == 1) {
+                        bannerIn('banner2', 0);
+                    }
+
                     if (index == 2) {
                         $('.banner3').find('a').delay(100).animate({
                             left: '20%'
                         }, 1500, 'easeOutExpo');
                     }
+
+                    if (index == 3) {
+                        bannerIn('banner4', 0);
+                    }
                 },
                 onLeave: function (index, direction) {
-                    if (index == '2') {
+                    if (index == 1) {
+                        bannerOut('banner2', 0);
+                    }
+
+                    if (index == 2) {
                         $('.banner3').find('a').delay(100).animate({
                             left: '-80%'
                         }, 1500, 'easeOutExpo');
                     }
+
+                    if (index == 3) {
+                        bannerOut('banner4', 0);
+                    }
                 },
                 afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
-                    banner2In(slideIndex);
+                    if (index == 1) {
+                        bannerIn('banner2', slideIndex);
+                    }
+
+                    if (index == 3) {
+                        bannerIn('banner4', slideIndex);
+                    }
                 },
                 onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
-                    banner2Out(slideIndex);
+                    if (index == 1) {
+                        bannerOut('banner2', slideIndex);
+                    }
+                    if (index == 3) {
+                        bannerOut('banner4', slideIndex);
+                    }
                 }
             });
 
-            function banner2In(index) {
-                $('.banner2').find('.slide').eq(index).find('[rel]').each(function () {
+            function bannerIn(id, index) {
+                $('.' + id).find('.slide').eq(index).find('[rel]').each(function () {
                     if ($(this).attr("dir") == 'top' || $(this).attr("dir") == 'bottom') {
                         $(this).delay(100).animate({
                             top: $(this).attr("rel")
@@ -118,8 +167,8 @@
                 });
             }
 
-            function banner2Out(index) {
-                $('.banner2').find('.slide').find('[rel]').each(function () {
+            function bannerOut(id, index) {
+                $('.' + id).find('.slide').find('[rel]').each(function () {
                     if ($(this).attr("dir") == 'left') {
                         $(this).css('left', "-120%");
                     } else if ($(this).attr("dir") == 'top') {
@@ -136,7 +185,6 @@
             //     $.fn.fullpage.moveSlideRight();
             // }, 3000);
 
-
             $(window).resize(function () {
                 autoScrolling();
             });
@@ -149,13 +197,17 @@
                     $.fn.fullpage.setAutoScrolling(true);
                 }
                 setTimeout(function () {
-                    $('.wrap').width($('.banner2-img-8').width());
+                    $('.banner2-wrap').width($('.banner2-img-8').width());
+                    $('.banner2-wrap').css("marginLeft", ($('.banner2').width() - $('.banner2-wrap').width()) / 2);
+                    var arroePosition = ($('.banner2').width() - $('.banner2-wrap').width() - $('.fp-controlArrow.fp-prev').width()) / 2;
+                    $('.banner2 .fp-controlArrow.fp-prev').css("left", arroePosition + 'px');
+                    $('.banner2 .fp-controlArrow.fp-next').css("right", arroePosition + 'px');
 
-                    $('.wrap').css("marginLeft", ($('.banner2').width() - $('.wrap').width()) / 2);
-
-                    var arroePosition = ($('.banner2').width() - $('.wrap').width() - $('.fp-controlArrow.fp-prev').width()) / 2;
-                    $('.fp-controlArrow.fp-prev').css("left", arroePosition + 'px');
-                    $('.fp-controlArrow.fp-next').css("right", arroePosition + 'px');
+                    $('.banner4-wrap').width($('.banner4-img-1').width());
+                    $('.banner4-wrap').css("marginLeft", ($('.banner4').width() - $('.banner4-wrap').width()) / 2);
+                    var arroePosition = ($('.banner4').width() - $('.banner4-wrap').width() - $('.fp-controlArrow.fp-prev').width()) / 2;
+                    $('.banner4 .fp-controlArrow.fp-prev').css("left", arroePosition + 'px');
+                    $('.banner4 .fp-controlArrow.fp-next').css("right", arroePosition + 'px');
                 }, 500)
 
             }
