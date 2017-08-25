@@ -67,31 +67,53 @@
             <div class="pop-layout-content">
                 <img class="close" src="__IMG__/index/banner3/close.png">
                 <ul class="left-nav">
-                    <li class="first">
-                        <a class="active" href="javascript:;"></a>
+                    <li class="first active">
+                        <a href="javascript:;"></a>
+                        <span class="number">1.</span>
+                        <span class="description">有一种标志<br />它像家人般懂你</span>
                     </li>
                     <li>
                         <a href="javascript:;"></a>
+                        <span class="number">2.</span>
+                        <span class="description">有一种标志<br />绝不仅仅是一个符号</span>
                     </li>
                     <li>
                         <a href="javascript:;"></a>
+                        <span class="number">3.</span>
+                        <span class="description">当你看到这个标志<br />就会感到安心</span>
                     </li>
                     <li>
                         <a href="javascript:;"></a>
+                        <span class="number">4.</span>
+                        <span class="description">当你看到这个标志<br />就会放下顾虑</span>
                     </li>
                     <li>
                         <a href="javascript:;"></a>
+                        <span class="number">5.</span>
+                        <span class="description">当你看到这个标志<br />你会知道商品的来龙去脉</span>
                     </li>
                     <li>
                         <a href="javascript:;"></a>
+                        <span class="number">6.</span>
+                        <span class="description">当你看到这个标志<br />不会感到平淡和无聊</span>
                     </li>
                     <li>
                         <a href="javascript:;"></a>
+                        <span class="number">7.</span>
+                        <span class="description">这个标志就是欧瑞家<br />拥有欧洲品味和瑞士品质</span>
                     </li>
                     <li class="last">
-                        <a></a>
+                        <a href="javascript:;"></a>
+                        <span class="number">8.</span>
+                        <span class="description">因为在欧瑞家<br />我们尽心，你尽兴</span>
                     </li>
                 </ul>
+                <div class="banner3-nav-content">
+                    <!-- <img src="__IMG__/index/banner3/content/1.png"> -->
+
+
+                    <p><img src="__IMG__/index/banner3/content/2.png"><br />生活中，你会看到许许多多的标志。有一种标志，它像你的家人朋友般懂你。<br /> 懂你向往随性，自在，无忧无虑，不想去遵守太多的计划性，尽情享受各种精彩的可能。</p>
+                </div>
             </div>
         </div>
     </div>
@@ -131,15 +153,15 @@
     <script src="__JS__/jquery.fullPage.min.js"></script>
     <script src="__JS__/jquery.easing.min.js"></script>
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             $('#main').fullpage({
                 paddingTop: "170px",
                 paddingBottom: "170px",
                 navigation: true,
-                afterRender: function () {
+                afterRender: function() {
                     bannerIn('banner2', 0);
                 },
-                afterLoad: function (anchorLink, index) {
+                afterLoad: function(anchorLink, index) {
                     if (index == 1) {
                         bannerIn('banner2', 0);
                     }
@@ -149,7 +171,7 @@
                             left: '20%'
                         }, 1500, 'easeOutExpo');
 
-                        $('.banner3').find('[rel]').each(function () {
+                        $('.banner3').find('[rel]').each(function() {
                             if ($(this).attr("dir") == 'top' || $(this).attr("dir") == 'bottom') {
                                 $(this).delay(100).animate({
                                     top: $(this).attr("rel")
@@ -161,7 +183,7 @@
                             }
                         });
 
-                        $('#pop-click').click(function () {
+                        $('#pop-click').click(function() {
                             $('#fp-nav').hide();
                             $('.pop-layout').show();
                             $.fn.fullpage.setAllowScrolling(false);
@@ -176,7 +198,7 @@
                         bannerIn('banner4', 0);
                     }
                 },
-                onLeave: function (index, direction) {
+                onLeave: function(index, direction) {
                     if (index == 1) {
                         bannerOut('banner2', 0);
                     }
@@ -191,7 +213,7 @@
                         bannerOut('banner4', 0);
                     }
                 },
-                afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
+                afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
                     if (index == 1) {
                         bannerIn('banner2', slideIndex);
                     }
@@ -200,7 +222,7 @@
                         bannerIn('banner4', slideIndex);
                     }
                 },
-                onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
+                onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {
                     if (index == 1) {
                         bannerOut('banner2', slideIndex);
                     }
@@ -211,7 +233,7 @@
             });
 
             function bannerIn(id, index) {
-                $('.' + id).find('.slide').eq(index).find('[rel]').each(function () {
+                $('.' + id).find('.slide').eq(index).find('[rel]').each(function() {
                     if ($(this).attr("dir") == 'top' || $(this).attr("dir") == 'bottom') {
                         $(this).delay(100).animate({
                             top: $(this).attr("rel")
@@ -225,7 +247,7 @@
             }
 
             function bannerOut(id, index) {
-                $('.' + id).find('.slide').find('[rel]').each(function () {
+                $('.' + id).find('.slide').find('[rel]').each(function() {
                     if ($(this).attr("dir") == 'left') {
                         $(this).css('left', "-120%");
                     } else if ($(this).attr("dir") == 'top') {
@@ -242,7 +264,7 @@
             //     $.fn.fullpage.moveSlideRight();
             // }, 3000);
 
-            $(window).resize(function () {
+            $(window).resize(function() {
                 autoScrolling();
             });
 
@@ -253,7 +275,7 @@
                 } else {
                     $.fn.fullpage.setAutoScrolling(true);
                 }
-                setTimeout(function () {
+                setTimeout(function() {
                     $('.banner2-wrap').width($('.banner2-img-8').width());
                     $('.banner2-wrap').css("marginLeft", ($('.banner2').width() - $('.banner2-wrap').width()) / 2);
                     var arroePosition = ($('.banner2').width() - $('.banner2-wrap').width() - $('.fp-controlArrow.fp-prev').width()) / 2;
