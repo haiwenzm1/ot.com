@@ -61,16 +61,37 @@
         <div class="banner3-wrap">
             <img style="z-index:1007; width:16.8%; top:65.1%; left:-120%;" rel="48.6%" dir="left" src="__IMG__/index/banner3/1.png">
             <img style="z-index:1008; width:28.6%; top:71%; left:-120%;" rel="54.5%" dir="left" src="__IMG__/index/banner3/2.png">
-            <img id="popClick" style="z-index:1009; width:4.1%; top:72.5%; left:120%;" rel="84.5%" dir="right" src="__IMG__/index/banner3/3.png">
+            <img id="pop-click" style="z-index:1009; width:4.1%; top:72.5%; left:120%;" rel="84.5%" dir="right" src="__IMG__/index/banner3/3.png">
         </div>
-        <div class="pop">
-
-            <div style="
-            width: 100%;
-            height: 100%;
-        
-        ">fdsfadasf
-
+        <div class="pop-layout">
+            <div class="pop-layout-content">
+                <img class="close" src="__IMG__/index/banner3/close.png">
+                <ul class="left-nav">
+                    <li class="first">
+                        <a class="active" href="javascript:;"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"></a>
+                    </li>
+                    <li class="last">
+                        <a></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -114,7 +135,7 @@
             $('#main').fullpage({
                 paddingTop: "170px",
                 paddingBottom: "170px",
-                'navigation': true,
+                navigation: true,
                 afterRender: function () {
                     bannerIn('banner2', 0);
                 },
@@ -132,16 +153,20 @@
                             if ($(this).attr("dir") == 'top' || $(this).attr("dir") == 'bottom') {
                                 $(this).delay(100).animate({
                                     top: $(this).attr("rel")
-                                }, 1500, 'easeOutExpo');
+                                }, 1000, 'easeOutExpo');
                             } else {
                                 $(this).delay(100).animate({
                                     left: $(this).attr("rel")
-                                }, 1500, 'easeOutExpo');
+                                }, 1000, 'easeOutExpo');
                             }
                         });
 
-                        $('#popClick').click(function(){
-                            $('.pop').show();
+                        $('#pop-click').click(function () {
+                            $('#fp-nav').hide();
+                            $('.pop-layout').show();
+                            $.fn.fullpage.setAllowScrolling(false);
+
+
                         })
 
 

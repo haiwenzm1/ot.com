@@ -10,22 +10,19 @@
     bottom: 0;
 }
 
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
     width: 14px;
     height: 14px;
     border: 1px solid #fff;
     background: #fff;
 }
 
-#fp-nav ul li a.active span,
-.fp-slidesNav ul li a.active span {
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
     background: #ee5322;
     border-color: #ee5322;
 }
 
-#fp-nav ul li,
-.fp-slidesNav ul li {
+#fp-nav ul li, .fp-slidesNav ul li {
     margin: 16px 7px;
 }
 
@@ -88,7 +85,7 @@
     position: absolute;
 }
 
-.banner3 .pop {
+.banner3 .pop-layout {
     display: none;
     width: 100%;
     height: 100%;
@@ -102,8 +99,53 @@
     -webkit-box-sizing: border-box;
 }
 
-.banner3 #popClick {
+.banner3 #pop-click {
     cursor: pointer;
+}
+
+.banner3 .pop-layout-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.banner3 .pop-layout-content .close {
+    width: 78px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.banner3 .pop-layout-content .left-nav {
+    width: 100px;
+    margin-left: 100px;
+}
+
+.banner3 .pop-layout-content .left-nav li {
+    background: url(../images/index/banner3/left-nav/1.png) no-repeat 10px 0;
+    height: 100px;
+    background-size: 10px 100%;
+}
+
+.banner3 .pop-layout-content .left-nav li.first {
+    background-size: 10px 50%;
+    background-position-y: 100%;
+}
+
+.banner3 .pop-layout-content .left-nav li.last {
+    background-size: 10px 50%;
+}
+
+.banner3 .pop-layout-content .left-nav li a {
+    background: url(../images/index/banner3/left-nav/2.png) no-repeat 4px 50%;
+    width: 30px;
+    height: 100%;
+    display: block;
+}
+
+.banner3 .pop-layout-content .left-nav li a.active, .banner3 .pop-layout-content .left-nav li a:hover {
+    background-image: url(../images/index/banner3/left-nav/3.png);
+    background-position-x: 0;
 }
 
 .banner4 {
