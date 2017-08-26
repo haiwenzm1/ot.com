@@ -10,22 +10,19 @@
     bottom: 0;
 }
 
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
     width: 14px;
     height: 14px;
     border: 1px solid #fff;
     background: #fff;
 }
 
-#fp-nav ul li a.active span,
-.fp-slidesNav ul li a.active span {
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
     background: #ee5322;
     border-color: #ee5322;
 }
 
-#fp-nav ul li,
-.fp-slidesNav ul li {
+#fp-nav ul li, .fp-slidesNav ul li {
     margin: 16px 7px;
 }
 
@@ -124,13 +121,14 @@
 .banner3 .pop-layout-content .left-nav {
     width: 300px;
     margin-left: 100px;
+    z-index: 3000;
+    position: absolute;
 }
 
 .banner3 .pop-layout-content .left-nav li {
     background: url(../images/index/banner3/left-nav/1.png) no-repeat 10px 0;
     height: 100px;
     background-size: 10px 100%;
-    outline: 1px solid #fff;
     overflow: hidden;
 }
 
@@ -151,36 +149,39 @@
     float: left;
 }
 
-.banner3 .pop-layout-content .left-nav li.active a,
-.banner3 .pop-layout-content .left-nav li:hover a {
+.banner3 .pop-layout-content .left-nav li.active a, .banner3 .pop-layout-content .left-nav li:hover a {
     background-image: url(../images/index/banner3/left-nav/3.png);
     background-position-x: 0;
 }
 
-.banner3 .pop-layout-content .left-nav li.active *,
-.banner3 .pop-layout-content .left-nav li:hover * {
+.banner3 .pop-layout-content .left-nav li.active *, .banner3 .pop-layout-content .left-nav li:hover * {
     color: #fff;
 }
 
 .banner3 .pop-layout-content .left-nav li .number {
     height: 100%;
-    float: left;
-    display: block;
-    font-size: 6rem;
+    display: inline-block;
+    font-size: 55px;
     margin-left: 16px;
-    line-height: 1;
+    margin-right: 6px;
+    line-height: 100px;
+    font-family: fzltch;
+    font-weight: bold;
+    float: left;
 }
 
 .banner3 .pop-layout-content .left-nav li .description {
     height: 100%;
-    display: block;
-    float: left;
-    line-height: 1;
+    display: inline-block;
+    line-height: 22px;
     padding: 10% 0;
-    font-size: 18px;
+    font-size: 13px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    font-family: fzltxh;
+    float: left;
+    text-align: left;
 }
 
 .banner3 .pop-layout-content .banner3-nav-content {

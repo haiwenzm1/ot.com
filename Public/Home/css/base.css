@@ -3,8 +3,38 @@
  * 作用范围：公共
  */
 
+
+/**
+方正兰亭c粗黒简体 用于标题
+*/
+
+@font-face {
+    font-family: fzltch;
+    src: url('fzltch.TTF');
+}
+
+
+/**
+方正兰亭黒简体
+*/
+
+@font-face {
+    font-family: fzlth;
+    src: url('fzlth.TTF');
+}
+
+
+/**
+方正兰亭细黒简体 用于正文和描述
+*/
+
+@font-face {
+    font-family: fzltxh;
+    src: url('fzltxh.TTF');
+}
+
 html, body {
-    font: 14px/1.5 "microsoft yahei", Helvetica, Tahoma, Arial, "Microsoft jhengHei", sans-serif;
+    font: 14px/1.5 fzlth, fzltxh, fzltch, "microsoft yahei", Helvetica, Arial, sans-serif;
     color: #404040;
     background: url(../images/public/body_bg.png) repeat;
 }
