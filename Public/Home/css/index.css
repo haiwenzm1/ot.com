@@ -10,19 +10,22 @@
     bottom: 0;
 }
 
-#fp-nav ul li a span, .fp-slidesNav ul li a span {
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
     width: 14px;
     height: 14px;
     border: 1px solid #fff;
     background: #fff;
 }
 
-#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span {
     background: #ee5322;
     border-color: #ee5322;
 }
 
-#fp-nav ul li, .fp-slidesNav ul li {
+#fp-nav ul li,
+.fp-slidesNav ul li {
     margin: 16px 7px;
 }
 
@@ -116,6 +119,8 @@
     position: absolute;
     right: 30px;
     top: 30px;
+    cursor: pointer;
+    z-index: 4000;
 }
 
 .banner3 .pop-layout-content .left-nav {
@@ -149,12 +154,14 @@
     float: left;
 }
 
-.banner3 .pop-layout-content .left-nav li.active a, .banner3 .pop-layout-content .left-nav li:hover a {
+.banner3 .pop-layout-content .left-nav li.active a,
+.banner3 .pop-layout-content .left-nav li:hover a {
     background-image: url(../images/index/banner3/left-nav/3.png);
     background-position-x: 0;
 }
 
-.banner3 .pop-layout-content .left-nav li.active *, .banner3 .pop-layout-content .left-nav li:hover * {
+.banner3 .pop-layout-content .left-nav li.active *,
+.banner3 .pop-layout-content .left-nav li:hover * {
     color: #fff;
 }
 
@@ -195,6 +202,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.banner3 .pop-layout-content .banner3-nav-content p {
+    display: none;
+    color: #fff;
+    font-family: fzltch;
+    font-size: 25px;
+    line-height: 50px;
 }
 
 .banner4 {
