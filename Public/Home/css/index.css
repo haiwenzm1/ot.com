@@ -10,22 +10,19 @@
     bottom: 0;
 }
 
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
     width: 14px;
     height: 14px;
     border: 1px solid #fff;
     background: #fff;
 }
 
-#fp-nav ul li a.active span,
-.fp-slidesNav ul li a.active span {
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
     background: #ee5322;
     border-color: #ee5322;
 }
 
-#fp-nav ul li,
-.fp-slidesNav ul li {
+#fp-nav ul li, .fp-slidesNav ul li {
     margin: 16px 7px;
 }
 
@@ -51,8 +48,14 @@
     text-align: center;
 }
 
+
+/**
+banner2
+*/
+
 .banner2 {
-    background: url(../images/index/banner2/bg.png) 50% 100%;
+    background: url(../images/index/banner2/bg.png) 50% 100% no-repeat;
+    background-size: cover;
 }
 
 .banner2-wrap {
@@ -80,8 +83,14 @@
     max-height: 733px;
 }
 
+
+/**
+banner3
+*/
+
 .banner3 {
-    background: url(../images/index/banner3/3.jpg) 50%;
+    background: url(../images/index/banner3/3.jpg) 0 0 no-repeat;
+    background-size: cover;
 }
 
 .banner3-wrap img {
@@ -128,13 +137,20 @@
     margin-left: 100px;
     z-index: 3000;
     position: absolute;
+    height: 80%;
+    overflow: hidden;
+    margin-top: 3%;
 }
 
 .banner3 .pop-layout-content .left-nav li {
     background: url(../images/index/banner3/left-nav/1.png) no-repeat 10px 0;
-    height: 100px;
+    height: 12.5%;
     background-size: 10px 100%;
     overflow: hidden;
+    padding: 5% 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .banner3 .pop-layout-content .left-nav li.first {
@@ -154,41 +170,41 @@
     float: left;
 }
 
-.banner3 .pop-layout-content .left-nav li.active a,
-.banner3 .pop-layout-content .left-nav li:hover a {
-    background-image: url(../images/index/banner3/left-nav/3.png);
-    background-position-x: 0;
-}
-
-.banner3 .pop-layout-content .left-nav li.active *,
-.banner3 .pop-layout-content .left-nav li:hover * {
-    color: #fff;
-}
-
 .banner3 .pop-layout-content .left-nav li .number {
     height: 100%;
     display: inline-block;
     font-size: 55px;
     margin-left: 16px;
     margin-right: 6px;
-    line-height: 100px;
+    line-height: 55px;
     font-family: fzltch;
     font-weight: bold;
     float: left;
+    color: rgb(115, 115, 115);
 }
 
 .banner3 .pop-layout-content .left-nav li .description {
     height: 100%;
     display: inline-block;
-    line-height: 22px;
-    padding: 10% 0;
+    line-height: 26px;
     font-size: 13px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    font-family: fzltxh;
+    font-family: fzltch;
     float: left;
     text-align: left;
+    color: rgb(115, 115, 115);
+    vertical-align: middle;
+}
+
+.banner3 .pop-layout-content .left-nav li.active a {
+    background-image: url(../images/index/banner3/left-nav/3.png);
+    background-position-x: 0;
+}
+
+.banner3 .pop-layout-content .left-nav li.active * {
+    color: #fff;
 }
 
 .banner3 .pop-layout-content .banner3-nav-content {
@@ -212,8 +228,14 @@
     line-height: 50px;
 }
 
+
+/**
+banner4
+*/
+
 .banner4 {
-    background: url(../images/index/banner2/bg.png) 50% 100%;
+    background: url(../images/index/banner2/bg.png) 50% 100% no-repeat;
+    background-size: cover;
 }
 
 .banner4-wrap {
@@ -243,4 +265,326 @@
     /* top: 81%; */
     top: 120%;
     z-index: 1000;
+}
+
+
+/**
+banner5
+*/
+
+.banner5 {
+    background: url(../images/index/banner5/bg.jpg) 0 0 no-repeat;
+    background-size: cover;
+}
+
+.banner5-wrap img {
+    position: absolute;
+}
+
+.banner5 .banner5-pop-layout {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: url(../images/index/banner5/pop-bg.png) no-repeat 0 0;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    z-index: 1009;
+    padding: 86px 0 41px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.banner5 #banner5-pop-click {
+    width: 4%;
+    cursor: pointer;
+}
+
+.banner5 .banner5-pop-layout-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.banner5 .banner5-pop-layout-content-close {
+    width: 78px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+    z-index: 4000;
+}
+
+.time-nav {
+    top: 67%;
+    position: absolute;
+    width: 66%;
+    left: 17%;
+}
+
+.time-nav li {
+    background: url(../images/index/banner5/time-nav/1.png) 0 17px no-repeat;
+    float: left;
+    background-size: 100% 10px;
+}
+
+.time-nav li a {
+    background: url(../images/index/banner5/time-nav/2.png) 4px 10px no-repeat;
+    height: 44px;
+    width: 30px;
+    float: left;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    margin-left: 14px;
+}
+
+.time-nav li a span {
+    width: 14%;
+    height: 100%;
+    position: absolute;
+    top: 31px;
+    left: 44%;
+    background: url(../images/index/banner5/time-nav/3.png) 0 0 repeat;
+}
+
+.time-nav li i {
+    width: 60px;
+    height: 50px;
+    float: left;
+    color: #fff;
+    font-family: fzlt;
+    font-size: 16px;
+    clear: both;
+    line-height: 50px;
+    text-align: center;
+}
+
+.time-nav li.first {
+    background-position-x: 21px;
+}
+
+.time-nav li.first a span {
+    top: 0;
+}
+
+.time-nav li.active a {
+    background: url(../images/index/banner5/time-nav/4.png) 0 7px no-repeat;
+}
+
+.time-nav li.active a span {
+    top: 31px;
+}
+
+.time-nav li.active i {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.banner5-pop-content {
+    height: 67%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 66%;
+    left: 17%;
+}
+
+.banner5-pop-content div {
+    display: none;
+}
+
+.banner5-pop-content div * {
+    position: absolute;
+}
+
+.banner5-pop-content h2 {
+    text-align: left;
+    color: #fff;
+    font-family: fzltch;
+    font-size: 40px;
+}
+
+.banner5-pop-content p {
+    text-align: left;
+    color: #fff;
+    font-family: fzltch;
+    font-size: 23px;
+    line-height: 46px;
+}
+
+
+/****
+banner6
+*/
+
+.banner6 .banner6-div-1 {
+    width: 38%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: url(../images/index/banner6/9.png) repeat;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.banner6 .banner6-div-2 {
+    width: 38%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 31%;
+    -webkit-transform: skew(-13deg);
+    -moz-transform: skew(-13deg);
+    transform: skew(-13deg);
+    z-index: 1000;
+    overflow: hidden;
+    background: url(../images/index/banner6/9.png) repeat;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.banner6 .banner6-div-3 {
+    width: 38%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    background: url(../images/index/banner6/9.png) repeat;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.banner6 .banner6-div-1 img {
+    height: 100%;
+    max-width: none;
+    right: -36%;
+    top: 0;
+    position: absolute;
+}
+
+.banner6 .banner6-div-1 p {
+    background: url(../images/index/banner6/6.png) 0 0 no-repeat;
+    background-size: cover;
+    width: 290px;
+    height: 90px;
+    left: 13%;
+    bottom: 10%;
+    position: absolute;
+}
+
+.banner6 .banner6-div-1 p span {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-family: fzltch;
+    font-size: 47px;
+    line-height: 2;
+    text-align: center;
+    transform: skewY(-2deg);
+    display: block;
+}
+
+.banner6 .banner6-div-1 a {
+    background: url(../images/index/banner6/5.png) 0 0 no-repeat;
+    background-size: cover;
+    width: 80px;
+    height: 68px;
+    left: 55%;
+    bottom: 10%;
+    position: absolute;
+}
+
+.banner6 .banner6-div-2 * {
+    -webkit-transform: skew(13deg);
+    -moz-transform: skew(13deg);
+    transform: skew(13deg);
+}
+
+.banner6 .banner6-div-2 img {
+    height: 100%;
+    max-width: none;
+    right: -17%;
+    top: 0;
+    position: absolute;
+}
+
+.banner6 .banner6-div-2 p {
+    background: url(../images/index/banner6/7.png) 0 0 no-repeat;
+    background-size: cover;
+    width: 290px;
+    height: 90px;
+    right: 16%;
+    bottom: 10%;
+    position: absolute;
+}
+
+.banner6 .banner6-div-2 p span {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-family: fzltch;
+    font-size: 47px;
+    line-height: 2;
+    text-align: center;
+    transform: skewY(-2deg);
+    display: block;
+}
+
+.banner6 .banner6-div-2 a {
+    background: url(../images/index/banner6/5.png) 0 0 no-repeat;
+    background-size: cover;
+    width: 80px;
+    height: 68px;
+    right: 3%;
+    bottom: 10%;
+    position: absolute;
+}
+
+.banner6 .banner6-div-3 img {
+    height: 100%;
+    max-width: none;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+
+.banner6 .banner6-div-3 p {
+    background: url(../images/index/banner6/8.png) 0 0 no-repeat;
+    background-size: cover;
+    width: 290px;
+    height: 90px;
+    right: 15%;
+    bottom: 10%;
+    position: absolute;
+}
+
+.banner6 .banner6-div-3 p span {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-family: fzltch;
+    font-size: 47px;
+    line-height: 2;
+    text-align: center;
+    transform: skewY(-2deg);
+    display: block;
+}
+
+.banner6 .banner6-div-3 a {
+    background: url(../images/index/banner6/5.png) 0 0 no-repeat;
+    background-size: cover;
+    width: 80px;
+    height: 68px;
+    right: 2%;
+    bottom: 10%;
+    position: absolute;
 }

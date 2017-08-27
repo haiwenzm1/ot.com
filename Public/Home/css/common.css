@@ -1,0 +1,98 @@
+body {
+    background: rgb(246, 246, 246);
+}
+
+.title {
+    background: url(/Public/Home/images/who-we-are/3.png) no-repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    text-align: center;
+    padding: 50px 0;
+    background-position: 50% 100%;
+}
+
+.content {
+    padding: 0 20%;
+}
+
+.content p {
+    font-family: fzltxh;
+    font-size: 16px;
+    line-height: 2;
+    padding: 20px 0;
+}
+
+.left-img-right-content {
+    width: 80%;
+    margin: 40px auto;
+    height: 300px;
+    -webkit-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    -moz-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    background-color: #fff;
+    display: table;
+}
+
+.left-img-right-content img {
+    height: 100%;
+    float: left;
+}
+
+.left-img-right-content .right-content {
+    width: 60%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.left-img-right-content h2 {
+    width: 100%;
+    font-family: fzltxh;
+    color: rgb(234, 89, 20);
+    font-size: 35px;
+    text-align: left;
+}
+
+.left-img-right-content p {
+    width: 100%;
+    font-family: fzltxh;
+    text-align: left;
+}
+
+.right-img-left-content {
+    width: 80%;
+    margin: 40px auto;
+    height: 300px;
+    -webkit-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    -moz-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    background-color: #fff;
+    display: table;
+}
+
+.right-img-left-content img {
+    height: 100%;
+    float: right;
+}
+
+.right-img-left-content .left-content {
+    width: 60%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    padding-left: 5%;
+}
+
+.right-img-left-content h2 {
+    width: 100%;
+    font-family: fzltxh;
+    color: rgb(234, 89, 20);
+    font-size: 35px;
+    text-align: left;
+}
+
+.right-img-left-content p {
+    width: 100%;
+    font-family: fzltxh;
+    text-align: left;
+}

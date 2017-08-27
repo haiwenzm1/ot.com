@@ -36,7 +36,6 @@
 html, body {
     font: 14px/1.5 fzlth, fzltxh, fzltch, "microsoft yahei", Helvetica, Arial, sans-serif;
     color: #404040;
-    background: url(../images/public/body_bg.png) repeat;
 }
 
 body, p, pre, blockquote, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td {
@@ -99,7 +98,7 @@ textarea {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     padding: 0 10%;
-    background-color: #fff;
+    background: url(../images/public/bg.png) repeat;
 }
 
 .logo {
@@ -184,7 +183,7 @@ textarea {
     height: 41px;
     padding: 10px 0;
     position: relative;
-    background-color: #fff;
+    background: url(../images/public/bg.png) repeat;
     min-width: 1000px;
     text-align: center;
     box-sizing: border-box;

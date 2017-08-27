@@ -148,8 +148,91 @@
         </div>
     </div>
     <div class="section banner5">
-        <h3>第四屏</h3>
-        <p>这是最后一屏</p>
+        <div class="banner5-wrap">
+            <img style="z-index:1007; width:35.1%; top:64%; left:-120%;" rel="34.2%" dir="left" src="__IMG__/index/banner5/2.png">
+            <img style="z-index:1008; width:30.7%; top:70.2%; left:-120%;" rel="47.8%" dir="left" src="__IMG__/index/banner5/3.png">
+            <img id="banner5-pop-click" style="z-index:1009; width:4.1%; top:72.1%; left:120%;" rel="79.6%" dir="right" src="__IMG__/index/banner5/1.png">
+        </div>
+        <div class="banner5-pop-layout">
+            <div class="banner5-pop-layout-content">
+                <img class="banner5-pop-layout-content-close" src="__IMG__/index/banner3/close.png">
+                <ul class="time-nav">
+                    <li class="first" style="width:15%">
+                        <a><span></span></a>
+                        <i>1925</i>
+                    </li>
+                    <li style="width:11.2%">
+                        <a><span></span></a>
+                        <i>1937</i>
+                    </li>
+                    <li style="width:28.8%">
+                        <a><span></span></a>
+                        <i>1945</i>
+                    </li>
+                    <li style="width:22.4%">
+                        <a><span></span></a>
+                        <i>1982</i>
+                    </li>
+                    <li style="width:19.4%">
+                        <a><span></span></a>
+                        <i>2001</i>
+                    </li>
+                    <li style="width:3.2%">
+                        <a><span></span></a>
+                        <i>2017</i>
+                    </li>
+                </ul>
+                <div class="banner5-pop-content">
+                    <div>
+                        <img style="width:73.6%; top:28.7%; left:0%;" src="__IMG__/index/banner5/5.png">
+                        <h2 style="width:38.6%; top:42.2%; left:61.3%;">Migros的起源</h2>
+                        <p style="width:38.6%; top:57.6%; left:61.3%;">Migros创建于1925年，通过5辆小型货车以及 雇佣的16名员工，建造了移动商店。</p>
+                    </div>
+                    <div>
+                        <img style="width:73.6%; top:28.7%; left:0%;" src="__IMG__/index/banner5/5.png">
+                        <h2 style="width:38.6%; top:42.2%; left:61.3%;">Migros的起源</h2>
+                        <p style="width:38.6%; top:57.6%; left:61.3%;">Migros创建于1925年，通过5辆小型货车以及 雇佣的16名员工，建造了移动商店。</p>
+                    </div>
+                    <div>
+                        <img style="width:73.6%; top:28.7%; left:0%;" src="__IMG__/index/banner5/5.png">
+                        <h2 style="width:38.6%; top:42.2%; left:61.3%;">Migros的起源</h2>
+                        <p style="width:38.6%; top:57.6%; left:61.3%;">Migros创建于1925年，通过5辆小型货车以及 雇佣的16名员工，建造了移动商店。</p>
+                    </div>
+                    <div>
+                        <img style="width:73.6%; top:28.7%; left:0%;" src="__IMG__/index/banner5/5.png">
+                        <h2 style="width:38.6%; top:42.2%; left:61.3%;">Migros的起源</h2>
+                        <p style="width:38.6%; top:57.6%; left:61.3%;">Migros创建于1925年，通过5辆小型货车以及 雇佣的16名员工，建造了移动商店。</p>
+                    </div>
+                    <div>
+                        <img style="width:73.6%; top:28.7%; left:0%;" src="__IMG__/index/banner5/5.png">
+                        <h2 style="width:38.6%; top:42.2%; left:61.3%;">Migros的起源</h2>
+                        <p style="width:38.6%; top:57.6%; left:61.3%;">Migros创建于1925年，通过5辆小型货车以及 雇佣的16名员工，建造了移动商店。</p>
+                    </div>
+                    <div>
+                        <img style="width:73.6%; top:28.7%; left:0%;" src="__IMG__/index/banner5/5.png">
+                        <h2 style="width:38.6%; top:42.2%; left:61.3%;">Migros的起源</h2>
+                        <p style="width:38.6%; top:57.6%; left:61.3%;">Migros创建于1925年，通过5辆小型货车以及 雇佣的16名员工，建造了移动商店。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section banner6">
+        <div class="banner6-div-1">
+            <img src="__IMG__/index/banner6/1.jpg">
+            <p></p>
+            <a href="javascript:;"></a>
+        </div>
+        <div class="banner6-div-2">
+            <img src="__IMG__/index/banner6/2.jpg">
+            <p></p>
+            <a href="javascript:;"></a>
+        </div>
+        <div class="banner6-div-3">
+            <img src="__IMG__/index/banner6/3.jpg">
+            <p></p>
+            <a href="javascript:;"></a>
+        </div>
     </div>
 </block>
 
@@ -159,25 +242,21 @@
     <script src="__JS__/jquery.mousewheel.min.js"></script>
 
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             $('#main').fullpage({
                 paddingTop: "170px",
                 paddingBottom: "170px",
                 navigation: true,
-                afterRender: function() {
+                afterRender: function () {
                     bannerIn('banner2', 0);
                 },
-                afterLoad: function(anchorLink, index) {
+                afterLoad: function (anchorLink, index) {
                     if (index == 1) {
                         bannerIn('banner2', 0);
                     }
 
                     if (index == 2) {
-                        $('.banner3').find('a').delay(100).animate({
-                            left: '20%'
-                        }, 1500, 'easeOutExpo');
-
-                        $('.banner3').find('[rel]').each(function() {
+                        $('.banner3').find('[rel]').each(function () {
                             if ($(this).attr("dir") == 'top' || $(this).attr("dir") == 'bottom') {
                                 $(this).delay(100).animate({
                                     top: $(this).attr("rel")
@@ -189,7 +268,7 @@
                             }
                         });
 
-                        $('#pop-click').click(function() {
+                        $('#pop-click').click(function () {
                             $('#fp-nav').hide();
                             $('.pop-layout').show();
                             $.fn.fullpage.setAllowScrolling(false);
@@ -197,13 +276,13 @@
                             $('.banner3-nav-content').find('p').eq(0).show();
                         })
 
-                        $(document).on('click', '.close', function() {
+                        $(document).on('click', '.banner3 .close', function () {
                             $('#fp-nav').show();
                             $('.pop-layout').hide();
                             $.fn.fullpage.setAllowScrolling(true);
                         })
 
-                        $('.banner3-nav-content').bind('mousewheel', function(event, delta) {
+                        $('.banner3-nav-content').bind('mousewheel', function (event, delta) {
                             var dir = delta > 0 ? 'Up' : 'Down';
                             if (dir == 'Up') {
                                 if ($('.left-nav .active').prev().length == 0) {
@@ -231,8 +310,109 @@
                     if (index == 3) {
                         bannerIn('banner4', 0);
                     }
+
+                    if (index == 4) {
+                        $('.banner5').find('[rel]').each(function () {
+                            if ($(this).attr("dir") == 'top' || $(this).attr("dir") == 'bottom') {
+                                $(this).delay(100).animate({
+                                    top: $(this).attr("rel")
+                                }, 1500, 'easeOutExpo');
+                            } else {
+                                $(this).delay(100).animate({
+                                    left: $(this).attr("rel")
+                                }, 1000, 'easeOutExpo');
+                            }
+                        });
+
+                        $('#banner5-pop-click').click(function () {
+                            $('#fp-nav').hide();
+                            $('.banner5-pop-layout').show();
+                            $.fn.fullpage.setAllowScrolling(false);
+                            $('.time-nav').find('li').eq(0).addClass('active');
+                            $('.banner5-pop-content').find('div').eq(0).show();
+                        });
+
+                        $(document).on('click', '.banner5-pop-layout-content-close', function () {
+                            $('#fp-nav').show();
+                            $('.banner5-pop-layout').hide();
+                            $.fn.fullpage.setAllowScrolling(true);
+                        })
+
+                        $('.banner5-pop-content').bind('mousewheel', function (event, delta) {
+                            var dir = delta > 0 ? 'Up' : 'Down';
+                            if (dir == 'Up') {
+                                if ($('.time-nav .active').prev().length == 0) {
+                                    $('.time-nav .active').removeClass('active');
+                                    $('.time-nav').find('li').eq($('.time-nav').find('li').length - 1).addClass('active');
+                                } else {
+                                    $('.time-nav .active').removeClass('active').prev().addClass('active')
+                                }
+                            } else {
+                                if ($('.time-nav .active').next().length == 0) {
+                                    $('.time-nav .active').removeClass('active');
+                                    $('.time-nav').find('li').eq(0).addClass('active');
+                                } else {
+                                    $('.time-nav .active').removeClass('active').next().addClass('active')
+                                }
+                            }
+                            var index = $('.time-nav').find('li').index($('.time-nav .active'));
+                            $('.banner5-pop-content').find('div').eq(index).show().siblings().hide();
+                            return false;
+                        });
+                    }
+
+                    if (index == 5) {
+                        $('.banner6-div-1 a').click(function () {
+                            $('.banner6-div-1').css({ "width": "100%", "left": "0", "z-index": "3000" });
+                            $('.banner6-div-1 img').css({ "left": "0", "width": "90%" });
+                            $('.banner6-div-1 p').css({ "left": "69%" });
+                            $('.banner6-div-1 a').css({ "left": "85%" });
+
+                            $('.banner6-div-2').css({ "width": "100%", "left": "0", "transform": "none" });
+                            $('.banner6-div-2 *').css({ "transform": "none" });
+                            $('.banner6-div-2 img').css({ "left": "0", "width": "95%" });
+                            $('.banner6-div-2 a').css({ "left": "91%" });
+
+                            $('.banner6-div-3').css({ "width": "100%", "left": "0" });
+                            $('.banner6-div-3 img').css({ "left": "0", "width": "100%" });
+                            $('.banner6-div-3 a').css({ "left": "96%" });
+                        });
+
+                        $('.banner6-div-2 a').click(function () {
+                            $('.banner6-div-1').css({ "width": "100%", "left": "0", "z-index": "2000" });
+                            $('.banner6-div-1 img').css({ "left": "0" });
+                            $('.banner6-div-1 a').css({ "left": "0%" });
+
+                            $('.banner6-div-2').css({ "width": "100%", "left": "0", "transform": "none", "z-index": "3000" });
+                            $('.banner6-div-2 *').css({ "transform": "none" });
+                            $('.banner6-div-2 img').css({ "left": "5%", "width": "90%" });
+                            $('.banner6-div-2 p').css({ "left": "74%" });
+                            $('.banner6-div-2 a').css({ "left": "90%" });
+
+                            $('.banner6-div-3').css({ "width": "100%", "left": "0", "z-index": "1000" });
+                            $('.banner6-div-3 img').css({ "left": "0", "width": "100%" });
+                            $('.banner6-div-3 a').css({ "left": "96%" });
+                        });
+
+
+                        $('.banner6-div-3 a').click(function () {
+                            $('.banner6-div-1').css({ "width": "100%", "left": "0", "z-index": "1000" });
+                            $('.banner6-div-1 img').css({ "left": "0" });
+                            $('.banner6-div-1 a').css({ "left": ($('.banner6-div-1').width() * 0.05 - $(this).width()) / 2 + 'px' });
+
+                            $('.banner6-div-2').css({ "width": "100%", "left": "0", "transform": "none", "z-index": "2000" });
+                            $('.banner6-div-2 *').css({ "transform": "none" });
+                            $('.banner6-div-2 img').css({ "left": "5%", "width": "90%" });
+                            $('.banner6-div-2 a').css({ "left": $('.banner6-div-1').width() * 0.05 + ($('.banner6-div-1').width() * 0.05 - $(this).width()) / 2 + 'px' });
+
+                            $('.banner6-div-3').css({ "width": "100%", "left": "0", "z-index": "3000" });
+                            $('.banner6-div-3 img').css({ "left": "10%", "width": "90%" });
+                            $('.banner6-div-2 p').css({ "right": $('.banner6-div-1').width() * 0.05 + 20 + 'px' });
+                            $('.banner6-div-3 a').css({ "right": ($('.banner6-div-1').width() * 0.05 - $(this).width()) / 2 + 'px' });
+                        });
+                    }
                 },
-                onLeave: function(index, direction) {
+                onLeave: function (index, direction) {
                     if (index == 1) {
                         bannerOut('banner2', 0);
                     }
@@ -247,7 +427,7 @@
                         bannerOut('banner4', 0);
                     }
                 },
-                afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
+                afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
                     if (index == 1) {
                         bannerIn('banner2', slideIndex);
                     }
@@ -256,7 +436,7 @@
                         bannerIn('banner4', slideIndex);
                     }
                 },
-                onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {
+                onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
                     if (index == 1) {
                         bannerOut('banner2', slideIndex);
                     }
@@ -267,7 +447,7 @@
             });
 
             function bannerIn(id, index) {
-                $('.' + id).find('.slide').eq(index).find('[rel]').each(function() {
+                $('.' + id).find('.slide').eq(index).find('[rel]').each(function () {
                     if ($(this).attr("dir") == 'top' || $(this).attr("dir") == 'bottom') {
                         $(this).delay(100).animate({
                             top: $(this).attr("rel")
@@ -281,7 +461,7 @@
             }
 
             function bannerOut(id, index) {
-                $('.' + id).find('.slide').find('[rel]').each(function() {
+                $('.' + id).find('.slide').find('[rel]').each(function () {
                     if ($(this).attr("dir") == 'left') {
                         $(this).css('left', "-120%");
                     } else if ($(this).attr("dir") == 'top') {
@@ -298,7 +478,7 @@
             //     $.fn.fullpage.moveSlideRight();
             // }, 3000);
 
-            $(window).resize(function() {
+            $(window).resize(function () {
                 autoScrolling();
             });
 
@@ -309,7 +489,7 @@
                 } else {
                     $.fn.fullpage.setAutoScrolling(true);
                 }
-                setTimeout(function() {
+                setTimeout(function () {
                     $('.banner2-wrap').width($('.banner2-img-8').width());
                     $('.banner2-wrap').css("marginLeft", ($('.banner2').width() - $('.banner2-wrap').width()) / 2);
                     var arroePosition = ($('.banner2').width() - $('.banner2-wrap').width() - $('.fp-controlArrow.fp-prev').width()) / 2;
