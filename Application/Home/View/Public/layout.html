@@ -2,99 +2,75 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>{:C('WEB_SITE_TITLE')}</title>
+    <meta charset="UTF-8">
+    <title>{$pageTitle}</title>
 
-	<link type="text/css" href="__CSS__/base.css" rel="stylesheet">
-	<block name="style"></block>
+    <link type="text/css" href="__CSS__/base.css" rel="stylesheet">
+    <block name="style"></block>
 
-	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
 		<script src="__STATIC__/bootstrap/js/html5shiv.js"></script>
 	<![endif]-->
-	<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 		<script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
 	<![endif]-->
-	<!--[if gte IE 9]><!-->
-	<script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
-	<!--<![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <!--<![endif]-->
 </head>
 
 <body>
-	<div id="header">
-		<a class="logo"><img alt="Logo" src="__IMG__/public/logo.png"/></a>
-		<ul class="main_nav">
-			<li>
-				<a href="/" class="active">首页</a>
-			</li>
-			<li>
-				<a href="{:U('whoWeAre')}">品牌介绍</a>
-			</li>
-			<li>
-				<a href="javascript:;">品牌详情</a>
-			</li>
-			<li>
-				<a href="javascript:;">品牌来源</a>
-			</li>
-		</ul>
-		<div class="social_icon">
-			<a href="javascript:;"></a>
-			<a href="javascript:;"></a>
-			<a href="javascript:;"></a>
-			<a href="javascript:;"></a>
-		</div>
-		<div class="cf"></div>
-	</div>
-	<div id="main">
-		<div class="cf"></div>
-		<block name="body"></block>
-		<div class="cf"></div>
-	</div>
+    <div id="header">
+        <a class="logo"><img alt="Logo" src="__IMG__/public/logo.png" /></a>
+        <ul class="main_nav">
+            <li>
+                <a href="/" class="active">首页</a>
+            </li>
+            <li>
+                <a href="{:U('whoWeAre')}">品牌介绍</a>
+            </li>
+            <li>
+                <a href="{:U('howWeWork')}">品牌详情</a>
+            </li>
+            <li>
+                <a href="{:U('whereWeAre')}">品牌来源</a>
+            </li>
+        </ul>
+        <div class="social_icon">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+        <div class="cf"></div>
+    </div>
+    <div id="main">
+        <div class="cf"></div>
+        <block name="body"></block>
+        <div class="cf"></div>
+    </div>
 
-	<div id="footer">
-		<p><a href="javascript:;">&copy;<span>Orange Garten</span></a></p>
-		<p>网站使用条款</p>
-		<p>沪ICP备 12041915号-2 沪公安机关备 31010102003289号</p>
-		<p>客服热线: 400-820-5325</p>
-		<div class="cf"></div>
-	</div>
+    <div id="footer">
+        <p><a href="javascript:;">&copy;<span>Orange Garten</span></a></p>
+        <p>网站使用条款</p>
+        <p>沪ICP备 12041915号-2 沪公安机关备 31010102003289号</p>
+        <p>客服热线: 400-820-5325</p>
+        <div class="cf"></div>
+    </div>
 
-	<script type="text/javascript">
-		function setMainMinHeight() {
-			// var winWidth = 0;
-			var winHeight = 0;
+    <script type="text/javascript">
+        $(function() {
+            url = window.location.pathname + window.location.search;
+            url = url.replace(/(\/(p)\/\d+)|(&p=\d+)|(\/(id)\/\d+)|(&id=\d+)|(\/(group)\/\d+)|(&group=\d+)/, "");
+            console.log(url);
+            $('.main_nav').find('a').removeClass("active");
+            $('.main_nav').find("a[href='" + url + "']").addClass("active");
+        })
+    </script>
 
-			// //获取窗口宽度
-			// if (window.innerWidth)
-			// 	winWidth = window.innerWidth;
-			// else if ((document.body) && (document.body.clientWidth))
-			// 	winWidth = document.body.clientWidth;
-
-			//获取窗口高度
-			if (window.innerHeight)
-				winHeight = window.innerHeight;
-			else if ((document.body) && (document.body.clientHeight))
-				winHeight = document.body.clientHeight;
-
-			//通过深入Document内部对body进行检测，获取窗口大小
-			if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
-				winHeight = document.documentElement.clientHeight;
-				// winWidth = document.documentElement.clientWidth;
-			}
-
-			var headerHeight = document.getElementById("header").clientHeight;
-			var footerrHeight = document.getElementById("footer").clientHeight;
-			var mainHeight = document.getElementById("main").clientHeight;
-
-			if (parseInt(headerHeight) + parseInt(footerrHeight) + parseInt(mainHeight) - winHeight < 0) {
-				var mainHeight = winHeight - document.getElementById("header").clientHeight - document.getElementById("footer").clientHeight;
-				document.getElementById('main').style.height = mainHeight + 'px';
-			}
-		}
-	</script>
-
-	<block name="script">
-	</block>
+    <block name="script">
+    </block>
 </body>
 
 </html>

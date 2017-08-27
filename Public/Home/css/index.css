@@ -1,3 +1,9 @@
+/******************************************************************************************
+*******************************************************************************************
+**用于首页定制化头部和底部
+*******************************************************************************************
+******************************************************************************************/
+
 #header {
     position: fixed;
     z-index: 1000;
@@ -10,19 +16,29 @@
     bottom: 0;
 }
 
-#fp-nav ul li a span, .fp-slidesNav ul li a span {
+
+/******************************************************************************************
+*******************************************************************************************
+**用于fullpafe项目导航
+*******************************************************************************************
+******************************************************************************************/
+
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
     width: 14px;
     height: 14px;
     border: 1px solid #fff;
     background: #fff;
 }
 
-#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span {
     background: #ee5322;
     border-color: #ee5322;
 }
 
-#fp-nav ul li, .fp-slidesNav ul li {
+#fp-nav ul li,
+.fp-slidesNav ul li {
     margin: 16px 7px;
 }
 
@@ -49,9 +65,11 @@
 }
 
 
-/**
-banner2
-*/
+/******************************************************************************************
+*******************************************************************************************
+**用于banner2
+*******************************************************************************************
+******************************************************************************************/
 
 .banner2 {
     background: url(../images/index/banner2/bg.png) 50% 100% no-repeat;
@@ -84,9 +102,11 @@ banner2
 }
 
 
-/**
-banner3
-*/
+/******************************************************************************************
+*******************************************************************************************
+**用于banner3
+*******************************************************************************************
+******************************************************************************************/
 
 .banner3 {
     background: url(../images/index/banner3/3.jpg) 0 0 no-repeat;
@@ -218,6 +238,9 @@ banner3
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(../images/index/banner3/scroll-down.gif);
+    background-repeat: no-repeat;
+    background-position: 50% 98%;
 }
 
 .banner3 .pop-layout-content .banner3-nav-content p {
@@ -229,9 +252,11 @@ banner3
 }
 
 
-/**
-banner4
-*/
+/******************************************************************************************
+*******************************************************************************************
+**用于banner4
+*******************************************************************************************
+******************************************************************************************/
 
 .banner4 {
     background: url(../images/index/banner2/bg.png) 50% 100% no-repeat;
@@ -268,9 +293,11 @@ banner4
 }
 
 
-/**
-banner5
-*/
+/******************************************************************************************
+*******************************************************************************************
+**用于banner5
+*******************************************************************************************
+******************************************************************************************/
 
 .banner5 {
     background: url(../images/index/banner5/bg.jpg) 0 0 no-repeat;
@@ -305,6 +332,9 @@ banner5
     width: 100%;
     height: 100%;
     position: relative;
+    background-image: url(../images/index/banner3/scroll-down.gif);
+    background-repeat: no-repeat;
+    background-position: 50% 98%;
 }
 
 .banner5 .banner5-pop-layout-content-close {
@@ -416,9 +446,11 @@ banner5
 }
 
 
-/****
-banner6
-*/
+/******************************************************************************************
+*******************************************************************************************
+**用于banner6
+*******************************************************************************************
+******************************************************************************************/
 
 .banner6 .banner6-div-1 {
     width: 38%;
@@ -476,21 +508,9 @@ banner6
     background-size: cover;
     width: 290px;
     height: 90px;
-    left: 13%;
+    right: 45%;
     bottom: 10%;
     position: absolute;
-}
-
-.banner6 .banner6-div-1 p span {
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    font-family: fzltch;
-    font-size: 47px;
-    line-height: 2;
-    text-align: center;
-    transform: skewY(-2deg);
-    display: block;
 }
 
 .banner6 .banner6-div-1 a {
@@ -498,7 +518,7 @@ banner6
     background-size: cover;
     width: 80px;
     height: 68px;
-    left: 55%;
+    right: 32%;
     bottom: 10%;
     position: absolute;
 }
@@ -527,18 +547,6 @@ banner6
     position: absolute;
 }
 
-.banner6 .banner6-div-2 p span {
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    font-family: fzltch;
-    font-size: 47px;
-    line-height: 2;
-    text-align: center;
-    transform: skewY(-2deg);
-    display: block;
-}
-
 .banner6 .banner6-div-2 a {
     background: url(../images/index/banner6/5.png) 0 0 no-repeat;
     background-size: cover;
@@ -565,18 +573,6 @@ banner6
     right: 15%;
     bottom: 10%;
     position: absolute;
-}
-
-.banner6 .banner6-div-3 p span {
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    font-family: fzltch;
-    font-size: 47px;
-    line-height: 2;
-    text-align: center;
-    transform: skewY(-2deg);
-    display: block;
 }
 
 .banner6 .banner6-div-3 a {

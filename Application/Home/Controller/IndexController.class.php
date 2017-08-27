@@ -18,29 +18,22 @@ class IndexController extends HomeController {
 
 	//系统首页
     public function index(){
-
-        $category = D('Category')->getTree();
-        $lists    = D('Document')->lists(null);
-
-        $this->assign('category',$category);//栏目
-        $this->assign('lists',$lists);//列表
-        $this->assign('page',D('Document')->page);//分页
-
-                 
+        $this->pageTitle = C('WEB_SITE_TITLE');
         $this->display();
     }
 
-    public function whoWeAre(){
-        
-                $category = D('Category')->getTree();
-                $lists    = D('Document')->lists(null);
-        
-                $this->assign('category',$category);//栏目
-                $this->assign('lists',$lists);//列表
-                $this->assign('page',D('Document')->page);//分页
-        
-                         
-                $this->display();
-            }
+    public function whoWeAre(){    
+        $this->pageTitle = "品牌介绍";    
+        $this->display();
+    }
 
+    public function howWeWork(){   
+        $this->pageTitle = "品牌详情";      
+        $this->display();
+    }  
+
+    public function whereWeAre(){   
+        $this->pageTitle = "品牌来源";      
+        $this->display();
+    }  
 }

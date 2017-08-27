@@ -2,6 +2,34 @@ body {
     background: rgb(246, 246, 246);
 }
 
+.wrap6 {
+    width: 60%;
+    margin: 40px auto;
+    position: relative;
+}
+
+.wrap8 {
+    width: 80%;
+    margin: 40px auto;
+    position: relative;
+}
+
+.width100 {
+    width: 100%;
+    height: auto;
+}
+
+.full100 {
+    height: 100%;
+    width: 100%;
+}
+
+.banner {
+    display: table;
+    position: relative;
+    width: 100%;
+}
+
 .title {
     background: url(/Public/Home/images/who-we-are/3.png) no-repeat;
     background-position-x: 0%;
@@ -11,20 +39,14 @@ body {
     background-position: 50% 100%;
 }
 
-.content {
-    padding: 0 20%;
-}
-
 .content p {
     font-family: fzltxh;
     font-size: 16px;
-    line-height: 2;
+    line-height: 1.5;
     padding: 20px 0;
 }
 
 .left-img-right-content {
-    width: 80%;
-    margin: 40px auto;
     height: 300px;
     -webkit-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
     -moz-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
@@ -57,6 +79,52 @@ body {
     width: 100%;
     font-family: fzltxh;
     text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 5px 0;
+    color: rgb(127, 127, 127);
+}
+
+.left-img-right-content-5 {
+    height: auto;
+    -webkit-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    -moz-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    background-color: #fff;
+    display: table;
+}
+
+.left-img-right-content-5 img {
+    width: 100%;
+    float: left;
+}
+
+.left-img-right-content-5 .right-content {
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.left-img-right-content-5 h2 {
+    width: 100%;
+    font-family: fzltxh;
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    text-align: left;
+}
+
+.left-img-right-content-5 p {
+    width: 100%;
+    font-family: fzltxh;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
 }
 
 .right-img-left-content {
@@ -95,4 +163,183 @@ body {
     width: 100%;
     font-family: fzltxh;
     text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 5px 0;
+    color: rgb(127, 127, 127);
+}
+
+.right-img-left-content-5 {
+    height: auto;
+    -webkit-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    -moz-box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    box-shadow: 0 0 10px rgba(234, 234, 234, .5);
+    background-color: #fff;
+    display: table;
+}
+
+.right-img-left-content-5 img {
+    width: 100%;
+    float: right;
+}
+
+.right-img-left-content-5 .left-content {
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.right-img-left-content-5 h2 {
+    width: 100%;
+    font-family: fzltxh;
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    text-align: left;
+}
+
+.right-img-left-content-5 p {
+    width: 100%;
+    font-family: fzltxh;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+}
+
+.bg-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bg-description p {
+    text-align: center;
+    font-family: fzltxh;
+    color: #fff;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 15px 0;
+}
+
+.gallery5 {
+    width: 48%;
+    padding: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin-bottom: 40px;
+}
+
+.gallery5-wrap .gallery5:nth-child(even) {
+    float: right;
+}
+
+.gallery5-wrap .gallery5:nth-child(odd) {
+    float: left;
+}
+
+.gallery5 a {
+    width: 100%;
+    float: left;
+}
+
+.gallery5 a img {
+    width: 100%;
+}
+
+.gallery5 h3 {
+    width: 100%;
+    font-family: fzltxh;
+    color: rgb(234, 89, 20);
+    font-size: 35px;
+    text-align: left;
+    float: left;
+    text-transform: Uppercase;
+}
+
+.gallery5 p {
+    width: 100%;
+    font-family: fzltxh;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    height: 64px;
+    padding: 5px 0;
+    color: rgb(127, 127, 127);
+    float: left;
+}
+
+.bg-description-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 50%;
+    overflow: hidden;
+}
+
+.bg-description-left h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: fzltch;
+}
+
+.bg-description-left p {
+    text-align: center;
+    font-family: fzltxh;
+    color: #fff;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 5px 0;
+}
+
+.gallery3 {
+    width: 31%;
+    padding: 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    margin: 0 1%;
+}
+
+.gallery3 a {
+    width: 100%;
+    float: left;
+}
+
+.gallery3 a img {
+    width: 100%;
+}
+
+.gallery3 h3 {
+    width: 100%;
+    font-family: fzltxh;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    text-align: left;
+    float: left;
+    text-transform: Uppercase;
+    margin: 10px 0;
+}
+
+.gallery3 p {
+    width: 100%;
+    font-family: fzltxh;
+    text-align: left;
+    font-size: 14px;
+    line-height: 2;
+    padding: 5px 0;
+    color: rgb(127, 127, 127);
+    float: left;
 }
