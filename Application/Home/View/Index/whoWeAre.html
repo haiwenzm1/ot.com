@@ -15,16 +15,20 @@
 
     <div class="wrap6 content">
         <p>
-            Orange Garten的故事始于瑞士， 更具体的说是在苏黎世。 1925年，Gottlieb Duttweiler创立了Migros，该公司现拥有600多家店面和10万多名员工， 成为瑞士最大的零售公司。 Migros代表着瑞士的价值观，如信任、可靠性、质量、新鲜度、物有所值和可持续性。 作为Migros的一部分，Orange Garten也致力于坚持这些价值观。
+            Orange Garten的故事始于瑞士， 更具体的说是在苏黎世。 1925年，Gottlieb Duttweiler创立了Migros，该公司现拥有600多家店面和10万多名员工， 成为瑞士最大的零售公司。 Migros代表着瑞士的价值观，如信任、可靠性、质量、新鲜度、物有所值和可持续性。
+            作为Migros的一部分，Orange Garten也致力于坚持这些价值观。
         </p>
         <p>
-            Orange Garten的故事始于瑞士， 更具体的说是在苏黎世。 1925年，Gottlieb Duttweiler创立了Migros，该公司现拥有600多家店面和10万多名员工， 成为瑞士最大的零售公司。 Migros代表着瑞士的价值观，如信任、可靠性、质量、新鲜度、物有所值和可持续性。 作为Migros的一部分，Orange Garten也致力于坚持这些价值观。
+            Orange Garten的故事始于瑞士， 更具体的说是在苏黎世。 1925年，Gottlieb Duttweiler创立了Migros，该公司现拥有600多家店面和10万多名员工， 成为瑞士最大的零售公司。 Migros代表着瑞士的价值观，如信任、可靠性、质量、新鲜度、物有所值和可持续性。
+            作为Migros的一部分，Orange Garten也致力于坚持这些价值观。
         </p>
     </div>
+
     <div class="title">
         <img src="__IMG__/who-we-are/14.png"></img>
 
     </div>
+
     <div class="wrap8 left-img-right-content">
         <img src="__IMG__/who-we-are/4.jpg" />
         <div class="right-content">
@@ -42,6 +46,7 @@
         <img src="__IMG__/who-we-are/8.jpg" />
         <div class="cf"></div>
     </div>
+
     <div class="wrap8 left-img-right-content">
         <img src="__IMG__/who-we-are/9.jpg" />
         <div class="right-content">
@@ -59,6 +64,7 @@
         <img src="__IMG__/who-we-are/10.jpg" />
         <div class="cf"></div>
     </div>
+
     <div class="wrap8 left-img-right-content">
         <img src="__IMG__/who-we-are/11.jpg" />
         <div class="right-content">
@@ -113,21 +119,23 @@
         <div class="cf"></div>
     </div>
 
-
     <div class="wrap8">
         <img class="width100" src="__IMG__/who-we-are/5.jpg" />
-
         <div class="cf"></div>
     </div>
-
-
 </block>
 
 <block name="script">
-
     <script type="text/javascript">
-        $(function() {
-
+        $(function () {
+            $(window).scroll(function () {
+                if (window.document.body.scrollTop >= 300) {
+                    $("#header").fadeOut();
+                }
+                else {
+                    $("#header").fadeIn();
+                }
+            });
         });
     </script>
 </block>

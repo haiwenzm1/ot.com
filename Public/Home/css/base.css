@@ -175,6 +175,19 @@ textarea {
     position: relative;
 }
 
+#go-top {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+#go-top a {
+    background: url(../images/public/top.png) no-repeat;
+    height: 46px;
+    width: 46px;
+    float: right;
+}
+
 
 /* 底部样式 */
 

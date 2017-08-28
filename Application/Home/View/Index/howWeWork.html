@@ -73,7 +73,8 @@
                 <img src="__IMG__/how-we-work/9.jpg" />
             </a>
             <h3>Aproz</h3>
-            <p>Sources Minérales成立于1947年，是瑞士矿泉水市场的领导者。 除了天然矿泉水（Aproz，<br /> Aquella和Valais）的品牌，还生产软性饮料、果汁和百事可乐、7UP和Orangina等品牌。 </p>
+            <p>Sources Minérales成立于1947年，是瑞士矿泉水市场的领导者。 除了天然矿泉水（Aproz，<br /> Aquella和Valais）的品牌，还生产软性饮料、果汁和百事可乐、7UP和Orangina等品牌。
+            </p>
             <div class="cf"></div>
         </div>
         <div class="cf"></div>
@@ -107,7 +108,8 @@
                 <img src="__IMG__/how-we-work/13.jpg" />
             </a>
             <h3>Mibelle</h3>
-            <p>Mibelle集团作为自主品牌生产商，提供全方位服务，致力于个人护理，家庭护理和营养三个领域。<br /> 它还与Mibelle集团品牌业务领域，致力于研发和储存独家化妆品品牌。 Mibelle集团是欧洲市场上<br /> 第三大自主品牌生产商。 </p>
+            <p>Mibelle集团作为自主品牌生产商，提供全方位服务，致力于个人护理，家庭护理和营养三个领域。<br /> 它还与Mibelle集团品牌业务领域，致力于研发和储存独家化妆品品牌。 Mibelle集团是欧洲市场上<br
+                /> 第三大自主品牌生产商。 </p>
             <div class="cf"></div>
         </div>
 
@@ -115,10 +117,16 @@
 </block>
 
 <block name="script">
-
     <script type="text/javascript">
-        $(function() {
-
+        $(function () {
+            $(window).scroll(function () {
+                if (window.document.body.scrollTop >= 300) {
+                    $("#header").fadeOut();
+                }
+                else {
+                    $("#header").fadeIn();
+                }
+            });
         });
     </script>
 </block>

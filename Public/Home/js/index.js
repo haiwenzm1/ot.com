@@ -1,18 +1,18 @@
-$(function() {
+$(function () {
     $('#main').fullpage({
         paddingTop: '170px',
         paddingBottom: '170px',
         navigation: true,
-        afterRender: function() {
+        afterRender: function () {
             bannerIn('banner2', 0);
         },
-        afterLoad: function(anchorLink, index) {
+        afterLoad: function (anchorLink, index) {
             if (index == 1) {
                 bannerIn('banner2', 0);
             }
 
             if (index == 2) {
-                $('.banner3').find('[rel]').each(function() {
+                $('.banner3').find('[rel]').each(function () {
                     if ($(this).attr('dir') == 'top' || $(this).attr('dir') == 'bottom') {
                         $(this).delay(100).animate({
                             top: $(this).attr('rel')
@@ -24,7 +24,7 @@ $(function() {
                     }
                 });
 
-                $('#pop-click').click(function() {
+                $('#pop-click').click(function () {
                     $('#fp-nav').hide();
                     $('.pop-layout').show();
                     $.fn.fullpage.setAllowScrolling(false);
@@ -32,13 +32,13 @@ $(function() {
                     $('.banner3-nav-content').find('p').eq(0).show();
                 })
 
-                $(document).on('click', '.banner3 .close', function() {
+                $(document).on('click', '.banner3 .close', function () {
                     $('#fp-nav').show();
                     $('.pop-layout').hide();
                     $.fn.fullpage.setAllowScrolling(true);
                 })
 
-                $('.banner3-nav-content').bind('mousewheel', function(event, delta) {
+                $('.banner3-nav-content').bind('mousewheel', function (event, delta) {
                     var dir = delta > 0 ? 'Up' : 'Down';
                     if (dir == 'Up') {
                         if ($('.left-nav .active').prev().length == 0) {
@@ -68,7 +68,7 @@ $(function() {
             }
 
             if (index == 4) {
-                $('.banner5').find('[rel]').each(function() {
+                $('.banner5').find('[rel]').each(function () {
                     if ($(this).attr('dir') == 'top' || $(this).attr('dir') == 'bottom') {
                         $(this).delay(100).animate({
                             top: $(this).attr('rel')
@@ -80,7 +80,7 @@ $(function() {
                     }
                 });
 
-                $('#banner5-pop-click').click(function() {
+                $('#banner5-pop-click').click(function () {
                     $('#fp-nav').hide();
                     $('.banner5-pop-layout').show();
                     $.fn.fullpage.setAllowScrolling(false);
@@ -88,13 +88,13 @@ $(function() {
                     $('.banner5-pop-content').find('div').eq(0).show();
                 });
 
-                $(document).on('click', '.banner5-pop-layout-content-close', function() {
+                $(document).on('click', '.banner5-pop-layout-content-close', function () {
                     $('#fp-nav').show();
                     $('.banner5-pop-layout').hide();
                     $.fn.fullpage.setAllowScrolling(true);
                 })
 
-                $('.banner5-pop-layout-content').bind('mousewheel', function(event, delta) {
+                $('.banner5-pop-layout-content').bind('mousewheel', function (event, delta) {
                     var dir = delta > 0 ? 'Up' : 'Down';
                     if (dir == 'Up') {
                         if ($('.time-nav .active').prev().length == 0) {
@@ -118,7 +118,10 @@ $(function() {
             }
 
             if (index == 5) {
-                $('.banner6-div-1 a').click(function() {
+                $(document).on('click', '.banner6-div-1 a, .span-div-1', function () {
+                    $('.banner6').remove('span');
+                    $('.banner6-div-2 a,.banner6-div-3 a').removeAttr('url');
+
                     $('.banner6-div-1').css({ 'width': '100%', 'left': '0', 'z-index': '3000' });
                     $('.banner6-div-1 img').css({ 'left': '0', 'width': '90%' });
 
@@ -129,24 +132,37 @@ $(function() {
                     $('.banner6-div-1 p').css({ 'right': w1 * 3 + 'px' });
                     $('.banner6-div-1 a').css({ 'right': w1 * 2 + w3 + 'px' });
 
-                    $('.banner6-div-2').css({ 'width': '100%', 'left': '0', 'transform': 'none' });
+                    $('.banner6-div-2').css({ 'width': '100%', 'left': '0', 'transform': 'none', 'z-index': '2000' });
                     $('.banner6-div-2 *').css({ 'transform': 'none' });
                     $('.banner6-div-2 img').css({ 'left': '0', 'width': '95%' });
                     $('.banner6-div-2 a').css({ 'right': w1 + w3 + 'px' });
 
-                    $('.banner6-div-3').css({ 'width': '100%', 'left': '0' });
+                    $('.banner6-div-3').css({ 'width': '100%', 'left': '0', 'z-index': '1000' });
                     $('.banner6-div-3 img').css({ 'left': '0', 'width': '100%' });
                     $('.banner6-div-3 a').css({ 'right': w3 + 'px' });
+
+                    $('.banner6-div-1').append('<span class="span-div-2" style="transform:none; cursor: pointer; width: 5%; height: 25%; position: absolute; top:70%; left: 90%; z-index: 3001"></span>');
+                    $('.banner6-div-1').append('<span class="span-div-3" style="transform:none; cursor: pointer; width: 5%; height: 25%; position: absolute; top:70%; left: 95%; z-index: 3002"></span>');
+
+                    if ($('.banner6-div-1 a').attr('url')) {
+                        $('.banner6-div-1 a').attr('href', "/index.php?s=/Home/Index/whoWeAre.html");
+                    } else {
+                        $('.banner6-div-1 a').attr('url', "/index.php?s=/Home/Index/whoWeAre.html");
+                    }
                 });
 
-                $('.banner6-div-2 a').click(function() {
+                $(document).on('click', '.banner6-div-2 a,.span-div-2', function () {
+                    $('.banner6').remove('span');
+                    $('.banner6-div-1 a,.banner6-div-3 a').removeAttr('url');
+
                     $('.banner6-div-1').css({ 'width': '100%', 'left': '0', 'z-index': '2000' });
                     var w1 = $('.banner6-div-1').width() * 0.05;
+                    var w4 = $('.banner6-div-1').width() * 0.95;
                     var w2 = $('.banner6-div-1 a').width();
                     var w3 = (w1 - w2) / 2;
 
                     $('.banner6-div-1 img').css({ 'left': '0' });
-                    $('.banner6-div-1 a').css({ 'left': w3 + 'px' });
+                    $('.banner6-div-1 a').css({ 'right': w4 + w3 + 'px' });
 
                     $('.banner6-div-2').css({ 'width': '100%', 'left': '0', 'transform': 'none', 'z-index': '3000' });
                     $('.banner6-div-2 *').css({ 'transform': 'none' });
@@ -157,32 +173,53 @@ $(function() {
                     $('.banner6-div-3').css({ 'width': '100%', 'left': '0', 'z-index': '1000' });
                     $('.banner6-div-3 img').css({ 'left': '0', 'width': '100%' });
                     $('.banner6-div-3 a').css({ 'right': w3 + 'px' });
+
+                    $('.banner6-div-2').append('<span class="span-div-1" style="transform:none; cursor: pointer; width: 5%; height: 25%; position: absolute; top:70%; left: 0%; z-index: 3001"></span>');
+                    $('.banner6-div-2').append('<span class="span-div-3" style="transform:none; cursor: pointer; width: 5%; height: 25%; position: absolute; top:70%; left: 95%; z-index: 3002"></span>');
+
+                    if ($('.banner6-div-2 a').attr('url')) {
+                        $('.banner6-div-2 a').attr('href', "/index.php?s=/Home/Index/howWeWork.html");
+                    } else {
+                        $('.banner6-div-2 a').attr('url', "/index.php?s=/Home/Index/howWeWork.html");
+                    }
                 });
 
+                $(document).on('click', '.banner6-div-3 a,.span-div-3', function () {
+                    $('.banner6').remove('span');
+                    $('.banner6-div-1 a,.banner6-div-2 a').removeAttr('url');
 
-                $('.banner6-div-3 a').click(function() {
                     $('.banner6-div-1').css({ 'width': '100%', 'left': '0', 'z-index': '1000' });
 
                     var w1 = $('.banner6-div-1').width() * 0.05;
+                    var w4 = $('.banner6-div-1').width() * 0.95;
                     var w2 = $('.banner6-div-1 a').width();
                     var w3 = (w1 - w2) / 2;
 
                     $('.banner6-div-1 img').css({ 'left': '0' });
-                    $('.banner6-div-1 a').css({ 'left': w3 + 'px' });
+                    $('.banner6-div-1 a').css({ 'right': w4 + w3 + 'px' });
 
                     $('.banner6-div-2').css({ 'width': '100%', 'left': '0', 'transform': 'none', 'z-index': '2000' });
                     $('.banner6-div-2 *').css({ 'transform': 'none' });
                     $('.banner6-div-2 img').css({ 'left': '5%', 'width': '90%' });
-                    $('.banner6-div-2 a').css({ 'left': w1 + w3 + 'px' });
+                    $('.banner6-div-2 a').css({ 'right': w4 - w1 + w3 + 'px' });
 
                     $('.banner6-div-3').css({ 'width': '100%', 'left': '0', 'z-index': '3000' });
                     $('.banner6-div-3 img').css({ 'left': '10%', 'width': '90%' });
                     $('.banner6-div-3 p').css({ 'right': w1 + 'px' });
                     $('.banner6-div-3 a').css({ 'right': w3 + 'px' });
+
+                    $('.banner6-div-3').append('<span class="span-div-1" style="transform:none; cursor: pointer; width: 5%; height: 25%; position: absolute; top:70%; left: 0%; z-index: 2001"></span>');
+                    $('.banner6-div-3').append('<span class="span-div-2" style="transform:none; cursor: pointer; width: 5%; height: 25%; position: absolute; top:70%; left: 5%; z-index: 3000"></span>');
+
+                    if ($('.banner6-div-3 a').attr('url')) {
+                        $('.banner6-div-3 a').attr('href', "/index.php?s=/Home/Index/whereWeAre.html");
+                    } else {
+                        $('.banner6-div-3 a').attr('url', "/index.php?s=/Home/Index/whereWeAre.html");
+                    }
                 });
             }
         },
-        onLeave: function(index, direction) {
+        onLeave: function (index, direction) {
             if (index == 1) {
                 bannerOut('banner2', 0);
             }
@@ -197,7 +234,7 @@ $(function() {
                 bannerOut('banner4', 0);
             }
         },
-        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
+        afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
             if (index == 1) {
                 bannerIn('banner2', slideIndex);
             }
@@ -206,7 +243,7 @@ $(function() {
                 bannerIn('banner4', slideIndex);
             }
         },
-        onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {
+        onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
             if (index == 1) {
                 bannerOut('banner2', slideIndex);
             }
@@ -217,7 +254,7 @@ $(function() {
     });
 
     function bannerIn(id, index) {
-        $('.' + id).find('.slide').eq(index).find('[rel]').each(function() {
+        $('.' + id).find('.slide').eq(index).find('[rel]').each(function () {
             if ($(this).attr('dir') == 'top' || $(this).attr('dir') == 'bottom') {
                 $(this).delay(100).animate({
                     top: $(this).attr('rel')
@@ -231,7 +268,7 @@ $(function() {
     }
 
     function bannerOut(id, index) {
-        $('.' + id).find('.slide').find('[rel]').each(function() {
+        $('.' + id).find('.slide').find('[rel]').each(function () {
             if ($(this).attr('dir') == 'left') {
                 $(this).css('left', '-120%');
             } else if ($(this).attr('dir') == 'top') {
@@ -248,7 +285,7 @@ $(function() {
     //     $.fn.fullpage.moveSlideRight();
     // }, 3000);
 
-    $(window).resize(function() {
+    $(window).resize(function () {
         autoScrolling();
     });
 
@@ -259,7 +296,7 @@ $(function() {
         } else {
             $.fn.fullpage.setAutoScrolling(true);
         }
-        setTimeout(function() {
+        setTimeout(function () {
             $('.banner2-wrap').width($('.banner2-img-8').width());
             $('.banner2-wrap').css('marginLeft', ($('.banner2').width() - $('.banner2-wrap').width()) / 2);
             var arroePosition = ($('.banner2').width() - $('.banner2-wrap').width() - $('.fp-controlArrow.fp-prev').width()) / 2;

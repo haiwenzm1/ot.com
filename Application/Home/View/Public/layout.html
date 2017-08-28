@@ -22,10 +22,10 @@
 
 <body>
     <div id="header">
-        <a class="logo"><img alt="Logo" src="__IMG__/public/logo.png" /></a>
+        <a class="logo" href="/"><img alt="Logo" src="__IMG__/public/logo.png" /></a>
         <ul class="main_nav">
             <li>
-                <a href="/" class="active">首页</a>
+                <a href="/">首页</a>
             </li>
             <li>
                 <a href="{:U('whoWeAre')}">品牌介绍</a>
@@ -45,9 +45,15 @@
         </div>
         <div class="cf"></div>
     </div>
+    
     <div id="main">
         <div class="cf"></div>
         <block name="body"></block>
+        <div class="cf"></div>
+    </div>
+
+    <div id="go-top">
+        <a href="javascript:;"></a>
         <div class="cf"></div>
     </div>
 
@@ -60,12 +66,18 @@
     </div>
 
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             url = window.location.pathname + window.location.search;
             url = url.replace(/(\/(p)\/\d+)|(&p=\d+)|(\/(id)\/\d+)|(&id=\d+)|(\/(group)\/\d+)|(&group=\d+)/, "");
             console.log(url);
             $('.main_nav').find('a').removeClass("active");
             $('.main_nav').find("a[href='" + url + "']").addClass("active");
+
+            $("#go-top a").click(function () {
+                var speed = 200;//滑动的速度
+                $('body,html').animate({ scrollTop: 0 }, speed);
+                return false;
+            });
         })
     </script>
 
