@@ -1,9 +1,3 @@
-/** 
- * 描述：重置页面元素，设置布局样式及公共模块
- * 作用范围：公共
- */
-
-
 /**
 方正兰亭c粗黒简体 用于标题
 */
@@ -35,12 +29,27 @@
 
 html, body {
     font: 14px/1.5 fzlth, fzltxh, fzltch, "microsoft yahei", Helvetica, Arial, sans-serif;
-    color: #404040;
+    color: #131313;
 }
 
-body, p, pre, blockquote, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td {
+body {
+    background-color: #f1f1f1;
+}
+
+body, p, pre, blockquote, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td, div {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: fzltch !important;
+}
+
+p, pre, blockquote, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td, a, span, label {
+    font-family: fzltxh !important;
 }
 
 ol, ul {
@@ -56,7 +65,7 @@ img {
 }
 
 a {
-    color: #000;
+    color: #131313;
     text-decoration: none;
 }
 
@@ -91,83 +100,98 @@ textarea {
 /* 导航栏样式 */
 
 #header {
-    width: 100%;
-    height: 86px;
+    width: 100vw;
+    height: 7vh;
     overflow: hidden;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    padding: 0 10%;
-    background: url(../images/public/bg.png) repeat;
+    padding: 0 10vw;
+    background-color: #ffffff;
+    display: table;
 }
 
 .logo {
-    float: left;
-    padding: 10px 0;
-    width: 15%;
-    max-width: 160px;
-    height: auto;
+    width: 8.1%;
+    background: url(../images/public/logo.png) 50% no-repeat;
+    background-size: contain;
     overflow: hidden;
+    display: table-cell;
 }
 
 .main_nav {
-    float: left;
-    height: 86px;
-    margin: 0 0 0 10%;
     overflow: hidden;
-    width: 45%;
+    padding-left: 7vw;
+    display: table-cell;
+    align-items: center;
+}
+
+.social_icon {
+    float: right;
+    overflow: hidden;
+    height: 100%;
 }
 
 .main_nav li {
-    float: left;
-    width: 60px;
-    height: 86px;
-    margin: 0 0 0 44px;
+    display: inline-block;
+    width: 5vw;
+    height: 100%;
+    margin-right: 2vw;
 }
 
 .main_nav li a {
     float: left;
     width: 100%;
-    height: 82px;
-    display: block;
-    line-height: 86px;
-    text-align: justify;
-    text-align-last: justify;
-    border-bottom: 4px solid #fff;
+    height: 93%;
+    border-bottom: 10px solid #fff;
+    font-size: 1.5vmin;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.main_nav li a:after {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
 }
 
 .main_nav li a.active, .main_nav li a:hover {
     border-bottom-color: #ee5322;
 }
 
-.social_icon {
-    float: right;
-    overflow: hidden;
-    width: 30%;
-}
-
 .social_icon a {
-    width: 38px;
-    height: 37px;
+    width: 2vw;
+    height: 100%;
     display: block;
     float: right;
-    margin: 24px 0 0 30px;
+    background-size: contain;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    margin-left: 1vw;
+}
+
+.social_icon a:after {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
 }
 
 .social_icon a:nth-child(1) {
-    background: url(../images/public/social-4.png) no-repeat;
+    background-image: url(../images/public/social-4.png);
 }
 
 .social_icon a:nth-child(2) {
-    background: url(../images/public/social-3.png) no-repeat;
+    background-image: url(../images/public/social-3.png);
 }
 
 .social_icon a:nth-child(3) {
-    background: url(../images/public/social-2.png) no-repeat;
+    background-image: url(../images/public/social-2.png);
 }
 
 .social_icon a:nth-child(4) {
-    background: url(../images/public/social-1.png) no-repeat;
+    background-image: url(../images/public/social-1.png);
 }
 
 #main {

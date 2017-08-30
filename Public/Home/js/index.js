@@ -1,14 +1,19 @@
 $(function () {
+    var parallax;
     $('#main').fullpage({
-        paddingTop: '170px',
-        paddingBottom: '170px',
+        // paddingTop: document.documentElement.clientHeight * 0.1 + 86 + 'px',
+        // paddingBottom: document.documentElement.clientHeight * 0.12 + 41 + 'px',
         navigation: true,
         afterRender: function () {
-            bannerIn('banner2', 0);
+            $('.banner2-content-0 img').fadeIn(4000);
+            $('.banner2-content-0 .text').addClass('animated shake');
+            parallax = new Parallax($('.banner2-content-0')[0]);
         },
         afterLoad: function (anchorLink, index) {
             if (index == 1) {
-                bannerIn('banner2', 0);
+                $('.banner2-content-0 img').fadeIn(4000);
+                $('.banner2-content-0 .text').addClass('animated shake');
+                parallax = new Parallax($('.banner2-content-0')[0]);
             }
 
             if (index == 2) {
@@ -221,7 +226,8 @@ $(function () {
         },
         onLeave: function (index, direction) {
             if (index == 1) {
-                bannerOut('banner2', 0);
+                $('.banner2-content-0 img').hide();
+                parallax.disable();
             }
 
             if (index == 2) {
@@ -236,7 +242,9 @@ $(function () {
         },
         afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {
             if (index == 1) {
-                bannerIn('banner2', slideIndex);
+                $('.banner2-content-' + slideIndex + ' img').fadeIn(4000);
+                $('.banner2-content-' + slideIndex + ' .text').addClass('animated shake');
+                parallax = new Parallax($('.banner2-content-' + slideIndex)[0]);
             }
 
             if (index == 3) {
@@ -245,8 +253,10 @@ $(function () {
         },
         onSlideLeave: function (anchorLink, index, slideIndex, direction, nextSlideIndex) {
             if (index == 1) {
-                bannerOut('banner2', slideIndex);
+                $('.banner2-content-' + slideIndex + ' img').hide();
+                parallax.disable();
             }
+
             if (index == 3) {
                 bannerOut('banner4', slideIndex);
             }
@@ -297,11 +307,11 @@ $(function () {
             $.fn.fullpage.setAutoScrolling(true);
         }
         setTimeout(function () {
-            $('.banner2-wrap').width($('.banner2-img-8').width());
-            $('.banner2-wrap').css('marginLeft', ($('.banner2').width() - $('.banner2-wrap').width()) / 2);
-            var arroePosition = ($('.banner2').width() - $('.banner2-wrap').width() - $('.fp-controlArrow.fp-prev').width()) / 2;
-            $('.banner2 .fp-controlArrow.fp-prev').css('left', arroePosition + 'px');
-            $('.banner2 .fp-controlArrow.fp-next').css('right', arroePosition + 'px');
+            // $('.banner2-wrap').width($('.banner2-img-8').width());
+            // $('.banner2-wrap').css('marginLeft', ($('.banner2').width() - $('.banner2-wrap').width()) / 2);
+            // var arroePosition = ($('.banner2').width() - $('.banner2-wrap').width() - $('.fp-controlArrow.fp-prev').width()) / 2;
+            // $('.banner2 .fp-controlArrow.fp-prev').css('left', arroePosition + 'px');
+            // $('.banner2 .fp-controlArrow.fp-next').css('right', arroePosition + 'px');
 
             $('.banner4-wrap').width($('.banner4-img-1').width());
             $('.banner4-wrap').css('marginLeft', ($('.banner4').width() - $('.banner4-wrap').width()) / 2);

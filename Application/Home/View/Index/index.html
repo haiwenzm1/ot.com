@@ -1,65 +1,131 @@
 <extend name="Public/layout" />
 
 <block name="style">
-    <link type="text/css" href="__CSS__/jquery.fullPage.css" rel="stylesheet">
-    <link type="text/css" href="__CSS__/animate.min.css" rel="stylesheet">
-    <link type="text/css" href="__CSS__/index.css" rel="stylesheet">
+    <link type="text/css" href="__CSS__/jquery.fullPage.css" rel="stylesheet" />
+    <link type="text/css" href="__CSS__/animate.min.css" rel="stylesheet" />
+    <link type="text/css" href="__CSS__/index.css" rel="stylesheet" />
 </block>
 
 <block name="body">
+    <!-- 
+        
+        
+        banner2
+    
+    
+    -->
     <div class="section banner2">
+        <!-- slide1 -->
         <div class="slide">
-            <div class="banner2-wrap">
-                <img style="z-index:1007; width:40%; top:43%; left:-120%;" rel="10.2%" dir="left" src="__IMG__/index/banner2/1/1.png">
-                <img style="z-index:1008; width:23.4%; top:57.3%; left:-120%;" rel="19.5%" dir="left" src="__IMG__/index/banner2/1/2.png">
-                <img style="z-index:1009; width:17.9%; top:-120%; left:52.5%;" rel="10.8%" dir="top" src="__IMG__/index/banner2/1/3.png">
-                <img style="z-index:1006; width:12%; top:-120%; left:46.4%;" rel="28.5%" dir="top" src="__IMG__/index/banner2/1/4.png">
-                <img style="z-index:1002; width:16.9%; top:7.7%; left:120%;" rel="67.8%" dir="right" src="__IMG__/index/banner2/1/5.png">
-                <img style="z-index:1001; width:53.8%; top:120%; left:48.6%;" rel="33.3%" dir="bottom" src="__IMG__/index/banner2/1/6.png">
-                <img style="z-index:1001; width:7.2%; top:90%; left:120%;" rel="90%" dir="right" src="__IMG__/index/banner2/1/7.png">
-                <img class="banner2-img-8" src="__IMG__/index/banner2/1/8.png">
-            </div>
+            <ul class="banner2-content banner2-content-0">
+                <li class="layer" data-depth="0.80">
+                    <div>
+                        <img style="width:7.2%; top:90%; left:90%;" src="__IMG__/index/banner2/1/7.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.60">
+                    <div>
+                        <img style="width:16.9%; top:7.7%; left:67.8%;" src="__IMG__/index/banner2/1/5.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.40">
+                    <div>
+                        <img style="width:53.8%; top:10.8%; left:46.4%;" src="__IMG__/index/banner2/1/product.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.20">
+                    <div>
+                        <img class="text" style="width:40%; top:47%; left:10.2%;" src="__IMG__/index/banner2/1/text.png">
+                    </div>
+                </li>
+            </ul>
         </div>
+        <!-- slide2 -->
         <div class="slide">
-            <div class="banner2-wrap">
-                <img style="z-index:1007; width:27.9%; top:46%; left:-120%;" rel="13.4%" dir="left" src="__IMG__/index/banner2/2/1.png">
-                <img style="z-index:1008; width:28.4%; top:56.2%; left:-120%;" rel="19.3%" dir="left" src="__IMG__/index/banner2/2/2.png">
-                <img style="z-index:1009; width:19.8%; top:-120%; left:50.5%;" rel="31%" dir="top" src="__IMG__/index/banner2/2/3.png">
-                <img style="z-index:1006; width:14.4%; top:-120%; left:44.8%;" rel="37.7%" dir="top" src="__IMG__/index/banner2/2/4.png">
-                <img style="z-index:1002; width:16.8%; top:7.8%; left:120%;" rel="67.3%" dir="right" src="__IMG__/index/banner2/2/5.png">
-                <img style="z-index:1001; width:56%; top:120%; left:45.3%;" rel="33.3%" dir="bottom" src="__IMG__/index/banner2/2/6.png">
-                <img style="z-index:1001; width:7.1%; top:90%; left:120%;" rel="90%" dir="right" src="__IMG__/index/banner2/2/7.png">
-                <img class="banner2-img-8" src="__IMG__/index/banner2/2/8.png">
-            </div>
+            <ul class="banner2-content banner2-content-1">
+                <li class="layer" data-depth="0.80">
+                    <div>
+                        <img style="width:7.1%; top:90%; left:90%;" rel="90%" src="__IMG__/index/banner2/2/7.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.60">
+                    <div>
+                        <img style="width:16.8%; top:7.8%; left:67.3%;" src="__IMG__/index/banner2/2/5.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.30">
+                    <div>
+                        <img style="width:56%; top:32.7%; left:44.8%;" src="__IMG__/index/banner2/2/product.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.20">
+                    <div>
+                        <img style="width:33.9%; top:46%; left:13.4%;" class="text" src="__IMG__/index/banner2/2/text.png">
+                    </div>
+                </li>
+            </ul>
         </div>
+        <!-- slide3 -->
         <div class="slide">
-            <div class="banner2-wrap">
-                <img style="z-index:1007; width:35.3%; top:43.9%; left:-120%;" rel="11.3%" dir="left" src="__IMG__/index/banner2/3/1.png">
-                <img style="z-index:1008; width:22.3%; top:56.6%; left:-120%;" rel="19.4%" dir="left" src="__IMG__/index/banner2/3/2.png">
-                <img style="z-index:1009; width:13.5%; top:-120%; left:52.4%;" rel="22.4%" dir="top" src="__IMG__/index/banner2/3/3.png">
-                <img style="z-index:1006; width:11.1%; top:-120%; left:45.4%;" rel="28.5%" dir="top" src="__IMG__/index/banner2/3/4.png">
-                <img style="z-index:1002; width:16.8%; top:11.3%; left:120%;" rel="66.6%" dir="right" src="__IMG__/index/banner2/3/5.png">
-                <img style="z-index:1001; width:55.8%; top:120%; left:45.6%;" rel="22.6%" dir="bottom" src="__IMG__/index/banner2/3/6.png">
-                <img style="z-index:1001; width:14.4%; top:90%; left:120%;" rel="81.6%" dir="right" src="__IMG__/index/banner2/3/7.png">
-                <img class="banner2-img-8" src="__IMG__/index/banner2/3/8.png">
-            </div>
+            <ul class="banner2-content banner2-content-2">
+                <li class="layer" data-depth="0.80">
+                    <div>
+                        <img style="width:14.4%; top:90%; left:81.6%;" src="__IMG__/index/banner2/3/7.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.60">
+                    <div>
+                        <img style="width:16.8%; top:11.3%; left:66.6%;" src="__IMG__/index/banner2/3/5.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.40">
+                    <div>
+                        <img style="width:55.8%; top:22.4%; left:44.4%;" src="__IMG__/index/banner2/3/product.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.20">
+                    <div>
+                        <img style="width:35.3%; top:43.9%; left:11.3%;" class="text" src="__IMG__/index/banner2/3/text.png">
+                    </div>
+                </li>
+            </ul>
         </div>
+        <!-- slide4 -->
         <div class="slide">
-            <div class="banner2-wrap">
-                <img style="z-index:1007; width:35.3%; top:45.6%; left:-120%;" rel="5.6%" dir="left" src="__IMG__/index/banner2/4/1.png">
-                <img style="z-index:1008; width:40.5%; top:57%; left:-120%;" rel="10.2%" dir="left" src="__IMG__/index/banner2/4/2.png">
-                <img style="z-index:1009; width:15.1%; top:-120%; left:54%;" rel="14.6%" dir="top" src="__IMG__/index/banner2/4/3.png">
-                <img style="z-index:1006; width:11.8%; top:-120%; left:46.9%;" rel="25.5%" dir="top" src="__IMG__/index/banner2/4/4.png">
-                <img style="z-index:1002; width:16.8%; top:11.3%; left:120%;" rel="66.6%" dir="right" src="__IMG__/index/banner2/4/5.png">
-                <img style="z-index:1001; width:56.4%; top:120%; left:48%;" rel="31.4%" dir="bottom" src="__IMG__/index/banner2/4/6.png">
-                <img style="z-index:1001; width:11.5%; top:90%; left:120%;" rel="84%" dir="right" src="__IMG__/index/banner2/4/7.png">
-                <img class="banner2-img-8" src="__IMG__/index/banner2/4/8.png">
-            </div>
+            <ul class="banner2-content banner2-content-3">
+                <li class="layer" data-depth="0.80">
+                    <div>
+                        <img style="width:11.5%; top:90%; left:84%;" src="__IMG__/index/banner2/4/7.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.60">
+                    <div>
+                        <img style="width:16.8%; top:11.3%; left:66.6%;" src="__IMG__/index/banner2/4/5.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.40">
+                    <div>
+                        <img style="width:56.4%; top:10.5%; left:48%;" src="__IMG__/index/banner2/4/product.png">
+                    </div>
+                </li>
+                <li class="layer" data-depth="0.20">
+                    <div>
+                        <img style="width:46.3%; top:45.6%; left:5.6%;" class="text" src="__IMG__/index/banner2/4/text.png">
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
+    <!-- 
+        
+        
+        banner3
+    
+    
+    -->
     <div class="section banner3">
         <div class="banner3-wrap">
-            <img style="z-index:1007; width:16.8%; top:65.1%; left:-120%;" rel="48.6%" dir="left" src="__IMG__/index/banner3/1.png">
+            <img style="width:16.8%; top:65.1%; left:-120%;" rel="48.6%" dir="left" src="__IMG__/index/banner3/1.png">
             <img style="z-index:1008; width:28.6%; top:71%; left:-120%;" rel="54.5%" dir="left" src="__IMG__/index/banner3/2.png">
             <img id="pop-click" style="z-index:1009; width:4.1%; top:72.5%; left:120%;" rel="84.5%" dir="right" src="__IMG__/index/banner3/3.png">
         </div>
@@ -115,13 +181,21 @@
                     <p><img src="__IMG__/index/banner3/content/2.png"><br />每当你看到这个标志。<br /> 你就知道我们正在守护着你所在乎的一切，持之以恒，兢兢业业。</p>
                     <p><img src="__IMG__/index/banner3/content/2.png"><br />每当你看到这个标志。你会不经意地放下所有顾虑。<br /> 因为你知道它代表着最严苛的国际标准，最专业的态度和要求。</p>
                     <p><img src="__IMG__/index/banner3/content/2.png"><br />每当你看到这个标志。你会知道每一件商品的来龙去脉，<br /> 因为我们100%自制自营，并且具有国际认证的可追踪标志，
-                        每个环节都经得起追踪和检验。</p>
+                        每个环节都经得起追踪和检验。
+                    </p>
                     <p><img src="__IMG__/index/banner3/content/2.png"><br />每当你看到这个标志。你还会感到平淡和无聊吗？！<br /> 我们每两年就会针对60%的产品进行更新换代，让你尽情尽享，肆意生活。</p>
                     <p><img src="__IMG__/index/banner3/content/2.png"><br />这个标志就是欧瑞家，把欧洲的品味生活和严苛的瑞士品质带回家。<br /> 这种自在的购物体验和随性的生活乐趣，你一定会爱上它，信赖它，享受它！</p>
                 </div>
             </div>
         </div>
     </div>
+    <!-- 
+        
+        
+        banner3
+    
+    
+    -->
     <div class="section banner4">
         <div class="slide">
             <div class="banner4-wrap">
@@ -148,6 +222,13 @@
             </div>
         </div>
     </div>
+    <!-- 
+        
+        
+        banner3
+    
+    
+    -->
     <div class="section banner5">
         <div class="banner5-wrap">
             <img style="z-index:1007; width:35.1%; top:64%; left:-120%;" rel="34.2%" dir="left" src="__IMG__/index/banner5/2.png">
@@ -218,6 +299,13 @@
             </div>
         </div>
     </div>
+    <!-- 
+        
+        
+        banner3
+    
+    
+    -->
     <div class="section banner6">
         <div class="banner6-div-1">
             <img src="__IMG__/index/banner6/1.jpg">
@@ -241,5 +329,6 @@
     <script src="__JS__/jquery.fullPage.min.js"></script>
     <script src="__JS__/jquery.easing.min.js"></script>
     <script src="__JS__/jquery.mousewheel.min.js"></script>
+    <script src="__JS__/parallax.min.js"></script>
     <script src="__JS__/index.js"></script>
 </block>

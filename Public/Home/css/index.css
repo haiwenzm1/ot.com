@@ -19,47 +19,51 @@
 #go-top {
     display: none;
 }
+
+
 /******************************************************************************************
 *******************************************************************************************
 **用于fullpafe项目导航
 *******************************************************************************************
 ******************************************************************************************/
 
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
+#fp-nav.right {
+    right: 1vw;
+}
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
     width: 14px;
     height: 14px;
     border: 1px solid #fff;
     background: #fff;
 }
 
-#fp-nav ul li a.active span,
-.fp-slidesNav ul li a.active span {
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
     background: #ee5322;
     border-color: #ee5322;
 }
 
-#fp-nav ul li,
-.fp-slidesNav ul li {
+#fp-nav ul li, .fp-slidesNav ul li {
     margin: 16px 7px;
 }
 
 .fp-controlArrow.fp-prev {
-    left: 5%;
-    width: 79px;
-    height: 67px;
-    background: url(../images/index/arrow-left.png) no-repeat;
+    left: 4vw;
+    width: 4vw;
+    height: 10vh;
+    background: url(../images/index/arrow-left.png) 50% no-repeat;
+    background-size: contain;
     border-width: 0;
     border-color: none;
 }
 
 .fp-controlArrow.fp-next {
-    right: 5%;
-    width: 79px;
-    height: 67px;
-    background: url(../images/index/arrow-right.png) no-repeat;
+    right: 4vw;
+    width: 4vw;
+    height: 10vh;
+    background: url(../images/index/arrow-right.png) 50% no-repeat;
+    background-size: contain;
     border-width: 0;
-    border-color: none;
 }
 
 .section {
@@ -73,12 +77,43 @@
 *******************************************************************************************
 ******************************************************************************************/
 
-.banner2 {
-    background: url(../images/index/banner2/bg.png) 50% 100% no-repeat;
-    background-size: cover;
+.banner2-content {
+    width: 88vw;
+    margin-left: 6vw;
+    height: 70vh;
+    overflow: hidden;
+    border-radius: 40px;
+    position: relative;
 }
 
-.banner2-wrap {
+.banner2-content div {
+    width: 88vw;
+    height: 70vh;
+}
+
+.banner2-content-0 {
+    background-color: #99b676;
+}
+
+.banner2-content-1 {
+    background-color: #e7bb68;
+}
+
+.banner2-content-2 {
+    background-color: #ac657c;
+}
+
+.banner2-content-3 {
+    background-color: #4b89b1;
+}
+
+.banner2-content img {
+    position: absolute;
+    display: none;
+}
+
+
+/* .banner2-wrap {
     width: 80%;
     height: 100%;
     display: block;
@@ -101,7 +136,7 @@
     z-index: 1000;
     height: 100%;
     max-height: 733px;
-}
+} */
 
 
 /******************************************************************************************
@@ -240,7 +275,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/index/banner3/scroll-down.gif);
+    background-image: url(../images/index/banner3/scroll-down.png);
     background-repeat: no-repeat;
     background-position: 50% 98%;
 }
@@ -259,11 +294,6 @@
 **用于banner4
 *******************************************************************************************
 ******************************************************************************************/
-
-.banner4 {
-    background: url(../images/index/banner2/bg.png) 50% 100% no-repeat;
-    background-size: cover;
-}
 
 .banner4-wrap {
     width: 80%;
@@ -334,7 +364,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background-image: url(../images/index/banner3/scroll-down.gif);
+    background-image: url(../images/index/banner3/scroll-down.png);
     background-repeat: no-repeat;
     background-position: 50% 98%;
 }
