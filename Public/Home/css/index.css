@@ -31,19 +31,22 @@
     right: 1vw;
 }
 
-#fp-nav ul li a span, .fp-slidesNav ul li a span {
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
     width: 14px;
     height: 14px;
     border: 1px solid #fff;
     background: #fff;
 }
 
-#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span {
     background: #ee5322;
     border-color: #ee5322;
 }
 
-#fp-nav ul li, .fp-slidesNav ul li {
+#fp-nav ul li,
+.fp-slidesNav ul li {
     margin: 16px 7px;
 }
 
@@ -113,32 +116,6 @@
 }
 
 
-/* .banner2-wrap {
-    width: 80%;
-    height: 100%;
-    display: block;
-    position: relative;
-    margin: 0 10%;
-    overflow: hidden;
-    max-height: 733px;
-}
-
-.banner2-wrap img {
-    position: absolute;
-}
-
-.banner2-img-8 {
-    left: 0;
-    top: 0;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    z-index: 1000;
-    height: 100%;
-    max-height: 733px;
-} */
-
-
 /******************************************************************************************
 *******************************************************************************************
 **用于banner3
@@ -152,21 +129,19 @@
 
 .banner3-wrap img {
     position: absolute;
+    display: none;
 }
 
 .banner3 .pop-layout {
     display: none;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: url(../images/index/banner3/bg.jpg) no-repeat 0 0;
     background-size: cover;
     position: absolute;
     top: 0;
     z-index: 1009;
-    padding: 86px 0 41px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+    padding: 7vh 0 41px;
 }
 
 .banner3 #pop-click {
@@ -181,7 +156,7 @@
 }
 
 .banner3 .pop-layout-content .close {
-    width: 78px;
+    width: 3vw;
     position: absolute;
     right: 30px;
     top: 30px;
@@ -190,13 +165,20 @@
 }
 
 .banner3 .pop-layout-content .left-nav {
-    width: 300px;
+    /* width: 300px;
     margin-left: 100px;
     z-index: 3000;
     position: absolute;
     height: 80%;
     overflow: hidden;
-    margin-top: 3%;
+    margin-top: 3%; */
+    width: 20vw;
+    margin-left: 1vw;
+    z-index: 3000;
+    position: absolute;
+    height: 80%;
+    overflow: hidden;
+    margin-top: 4vh;
 }
 
 .banner3 .pop-layout-content .left-nav li {
@@ -228,7 +210,7 @@
 }
 
 .banner3 .pop-layout-content .left-nav li .number {
-    height: 100%;
+    /* height: 100%;
     display: inline-block;
     font-size: 55px;
     margin-left: 16px;
@@ -237,14 +219,36 @@
     font-family: fzltch;
     font-weight: bold;
     float: left;
+    color: rgb(115, 115, 115); */
+    height: 100%;
+    display: inline-block;
+    font-size: 5vh;
+    margin-left: 16px;
+    margin-right: 6px;
+    line-height: 1;
+    font-family: fzltch;
+    font-weight: bold;
+    float: left;
     color: rgb(115, 115, 115);
 }
 
 .banner3 .pop-layout-content .left-nav li .description {
-    height: 100%;
+    /* height: 100%;
     display: inline-block;
     line-height: 26px;
     font-size: 13px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: fzltch;
+    float: left;
+    text-align: left;
+    color: rgb(115, 115, 115);
+    vertical-align: middle; */
+    height: 100%;
+    display: inline-block;
+    line-height: 2;
+    font-size: 1vh;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -281,47 +285,28 @@
 }
 
 .banner3 .pop-layout-content .banner3-nav-content p {
-    display: none;
+    /* display: none;
     color: #fff;
     font-family: fzltch;
     font-size: 25px;
-    line-height: 50px;
+    line-height: 50px; */
+    display: none;
+    color: #fff;
+    font-size: 1.5vw;
+    line-height: 2;
+    margin-top: -15vh;
 }
 
-
-/******************************************************************************************
-*******************************************************************************************
-**用于banner4
-*******************************************************************************************
-******************************************************************************************/
-
-.banner4-wrap {
-    width: 80%;
-    height: 100%;
-    display: block;
-    position: relative;
-    margin: 0 10%;
-    overflow: hidden;
-    max-height: 733px;
-    border-radius: 33px;
-    -moz-border-radius: 33px;
-    -webkit-border-radius: 33px;
+.banner3-nav-content p.first-p {
+    margin-top: 0 !important;
 }
 
-.banner4-wrap img {
-    position: absolute;
+.banner3-nav-content p .logo-img {
+    width: 12vw;
 }
 
-.banner4-wrap .banner4-img-1 {
-    left: 0;
-    height: 100%;
-}
-
-.banner4-wrap .banner4-img-2 {
-    left: 0;
-    /* top: 81%; */
-    top: 120%;
-    z-index: 1000;
+.banner3-nav-content p .top-img {
+    width: 6vw;
 }
 
 
