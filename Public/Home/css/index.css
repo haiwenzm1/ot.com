@@ -133,7 +133,7 @@
     display: none;
     width: 100vw;
     height: 100vh;
-    background: url(../images/index/banner3/bg.jpg) no-repeat 0 0;
+    background: url(../images/index/banner3/bg.jpg) no-repeat 50%;
     background-size: cover;
     position: absolute;
     top: 0;
@@ -162,7 +162,7 @@
 }
 
 .banner3 .pop-layout-content .left-nav {
-    width: 20vw;
+    width: 25vw;
     margin-left: 1vw;
     z-index: 3000;
     position: absolute;
@@ -192,7 +192,8 @@
 }
 
 .banner3 .pop-layout-content .left-nav li a {
-    background: url(../images/index/banner3/left-nav/2.png) no-repeat 4px 50%;
+    background: url(../images/index/banner3/left-nav/2.png) no-repeat 50%;
+    background-size: contain;
     width: 30px;
     height: 100%;
     display: block;
@@ -206,7 +207,7 @@
     margin-left: 16px;
     margin-right: 6px;
     line-height: 1;
-    font-family: fzltch;
+    font-family: fzltch !important;
     font-weight: bold;
     float: left;
     color: rgb(115, 115, 115);
@@ -215,7 +216,7 @@
 .banner3 .pop-layout-content .left-nav li .description {
     height: 100%;
     display: inline-block;
-    line-height: 2;
+    line-height: 2.6vh;
     font-size: 1vh;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -229,7 +230,6 @@
 
 .banner3 .pop-layout-content .left-nav li.active a {
     background-image: url(../images/index/banner3/left-nav/3.png);
-    background-position-x: 0;
 }
 
 .banner3 .pop-layout-content .left-nav li.active * {
@@ -290,7 +290,7 @@
     display: block;
     width: 0;
     height: 0;
-    background: url(../images/index/banner5/pop-bg.png) no-repeat 0 0;
+    background: url(../images/index/banner5/pop-bg.png) no-repeat 50%;
     background-size: cover;
     position: absolute;
     top: 70vh;

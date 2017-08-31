@@ -92,6 +92,7 @@ p {
 }
 
 .left-img-right-content img {
+    width: 100%;
     height: 100%;
     float: left;
 }
@@ -128,6 +129,7 @@ p {
 }
 
 .left-img-right-content-5 img {
+    width: 100%;
     width: 100%;
     float: left;
 }
@@ -168,6 +170,7 @@ p {
 }
 
 .right-img-left-content img {
+    width: 100%;
     height: 100%;
     float: right;
 }
@@ -244,7 +247,7 @@ p {
 .bg-description p {
     text-align: center;
     color: #fff;
-    padding: 1vh 0;
+    padding: 1vh 0 0 0;
 }
 
 .gallery5 {

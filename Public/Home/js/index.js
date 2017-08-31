@@ -3,19 +3,19 @@ $(function () {
     $('#main').fullpage({
         navigation: true,
         afterRender: function () {
-            $('.banner2-content-0 img').fadeIn(4000);
+            $('.banner2-content-0 img').fadeIn(1500);
             $('.banner2-content-0 .text').addClass('animated pulse');
             parallax = new Parallax($('.banner2-content-0')[0]);
         },
         afterLoad: function (anchorLink, index) {
             if (index == 1) {
-                $('.banner2-content-0 img').fadeIn(2000);
+                $('.banner2-content-0 img').fadeIn(1500);
                 $('.banner2-content-0 .text').addClass('animated pulse');
                 parallax = new Parallax($('.banner2-content-0')[0]);
             }
 
             if (index == 2) {
-                $('.banner3-wrap img').fadeIn(2000);
+                $('.banner3-wrap img').fadeIn(1500);
                 $('#pop-click').addClass('animated pulse');
 
                 $('#pop-click').click(function () {
@@ -59,7 +59,7 @@ $(function () {
             }
 
             if (index == 3) {
-                $('.banner5-wrap img').fadeIn(2000);
+                $('.banner5-wrap img').fadeIn(1500);
                 $('#banner5-pop-click').addClass('animated pulse');
 
                 $('#banner5-pop-click').click(function () {
@@ -126,7 +126,7 @@ $(function () {
                             $('.banner6-div-1').css({ 'width': '90%', 'left': '0', 'transform': 'none', 'z-index': '3000' });
                             $('.banner6-div-1 *').css({ 'transform': 'none' });
                             $('.banner6-div-1 img').css({ 'right': '0', 'width': '100%' });
-                            $('.banner6-div-1 p').css({ 'right': w1 + w3 * 2 + 'px' });
+                            $('.banner6-div-1 p').css({ 'right': w1 + 20 + 'px' });
                             $('.banner6-div-1 a').css({ 'right': w3 + 'px' });
 
                             $('.banner6-div-2').css({ 'width': '95%', 'left': '0', 'transform': 'none', 'z-index': '2000' });
@@ -159,7 +159,7 @@ $(function () {
                             $('.banner6-div-2').css({ 'width': '90%', 'left': '5%', 'transform': 'none', 'z-index': '3000' });
                             $('.banner6-div-2 *').css({ 'transform': 'none' });
                             $('.banner6-div-2 img').css({ 'right': '0', 'width': '100%' });
-                            $('.banner6-div-2 p').css({ 'right': w1 + w3 * 2 + 'px' });
+                            $('.banner6-div-2 p').css({ 'right': w1 + 20 + 'px' });
                             $('.banner6-div-2 a').css({ 'right': w3 + 'px' });
 
                             $('.banner6-div-3').css({ 'width': '100%', 'left': '0', 'z-index': '1000' });
@@ -191,7 +191,7 @@ $(function () {
 
                             $('.banner6-div-3').css({ 'width': '90%', 'left': '10%', 'z-index': '3000' });
                             $('.banner6-div-3 img').css({ 'right': '0', 'width': '100%' });
-                            $('.banner6-div-3 p').css({ 'right': w1 + w3 * 2 + 'px' });
+                            $('.banner6-div-3 p').css({ 'right': w1 + 20 + 'px' });
                             $('.banner6-div-3 a').css({ 'right': w3 + 'px' });
 
                             $('.banner6-div-1 span').remove();
