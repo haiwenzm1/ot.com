@@ -28,7 +28,7 @@
 }
 
 html, body {
-    font: 14px/1.5 fzlth, fzltxh, fzltch, "microsoft yahei", Helvetica, Arial, sans-serif;
+    font: 1vw/1.5 fzlth, fzltxh, fzltch, "microsoft yahei", Helvetica, Arial, sans-serif;
     color: #131313;
 }
 
@@ -36,7 +36,7 @@ body {
     background-color: #f1f1f1;
 }
 
-body, p, pre, blockquote, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td, div {
+body, p, pre, blockquote, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td, div, i {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: fzltch !important;
 }
 
-p, pre, blockquote, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td, a, span, label {
+p, pre, blockquote, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td, a, span, label, i {
     font-family: fzltxh !important;
 }
 
@@ -232,8 +232,10 @@ textarea {
     text-align: center;
     display: inline-block;
     padding: 0 20px;
+    font-size: 0.8vw;
 }
 
 #footer p a span {
     color: #ee5322;
+    font-size: 0.8vw;
 }

@@ -31,22 +31,19 @@
     right: 1vw;
 }
 
-#fp-nav ul li a span,
-.fp-slidesNav ul li a span {
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
     width: 14px;
     height: 14px;
     border: 1px solid #fff;
     background: #fff;
 }
 
-#fp-nav ul li a.active span,
-.fp-slidesNav ul li a.active span {
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
     background: #ee5322;
     border-color: #ee5322;
 }
 
-#fp-nav ul li,
-.fp-slidesNav ul li {
+#fp-nav ul li, .fp-slidesNav ul li {
     margin: 16px 7px;
 }
 
@@ -165,13 +162,6 @@
 }
 
 .banner3 .pop-layout-content .left-nav {
-    /* width: 300px;
-    margin-left: 100px;
-    z-index: 3000;
-    position: absolute;
-    height: 80%;
-    overflow: hidden;
-    margin-top: 3%; */
     width: 20vw;
     margin-left: 1vw;
     z-index: 3000;
@@ -210,16 +200,6 @@
 }
 
 .banner3 .pop-layout-content .left-nav li .number {
-    /* height: 100%;
-    display: inline-block;
-    font-size: 55px;
-    margin-left: 16px;
-    margin-right: 6px;
-    line-height: 55px;
-    font-family: fzltch;
-    font-weight: bold;
-    float: left;
-    color: rgb(115, 115, 115); */
     height: 100%;
     display: inline-block;
     font-size: 5vh;
@@ -233,18 +213,6 @@
 }
 
 .banner3 .pop-layout-content .left-nav li .description {
-    /* height: 100%;
-    display: inline-block;
-    line-height: 26px;
-    font-size: 13px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-family: fzltch;
-    float: left;
-    text-align: left;
-    color: rgb(115, 115, 115);
-    vertical-align: middle; */
     height: 100%;
     display: inline-block;
     line-height: 2;
@@ -279,17 +247,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/index/banner3/scroll-down.png);
-    background-repeat: no-repeat;
-    background-position: 50% 98%;
 }
 
 .banner3 .pop-layout-content .banner3-nav-content p {
-    /* display: none;
-    color: #fff;
-    font-family: fzltch;
-    font-size: 25px;
-    line-height: 50px; */
     display: none;
     color: #fff;
     font-size: 1.5vw;
@@ -323,21 +283,21 @@
 
 .banner5-wrap img {
     position: absolute;
+    display: none;
 }
 
 .banner5 .banner5-pop-layout {
-    display: none;
-    width: 100%;
-    height: 100%;
+    display: block;
+    width: 0;
+    height: 0;
     background: url(../images/index/banner5/pop-bg.png) no-repeat 0 0;
     background-size: cover;
     position: absolute;
-    top: 0;
+    top: 70vh;
+    left: 77vw;
     z-index: 1009;
-    padding: 86px 0 41px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+    padding: 7vh 0 41px;
+    opacity: 0;
 }
 
 .banner5 #banner5-pop-click {
@@ -349,18 +309,25 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background-image: url(../images/index/banner3/scroll-down.png);
-    background-repeat: no-repeat;
-    background-position: 50% 98%;
 }
 
 .banner5 .banner5-pop-layout-content-close {
-    width: 78px;
+    width: 3vw;
     position: absolute;
     right: 30px;
     top: 30px;
     cursor: pointer;
     z-index: 4000;
+    display: none;
+}
+
+.banner5-pop-layout-content-scroll-down {
+    width: 4vw;
+    z-index: 4000;
+    position: absolute;
+    top: 74vh;
+    left: 48vw;
+    display: none;
 }
 
 .time-nav {
@@ -368,6 +335,8 @@
     position: absolute;
     width: 66%;
     left: 17%;
+    z-index: 5000;
+    display: none;
 }
 
 .time-nav li {
@@ -402,11 +371,9 @@
     height: 50px;
     float: left;
     color: #fff;
-    font-family: fzlt;
-    font-size: 16px;
+    font-size: 0.5vw;
     clear: both;
-    line-height: 50px;
-    text-align: center;
+    line-height: 3;
 }
 
 .time-nav li.first {
@@ -426,7 +393,7 @@
 }
 
 .time-nav li.active i {
-    font-size: 24px;
+    font-size: 1vw;
     font-weight: bold;
 }
 
@@ -450,16 +417,14 @@
 .banner5-pop-content h2 {
     text-align: left;
     color: #fff;
-    font-family: fzltch;
-    font-size: 40px;
+    font-size: 2vw;
 }
 
 .banner5-pop-content p {
     text-align: left;
     color: #fff;
-    font-family: fzltch;
-    font-size: 23px;
-    line-height: 46px;
+    font-size: 1vw;
+    line-height: 2;
 }
 
 
@@ -470,74 +435,65 @@
 ******************************************************************************************/
 
 .banner6 .banner6-div-1 {
-    width: 38%;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -120%;
     overflow: hidden;
-    background: url(../images/index/banner6/9.png) repeat;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
-.banner6 .banner6-div-2 {
-    width: 38%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 31%;
     -webkit-transform: skew(-13deg);
     -moz-transform: skew(-13deg);
     transform: skew(-13deg);
-    z-index: 1000;
-    overflow: hidden;
     background: url(../images/index/banner6/9.png) repeat;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+    z-index: 1001;
 }
 
-.banner6 .banner6-div-3 {
-    width: 38%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    background: url(../images/index/banner6/9.png) repeat;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+.banner6 .banner6-div-1 * {
+    -webkit-transform: skew(13deg);
+    -moz-transform: skew(13deg);
+    transform: skew(13deg);
 }
 
 .banner6 .banner6-div-1 img {
     height: 100%;
     max-width: none;
-    right: -36%;
+    right: -15%;
     top: 0;
     position: absolute;
 }
 
 .banner6 .banner6-div-1 p {
     background: url(../images/index/banner6/6.png) 0 0 no-repeat;
-    background-size: cover;
-    width: 290px;
-    height: 90px;
-    right: 45%;
+    background-size: contain;
+    width: 15vw;
+    height: 5vw;
+    right: 7vw;
     bottom: 10%;
     position: absolute;
 }
 
 .banner6 .banner6-div-1 a {
     background: url(../images/index/banner6/5.png) 0 0 no-repeat;
-    background-size: cover;
-    width: 80px;
-    height: 68px;
-    right: 32%;
+    background-size: contain;
+    width: 5vw;
+    height: 4vw;
+    right: 1%;
     bottom: 10%;
     position: absolute;
+}
+
+.banner6 .banner6-div-2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -120%;
+    -webkit-transform: skew(-13deg);
+    -moz-transform: skew(-13deg);
+    transform: skew(-13deg);
+    z-index: 1000;
+    overflow: hidden;
+    background: url(../images/index/banner6/9.png) repeat;
 }
 
 .banner6 .banner6-div-2 * {
@@ -556,22 +512,32 @@
 
 .banner6 .banner6-div-2 p {
     background: url(../images/index/banner6/7.png) 0 0 no-repeat;
-    background-size: cover;
-    width: 290px;
-    height: 90px;
-    right: 16%;
+    background-size: contain;
+    width: 15vw;
+    height: 5vw;
+    right: 7vw;
     bottom: 10%;
     position: absolute;
 }
 
 .banner6 .banner6-div-2 a {
     background: url(../images/index/banner6/5.png) 0 0 no-repeat;
-    background-size: cover;
-    width: 80px;
-    height: 68px;
-    right: 3%;
+    background-size: contain;
+    width: 5vw;
+    height: 4vw;
+    right: 1%;
     bottom: 10%;
     position: absolute;
+}
+
+.banner6 .banner6-div-3 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -120%;
+    overflow: hidden;
+    background: url(../images/index/banner6/9.png) repeat;
 }
 
 .banner6 .banner6-div-3 img {
@@ -584,20 +550,31 @@
 
 .banner6 .banner6-div-3 p {
     background: url(../images/index/banner6/8.png) 0 0 no-repeat;
-    background-size: cover;
-    width: 290px;
-    height: 90px;
-    right: 15%;
+    background-size: contain;
+    width: 15vw;
+    height: 5vw;
+    right: 7vw;
     bottom: 10%;
     position: absolute;
 }
 
 .banner6 .banner6-div-3 a {
     background: url(../images/index/banner6/5.png) 0 0 no-repeat;
-    background-size: cover;
-    width: 80px;
-    height: 68px;
-    right: 2%;
+    background-size: contain;
+    width: 5vw;
+    height: 4vw;
+    right: 1%;
     bottom: 10%;
     position: absolute;
+}
+
+.banner6 span {
+    background: url(../images/index/banner6/9.png) repeat;
+    transform: none !important;
+    cursor: pointer;
+    width: 5vw;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    z-index: 3001;
 }

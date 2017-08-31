@@ -2,11 +2,17 @@ body {
     background: rgb(246, 246, 246);
 }
 
+p {
+    font-size: 0.9vw;
+    line-height: 2;
+}
+
 #header {
     position: fixed;
     z-index: 1000;
     top: 0;
 }
+
 #footer {
     background-color: #fff;
 }
@@ -41,28 +47,24 @@ body {
 
 .big-red {
     color: rgb(240, 83, 35);
-    font-family: fzltch;
-    font-size: 30px;
+    font-size: 1.5vw;
     padding: 0 5px;
 }
 
 .big-green {
     color: rgb(175, 183, 1);
-    font-family: fzltch;
-    font-size: 30px;
+    font-size: 1.5vw;
     padding: 0 5px;
 }
 
-
-.large-green{
+.large-green {
     color: rgb(175, 183, 1) !important;
-    font-family: fzltch !important;
-    font-size: 53px !important;
+    font-size: 3vw !important;
     padding: 0 5px;
     text-align: center!important;
 }
 
-.text-center{
+.text-center {
     text-align: center !important;
 }
 
@@ -76,10 +78,8 @@ body {
 }
 
 .content p {
-    font-family: fzltxh;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 20px 0;
+    padding: 2vh 0px;
+    font-size: 2vmin;
 }
 
 .left-img-right-content {
@@ -101,22 +101,19 @@ body {
     display: table-cell;
     vertical-align: middle;
     height: 100%;
+    padding: 0 5% 0 10%;
 }
 
 .left-img-right-content h2 {
     width: 100%;
-    font-family: fzltxh;
     color: rgb(234, 89, 20);
-    font-size: 35px;
+    font-size: 2vw;
     text-align: left;
 }
 
 .left-img-right-content p {
     width: 100%;
-    font-family: fzltxh;
     text-align: left;
-    font-size: 14px;
-    line-height: 1.5;
     padding: 5px 0;
     color: rgb(127, 127, 127);
 }
@@ -144,23 +141,19 @@ body {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    padding: 0 5% 0 10%;
 }
 
 .left-img-right-content-5 h2 {
     width: 100%;
-    font-family: fzltxh;
     color: rgb(0, 0, 0);
-    font-size: 35px;
+    font-size: 2vw;
     text-align: left;
 }
 
 .left-img-right-content-5 p {
     width: 100%;
-    font-family: fzltxh;
     text-align: left;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 10px;
 }
 
 .right-img-left-content {
@@ -184,24 +177,20 @@ body {
     display: table-cell;
     vertical-align: middle;
     height: 100%;
-    padding-left: 5%;
+    padding: 0 10% 0 5%;
 }
 
 .right-img-left-content h2 {
     width: 100%;
     font-family: fzltxh;
     color: rgb(234, 89, 20);
-    font-size: 35px;
+    font-size: 2vw;
     text-align: left;
 }
 
 .right-img-left-content p {
     width: 100%;
-    font-family: fzltxh;
     text-align: left;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 5px 0;
     color: rgb(127, 127, 127);
 }
 
@@ -224,7 +213,7 @@ body {
     display: table-cell;
     vertical-align: middle;
     height: 100%;
-    padding: 0 5%;
+    padding: 0 10% 0 5%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -232,19 +221,14 @@ body {
 
 .right-img-left-content-5 h2 {
     width: 100%;
-    font-family: fzltxh;
     color: rgb(0, 0, 0);
-    font-size: 35px;
+    font-size: 2vw;
     text-align: left;
 }
 
 .right-img-left-content-5 p {
     width: 100%;
-    font-family: fzltxh;
     text-align: left;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 10px;
 }
 
 .bg-description {
@@ -259,11 +243,8 @@ body {
 
 .bg-description p {
     text-align: center;
-    font-family: fzltxh;
     color: #fff;
-    font-size: 15px;
-    line-height: 25px;
-    padding: 15px 0;
+    padding: 1vh 0;
 }
 
 .gallery5 {
@@ -295,9 +276,8 @@ body {
 
 .gallery5 h3 {
     width: 100%;
-    font-family: fzltxh;
     color: rgb(234, 89, 20);
-    font-size: 35px;
+    font-size: 2vw;
     text-align: left;
     float: left;
     text-transform: Uppercase;
@@ -305,12 +285,8 @@ body {
 
 .gallery5 p {
     width: 100%;
-    font-family: fzltxh;
     text-align: left;
-    font-size: 14px;
-    line-height: 1.5;
-    height: 64px;
-    padding: 5px 0;
+    padding: 3px 0;
     color: rgb(127, 127, 127);
     float: left;
 }
@@ -327,15 +303,11 @@ body {
 .bg-description-left h3 {
     font-weight: bold;
     margin-bottom: 10px;
-    font-family: fzltch;
 }
 
 .bg-description-left p {
     text-align: center;
-    font-family: fzltxh;
     color: #fff;
-    font-size: 15px;
-    line-height: 25px;
     padding: 5px 0;
 }
 
@@ -360,9 +332,8 @@ body {
 
 .gallery3 h3 {
     width: 100%;
-    font-family: fzltxh;
     color: rgb(0, 0, 0);
-    font-size: 30px;
+    font-size: 2vw;
     text-align: left;
     float: left;
     text-transform: Uppercase;
@@ -371,17 +342,13 @@ body {
 
 .gallery3 p {
     width: 100%;
-    font-family: fzltxh;
     text-align: left;
-    font-size: 14px;
-    line-height: 2;
     padding: 5px 0;
     color: rgb(127, 127, 127);
     float: left;
 }
 
 .block4 .gallery5 p {
-    font-size: 13px !important;
     height: auto;
 }
 
