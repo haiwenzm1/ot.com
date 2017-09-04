@@ -126,7 +126,8 @@
 
 .banner3-wrap img {
     position: absolute;
-    display: none;
+    display: block;
+    opacity: 0;
 }
 
 .banner3 .pop-layout {
@@ -283,21 +284,21 @@
 
 .banner5-wrap img {
     position: absolute;
-    display: none;
+    display: block;
+    opacity: 0;
 }
 
 .banner5 .banner5-pop-layout {
-    display: block;
+    display: none;
     width: 0;
     height: 0;
-    background: url(../images/index/banner5/pop-bg.png) no-repeat 50%;
-    background-size: cover;
     position: absolute;
     top: 70vh;
     left: 77vw;
     z-index: 1009;
-    padding: 7vh 0 41px;
     opacity: 0;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .banner5 #banner5-pop-click {
@@ -306,16 +307,21 @@
 }
 
 .banner5 .banner5-pop-layout-content {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    padding: 7vh 0 41px;
+    background: url(../images/index/banner5/pop-bg.png) no-repeat 50%;
+    background-size: cover;
     position: relative;
+    top: -70vh;
+    left: -77vw;
 }
 
 .banner5 .banner5-pop-layout-content-close {
     width: 3vw;
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 3vh;
+    top: 10vh;
     cursor: pointer;
     z-index: 4000;
     display: none;
