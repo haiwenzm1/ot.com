@@ -69,7 +69,7 @@ p {
 }
 
 .title {
-    background: url(/Public/Home/images/who-we-are/3.png) no-repeat;
+    background: url(../../images/who-we-are/3.png) no-repeat;
     background-position-x: 0%;
     background-position-y: 0%;
     text-align: center;
@@ -356,7 +356,7 @@ p {
 }
 
 .statistics {
-    background: url(../images/where-we-are/12.png) no-repeat;
+    background: url(../../images/where-we-are/12.png) no-repeat;
     background-position: 50% 0;
     height: 55px;
     margin: 50px 0 10px;

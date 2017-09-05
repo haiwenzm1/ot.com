@@ -91,6 +91,7 @@ $(function () {
                     $('.banner5-pop-layout-content-scroll-down').hide();
                     $('.banner5-pop-layout').css({ width: '0vw', height: '0vh', left: '77vw', top: '70vh', opacity: "0" });
                     $('.banner5-pop-layout-content').css({ left: '-77vw', top: '-70vh' });
+                    $('.banner5-pop-layout-content').unbind('mousewheel');
                     $('#fp-nav').show();
                     $.fn.fullpage.setAllowScrolling(true);
                 })
@@ -283,6 +284,7 @@ $(function () {
                 $('.banner5-pop-layout-content-scroll-down').hide();
                 $('.banner5-pop-layout').css({ width: '0vw', height: '0vh', left: '77vw', top: '70vh', opacity: "0" });
                 $('.banner5-pop-layout-content').css({ left: '-77vw', top: '-70vh' });
+                $('.banner5-pop-layout-content').unbind('mousewheel');
             }
 
             if (index == 4) {

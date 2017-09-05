@@ -1,0 +1,241 @@
+/**
+方正兰亭c粗黒简体 用于标题
+*/
+
+@font-face {
+    font-family: fzltch;
+    src: url('fzltch.TTF');
+}
+
+
+/**
+方正兰亭黒简体
+*/
+
+@font-face {
+    font-family: fzlth;
+    src: url('fzlth.TTF');
+}
+
+
+/**
+方正兰亭细黒简体 用于正文和描述
+*/
+
+@font-face {
+    font-family: fzltxh;
+    src: url('fzltxh.TTF');
+}
+
+html, body {
+    font: 1vw/1.5 fzlth, fzltxh, fzltch, "microsoft yahei", Helvetica, Arial, sans-serif;
+    color: #131313;
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+body, p, pre, blockquote, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td, div, i {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: fzltch !important;
+}
+
+p, pre, blockquote, dl, dt, dd, ul, ol, li, form, fieldset, legend, select, input, textarea, button, table, caption, tr, th, td, a, span, label, i {
+    font-family: fzltxh !important;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+fieldset, img {
+    border: 0 none;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: #131313;
+    text-decoration: none;
+}
+
+input, button, textarea, select, option {
+    font-family: inherit;
+    font-size: 100%;
+    outline: 0;
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+}
+
+
+/* 布局样式 */
+
+.cf {
+    *zoom: 1;
+}
+
+.cf:before, .cf:after {
+    display: table;
+    content: "";
+}
+
+.cf:after {
+    clear: both;
+}
+
+
+/* 导航栏样式 */
+
+#header {
+    width: 100vw;
+    height: 7vh;
+    overflow: hidden;
+    padding: 0 10vw;
+    background-color: #ffffff;
+    display: table;
+}
+
+.logo {
+    width: 8.1%;
+    background: url(../../images/public/logo.png) 50% no-repeat;
+    background-size: contain;
+    overflow: hidden;
+    display: table-cell;
+}
+
+.main_nav {
+    overflow: hidden;
+    padding-left: 7vw;
+    display: table-cell;
+    align-items: center;
+}
+
+.social_icon {
+    float: right;
+    overflow: hidden;
+    height: 100%;
+}
+
+.main_nav li {
+    display: inline-block;
+    width: 5vw;
+    height: 100%;
+    margin-right: 2vw;
+}
+
+.main_nav li a {
+    float: left;
+    width: 100%;
+    height: 93%;
+    border-bottom: 10px solid #fff;
+    font-size: 1.5vmin;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.main_nav li a:after {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
+}
+
+.main_nav li a.active, .main_nav li a:hover {
+    border-bottom-color: #ee5322;
+}
+
+.social_icon a {
+    width: 2vw;
+    height: 100%;
+    display: block;
+    float: right;
+    background-size: contain;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    margin-left: 1vw;
+}
+
+.social_icon a:after {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
+}
+
+.social_icon a:nth-child(1) {
+    background-image: url(../../images/public/social-4.png);
+}
+
+.social_icon a:nth-child(2) {
+    background-image: url(../../images/public/social-3.png);
+}
+
+.social_icon a:nth-child(3) {
+    background-image: url(../../images/public/social-2.png);
+}
+
+.social_icon a:nth-child(4) {
+    background-image: url(../../images/public/social-1.png);
+}
+
+#main {
+    width: 100%;
+    position: relative;
+}
+
+#go-top {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+#go-top a {
+    background: url(../../images/public/top.png) no-repeat;
+    height: 46px;
+    width: 46px;
+    float: right;
+}
+
+
+/* 底部样式 */
+
+#footer {
+    width: 100%;
+    height: 41px;
+    padding: 10px 0;
+    position: relative;
+    background: url(../../images/public/bg.png) repeat;
+    min-width: 1000px;
+    text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#footer p {
+    text-align: center;
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 0.8vw;
+}
+
+#footer p a span {
+    color: #ee5322;
+    font-size: 0.8vw;
+}

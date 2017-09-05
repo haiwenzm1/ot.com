@@ -51,7 +51,7 @@
     left: 4vw;
     width: 4vw;
     height: 10vh;
-    background: url(../images/index/arrow-left.png) 50% no-repeat;
+    background: url(../../images/index/arrow-left.png) 50% no-repeat;
     background-size: contain;
     border-width: 0;
     border-color: none;
@@ -61,7 +61,7 @@
     right: 4vw;
     width: 4vw;
     height: 10vh;
-    background: url(../images/index/arrow-right.png) 50% no-repeat;
+    background: url(../../images/index/arrow-right.png) 50% no-repeat;
     background-size: contain;
     border-width: 0;
 }
@@ -120,7 +120,7 @@
 ******************************************************************************************/
 
 .banner3 {
-    background: url(../images/index/banner3/3.jpg) 0 0 no-repeat;
+    background: url(../../images/index/banner3/3.jpg) 0 0 no-repeat;
     background-size: cover;
 }
 
@@ -134,7 +134,7 @@
     display: none;
     width: 100vw;
     height: 100vh;
-    background: url(../images/index/banner3/bg.jpg) no-repeat 50%;
+    background: url(../../images/index/banner3/bg.jpg) no-repeat 50%;
     background-size: cover;
     position: absolute;
     top: 0;
@@ -173,7 +173,7 @@
 }
 
 .banner3 .pop-layout-content .left-nav li {
-    background: url(../images/index/banner3/left-nav/1.png) no-repeat 10px 0;
+    background: url(../../images/index/banner3/left-nav/1.png) no-repeat 10px 0;
     height: 12.5%;
     background-size: 10px 100%;
     overflow: hidden;
@@ -193,7 +193,7 @@
 }
 
 .banner3 .pop-layout-content .left-nav li a {
-    background: url(../images/index/banner3/left-nav/2.png) no-repeat 50%;
+    background: url(../../images/index/banner3/left-nav/2.png) no-repeat 50%;
     background-size: contain;
     width: 30px;
     height: 100%;
@@ -230,7 +230,7 @@
 }
 
 .banner3 .pop-layout-content .left-nav li.active a {
-    background-image: url(../images/index/banner3/left-nav/3.png);
+    background-image: url(../../images/index/banner3/left-nav/3.png);
 }
 
 .banner3 .pop-layout-content .left-nav li.active * {
@@ -278,7 +278,7 @@
 ******************************************************************************************/
 
 .banner5 {
-    background: url(../images/index/banner5/bg.jpg) 0 0 no-repeat;
+    background: url(../../images/index/banner5/bg.jpg) 0 0 no-repeat;
     background-size: cover;
 }
 
@@ -310,7 +310,7 @@
     width: 100vw;
     height: 100vh;
     padding: 7vh 0 41px;
-    background: url(../images/index/banner5/pop-bg.png) no-repeat 50%;
+    background: url(../../images/index/banner5/pop-bg.png) no-repeat 50%;
     background-size: cover;
     position: relative;
     top: -70vh;
@@ -346,13 +346,13 @@
 }
 
 .time-nav li {
-    background: url(../images/index/banner5/time-nav/1.png) 0 17px no-repeat;
+    background: url(../../images/index/banner5/time-nav/1.png) 0 17px no-repeat;
     float: left;
     background-size: 100% 10px;
 }
 
 .time-nav li a {
-    background: url(../images/index/banner5/time-nav/2.png) 4px 10px no-repeat;
+    background: url(../../images/index/banner5/time-nav/2.png) 4px 10px no-repeat;
     height: 44px;
     width: 30px;
     float: left;
@@ -369,7 +369,7 @@
     position: absolute;
     top: 31px;
     left: 44%;
-    background: url(../images/index/banner5/time-nav/3.png) 0 0 repeat;
+    background: url(../../images/index/banner5/time-nav/3.png) 0 0 repeat;
 }
 
 .time-nav li i {
@@ -391,7 +391,7 @@
 }
 
 .time-nav li.active a {
-    background: url(../images/index/banner5/time-nav/4.png) 0 7px no-repeat;
+    background: url(../../images/index/banner5/time-nav/4.png) 0 7px no-repeat;
 }
 
 .time-nav li.active a span {
@@ -450,7 +450,7 @@
     -webkit-transform: skew(-13deg);
     -moz-transform: skew(-13deg);
     transform: skew(-13deg);
-    background: url(../images/index/banner6/9.png) repeat;
+    background: url(../../images/index/banner6/9.png) repeat;
     z-index: 1001;
 }
 
@@ -469,7 +469,7 @@
 }
 
 .banner6 .banner6-div-1 p {
-    background: url(../images/index/banner6/6.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/6.png) 0 0 no-repeat;
     background-size: contain;
     width: 15vw;
     height: 5vw;
@@ -479,7 +479,7 @@
 }
 
 .banner6 .banner6-div-1 a {
-    background: url(../images/index/banner6/5.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/5.png) 0 0 no-repeat;
     background-size: contain;
     width: 5vw;
     height: 4vw;
@@ -499,7 +499,7 @@
     transform: skew(-13deg);
     z-index: 1000;
     overflow: hidden;
-    background: url(../images/index/banner6/9.png) repeat;
+    background: url(../../images/index/banner6/9.png) repeat;
 }
 
 .banner6 .banner6-div-2 * {
@@ -517,7 +517,7 @@
 }
 
 .banner6 .banner6-div-2 p {
-    background: url(../images/index/banner6/7.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/7.png) 0 0 no-repeat;
     background-size: contain;
     width: 15vw;
     height: 5vw;
@@ -527,7 +527,7 @@
 }
 
 .banner6 .banner6-div-2 a {
-    background: url(../images/index/banner6/5.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/5.png) 0 0 no-repeat;
     background-size: contain;
     width: 5vw;
     height: 4vw;
@@ -543,7 +543,7 @@
     top: 0;
     left: -120%;
     overflow: hidden;
-    background: url(../images/index/banner6/9.png) repeat;
+    background: url(../../images/index/banner6/9.png) repeat;
 }
 
 .banner6 .banner6-div-3 img {
@@ -555,7 +555,7 @@
 }
 
 .banner6 .banner6-div-3 p {
-    background: url(../images/index/banner6/8.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/8.png) 0 0 no-repeat;
     background-size: contain;
     width: 15vw;
     height: 5vw;
@@ -565,7 +565,7 @@
 }
 
 .banner6 .banner6-div-3 a {
-    background: url(../images/index/banner6/5.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/5.png) 0 0 no-repeat;
     background-size: contain;
     width: 5vw;
     height: 4vw;
@@ -575,7 +575,7 @@
 }
 
 .banner6 span {
-    background: url(../images/index/banner6/9.png) repeat;
+    background: url(../../images/index/banner6/9.png) repeat;
     transform: none !important;
     cursor: pointer;
     width: 5vw;
