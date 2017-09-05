@@ -190,10 +190,6 @@ textarea {
     background-image: url(../../images/public/social-2.png);
 }
 
-.social_icon a:nth-child(4) {
-    background-image: url(../../images/public/social-1.png);
-}
-
 #main {
     width: 100%;
     position: relative;

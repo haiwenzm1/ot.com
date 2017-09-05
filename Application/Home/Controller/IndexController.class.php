@@ -24,16 +24,16 @@ class IndexController extends HomeController {
 
     public function whoWeAre(){    
         $this->pageTitle = "品牌介绍";    
-        $this->display();
+        $this->display('whoWeAre');
     }
 
     public function howWeWork(){   
         $this->pageTitle = "品牌详情";      
-        $this->display();
+        $this->display('howWeWork');
     }  
 
     public function whereWeAre(){   
         $this->pageTitle = "品牌来源";      
-        $this->display();
+        $this->display('whereWeAre');
     }  
 }
