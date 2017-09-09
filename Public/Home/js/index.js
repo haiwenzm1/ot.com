@@ -15,8 +15,9 @@ $(function () {
             }
 
             if (index == 2) {
-                $('.banner3-wrap .text').animate({ 'left': '48.6vw', 'opacity': '100' }, 1500);
-                $('.banner3-wrap #pop-click').animate({ 'left': '80vw', 'opacity': '100' }, 1500);
+                $('.banner3-wrap .text').animate({ 'opacity': '1', 'left': '48.6vw' }, 2000);
+
+                $('.banner3-wrap #pop-click').animate({ 'opacity': '1', 'left': '80vw', }, 2000);
 
                 $('#pop-click').click(function () {
                     $.fn.fullpage.setAllowScrolling(false);
@@ -52,15 +53,22 @@ $(function () {
                         }
                     }
                     var index = $('.left-nav').find('li').index($('.left-nav .active'));
-                    console.log(index);
+                    $('.banner3-nav-content').find('p').eq(index).show().siblings().hide();
+                    return false;
+                });
+
+                $('.left-nav a').bind('click', function () {
+                    var index = $('.left-nav').find('li').index($(this).parent());
+                    $(this).parent().addClass('active');
+                    $(this).parent().siblings().removeClass('active');
                     $('.banner3-nav-content').find('p').eq(index).show().siblings().hide();
                     return false;
                 });
             }
 
             if (index == 3) {
-                $('.banner5-wrap .text').animate({ 'left': '40vw', 'opacity': '100' }, 1500);
-                $('.banner5-wrap #banner5-pop-click').animate({ 'left': '77vw', 'opacity': '100' }, 1500);
+                $('.banner5-wrap .text').animate({ 'opacity': '1', 'left': '40vw' }, 2000);
+                $('.banner5-wrap #banner5-pop-click').animate({ 'opacity': '1', 'left': '77vw' }, 2000);
 
                 $('#banner5-pop-click').click(function () {
                     $('#fp-nav').hide();
@@ -71,7 +79,7 @@ $(function () {
                     $('.banner5-pop-layout-content-scroll-down').show();
                     $('.banner5-pop-content').find('div').eq(0).show();
                     $('.banner5-pop-layout').show();
-                    $('.banner5-pop-layout').animate({ width: '150vw', height: '150vw', left: '-25vw', top: '-35vh', opacity: "100" }, 1500, function () {
+                    $('.banner5-pop-layout').animate({ width: '150vw', height: '150vw', left: '-25vw', top: '-35vh', opacity: "1" }, 1500, function () {
                         $('.banner5-pop-layout').stop();
                     });
 
@@ -122,12 +130,14 @@ $(function () {
             }
 
             if (index == 4) {
-                $('.banner6-div-3').animate({ left: "0" }, 1500);
+
+                $('.banner6-div-3').animate({ left: "52%" }, 2500);
                 setTimeout(function () {
-                    $('.banner6-div-2').animate({ left: "-27%" }, 1000);
+                    $('.banner6-div-2').animate({ left: "26%" }, 2000);
                 }, 500);
                 setTimeout(function () {
-                    $('.banner6-div-1').animate({ left: "-62%" }, 500, function () {
+                    $('.banner6-div-1').animate({ left: "-10%" }, 1500, function () {
+
                         $(document).on('mouseover', '#header,#footer', function () {
                             $('.banner6-div-1 span').remove();
                             $('.banner6-div-2 span').remove();
@@ -137,22 +147,22 @@ $(function () {
                             $('.banner6-div-2').stop();
                             $('.banner6-div-3').stop();
 
-                            $('.banner6-div-1').css({ 'width': '100%', 'left': '-62%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1003' });
+                            $('.banner6-div-1').css({ 'width': '48%', 'left': '-10%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1003' });
                             $('.banner6-div-1 *').css({ '-webkit-transform': 'skew(13deg)', '-moz-transform': 'skew(13deg)', 'transform': 'skew(13deg)' });
-                            $('.banner6-div-1 img').css({ 'right': '-15%' });
+                            $('.banner6-div-1 img').css({ 'right': '-15%', 'width': 'auto' });
                             $('.banner6-div-1 p').css({ 'right': '7vw' });
-                            $('.banner6-div-1 a').css({ 'right': '1%' });
+                            $('.banner6-div-1 a').css({ 'right': '0.5%' });
 
-                            $('.banner6-div-2').css({ 'width': '100%', 'left': '-27%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1002' });
+                            $('.banner6-div-2').css({ 'width': '48%', 'left': '26%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1002' });
                             $('.banner6-div-2 *').css({ '-webkit-transform': 'skew(13deg)', '-moz-transform': 'skew(13deg)', 'transform': 'skew(13deg)' });
-                            $('.banner6-div-2 img').css({ 'right': '-17%' });
+                            $('.banner6-div-2 img').css({ 'right': '-17%', 'width': 'auto' });
                             $('.banner6-div-2 p').css({ 'right': '7vw' });
-                            $('.banner6-div-2 a').css({ 'right': '1%' });
+                            $('.banner6-div-2 a').css({ 'right': '0.5%' });
 
-                            $('.banner6-div-3').css({ 'width': '100%', 'left': '0', 'z-index': '1001' });
-                            $('.banner6-div-3 img').css({ 'right': '0' });
+                            $('.banner6-div-3').css({ 'width': '48%', 'left': '52%', 'z-index': '1001' });
+                            $('.banner6-div-3 img').css({ 'right': '0', 'width': 'auto' });
                             $('.banner6-div-3 p').css({ 'right': '7vw' });
-                            $('.banner6-div-3 a').css({ 'right': '1%' });
+                            $('.banner6-div-3 a').css({ 'right': '0.5%' });
                         });
 
                         $(document).on('mouseover', '.banner6-div-1, .span-div-1', function () {
@@ -160,30 +170,34 @@ $(function () {
                                 var w1 = $('.banner6').width() * 0.05;
                                 var w2 = $('.banner6-div-1 a').width();
                                 var w3 = (w1 - w2) / 2;
+
+                                $('.banner6-div-1').stop();
                                 $('.banner6-div-2').stop();
                                 $('.banner6-div-3').stop();
-                                $('.banner6-div-1').animate({ 'width': '90%' }, 1000);
-                                $('.banner6-div-1').css({ 'left': '0', 'transform': 'none', 'z-index': '3000' });
-                                $('.banner6-div-1 *').css({ 'transform': 'none' });
-                                $('.banner6-div-1 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-1 p').css({ 'right': w1 + 20 + 'px' });
-                                $('.banner6-div-1 a').css({ 'right': w3 + 'px' });
-
-                                $('.banner6-div-2').css({ 'width': '95%', 'left': '0', 'transform': 'none', 'z-index': '2000' });
-                                $('.banner6-div-2 *').css({ 'transform': 'none' });
-                                $('.banner6-div-2 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-2 a').css({ 'right': w3 + 'px' });
-
-                                $('.banner6-div-3').css({ 'width': '100%', 'left': '0', 'z-index': '1000' });
-                                $('.banner6-div-3 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-3 a').css({ 'right': w3 + 'px' });
 
                                 $('.banner6-div-1 span').remove();
                                 $('.banner6-div-2 span').remove();
                                 $('.banner6-div-3 span').remove();
-
                                 $('.banner6-div-2').append('<span class="span-div-2" style="right: 0;"></span>');
                                 $('.banner6-div-3').append('<span class="span-div-3" style="right: 0;"></span>');
+
+                                $('.banner6-div-1').css({ 'transform': 'none', 'z-index': '3000' });
+                                $('.banner6-div-1').animate({ 'width': '90%', 'left': '0', 'transform': 'none', 'z-index': '3000' }, 1000);
+                                $('.banner6-div-1 *').css({ 'transform': 'none' });
+                                $('.banner6-div-1 img').css({ 'right': '0', 'width': '100%' });
+                                $('.banner6-div-1 p').css({ 'right': w1 + 10 + 'px' });
+                                $('.banner6-div-1 a').css({ 'right': '0.5%' });
+
+                                $('.banner6-div-2').css({ 'transform': 'none', 'z-index': '2000' });
+                                $('.banner6-div-2').animate({ 'width': '5%', 'left': '90%' }, 1000);
+                                $('.banner6-div-2 *').css({ 'transform': 'none' });
+                                $('.banner6-div-2 img').css({ 'right': '0', 'width': 'auto' });
+                                $('.banner6-div-2 a').css({ 'right': '0.5%' });
+
+                                $('.banner6-div-3').css({ 'z-index': '1000' });
+                                $('.banner6-div-3').animate({ 'width': '5%', 'left': '95%' }, 1000);
+                                $('.banner6-div-3 img').css({ 'right': '0', 'width': 'auto' });
+                                $('.banner6-div-3 a').css({ 'right': '0.5%' });
                             }, 100);
                         });
 
@@ -194,29 +208,33 @@ $(function () {
                                 var w2 = $('.banner6-div-1 a').width();
                                 var w3 = (w1 - w2) / 2;
 
-                                $('.banner6-div-1').css({ 'width': '95%', 'left': '0', 'transform': 'none', 'z-index': '2000' });
-                                $('.banner6-div-1 *').css({ 'transform': 'none' });
-                                $('.banner6-div-1 img').css({ 'right': '41%' });
-                                $('.banner6-div-1 a').css({ 'right': '95%' });
-
                                 $('.banner6-div-1').stop();
+                                $('.banner6-div-2').stop();
                                 $('.banner6-div-3').stop();
-                                $('.banner6-div-2').animate({ 'width': '90%' }, 1000);
-                                $('.banner6-div-2').css({ 'left': '5%', 'transform': 'none', 'z-index': '3000' });
-                                $('.banner6-div-2 *').css({ 'transform': 'none' });
-                                $('.banner6-div-2 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-2 p').css({ 'right': w1 + 20 + 'px' });
-                                $('.banner6-div-2 a').css({ 'right': w3 + 'px' });
-
-                                $('.banner6-div-3').css({ 'width': '100%', 'left': '0', 'z-index': '1000' });
-                                $('.banner6-div-3 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-3 a').css({ 'right': w3 + 'px' });
 
                                 $('.banner6-div-1 span').remove();
                                 $('.banner6-div-2 span').remove();
                                 $('.banner6-div-3 span').remove();
                                 $('.banner6-div-1').append('<span class="span-div-1" style="left: 0;"></span>');
                                 $('.banner6-div-3').append('<span class="span-div-3" style="right: 0;"></span>');
+
+                                $('.banner6-div-1').css({ 'transform': 'none', 'z-index': '2000' });
+                                $('.banner6-div-1').animate({ 'width': '5%', 'left': '0' }, 1000);
+                                $('.banner6-div-1 *').css({ 'transform': 'none' });
+                                $('.banner6-div-1 img').css({ 'right': '0', 'width': 'auto' });
+                                $('.banner6-div-1 a').css({ 'right': '0.5%' });
+
+                                $('.banner6-div-2').css({ 'transform': 'none', 'z-index': '3000' });
+                                $('.banner6-div-2').animate({ 'width': '90%', 'left': '5%' }, 1000);
+                                $('.banner6-div-2 *').css({ 'transform': 'none' });
+                                $('.banner6-div-2 img').css({ 'right': '0', 'width': '100%' });
+                                $('.banner6-div-2 p').css({ 'right': w1 + 10 + 'px' });
+                                $('.banner6-div-2 a').css({ 'right': '0.5%' });
+
+                                $('.banner6-div-3').css({ 'z-index': '1000' });
+                                $('.banner6-div-3').animate({ 'width': '5%', 'left': '95%' }, 1000);
+                                $('.banner6-div-3 img').css({ 'right': '0', 'width': 'auto' });
+                                $('.banner6-div-3 a').css({ 'right': '0.5%' });
                             }, 100);
                         });
 
@@ -227,29 +245,33 @@ $(function () {
                                 var w2 = $('.banner6-div-1 a').width();
                                 var w3 = (w1 - w2) / 2;
 
-                                $('.banner6-div-1').css({ 'width': '100%', 'transform': 'none', 'left': '0', 'z-index': '1000' });
-                                $('.banner6-div-1 *').css({ 'transform': 'none' });
-                                $('.banner6-div-1 img').css({ 'right': '41%' });
-                                $('.banner6-div-1 a').css({ 'right': w4 + w3 + 'px' });
-
-                                $('.banner6-div-2').css({ 'width': '95%', 'left': '5%', 'transform': 'none', 'z-index': '2000' });
-                                $('.banner6-div-2 *').css({ 'transform': 'none' });
-                                $('.banner6-div-2 img').css({ 'right': '93%', 'width': '100%' });
-                                $('.banner6-div-2 a').css({ 'right': w4 - w1 + w3 + 'px' });
-
-                                $('.banner6-div-2').stop();
                                 $('.banner6-div-1').stop();
-                                $('.banner6-div-3').animate({ 'width': '90%' }, 1000);
-                                $('.banner6-div-3').css({ 'left': '10%', 'z-index': '3000' });
-                                $('.banner6-div-3 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-3 p').css({ 'right': w1 + 20 + 'px' });
-                                $('.banner6-div-3 a').css({ 'right': w3 + 'px' });
+                                $('.banner6-div-2').stop();
+                                $('.banner6-div-3').stop();
 
                                 $('.banner6-div-1 span').remove();
                                 $('.banner6-div-2 span').remove();
                                 $('.banner6-div-3 span').remove();
                                 $('.banner6-div-1').append('<span class="span-div-1" style="left: 0;"></span>');
                                 $('.banner6-div-2').append('<span class="span-div-2" style="left: 0;"></span>');
+
+                                $('.banner6-div-1').css({ 'transform': 'none', 'z-index': '1000' });
+                                $('.banner6-div-1').animate({ 'width': '5%', 'left': '0' }, 1000);
+                                $('.banner6-div-1 *').css({ 'transform': 'none' });
+                                $('.banner6-div-1 img').css({ 'right': '0', 'width': 'auto' });
+                                $('.banner6-div-1 a').css({ 'right': '0.5%' });
+
+                                $('.banner6-div-2').css({ 'transform': 'none', 'z-index': '2000' });
+                                $('.banner6-div-2').animate({ 'width': '5%', 'left': '5%' }, 1000);
+                                $('.banner6-div-2 *').css({ 'transform': 'none' });
+                                $('.banner6-div-2 img').css({ 'right': '0', 'width': 'auto' });
+                                $('.banner6-div-2 a').css({ 'right': '0.5%' });
+
+                                $('.banner6-div-3').css({ 'z-index': '3000' });
+                                $('.banner6-div-3').animate({ 'left': '10%', 'width': '90%' }, 1000);
+                                $('.banner6-div-3 img').css({ 'right': '0', 'width': '100%' });
+                                $('.banner6-div-3 p').css({ 'right': w1 + 10 + 'px' });
+                                $('.banner6-div-3 a').css({ 'right': '0.5%' });
                             }, 100);
                         });
                     });
@@ -276,7 +298,7 @@ $(function () {
                 $('.banner5-wrap img').css('opacity', '0');
                 $('.banner5-wrap .text').css('left', '37vw');
                 $('.banner5-wrap #banner5-pop-click').css('left', '80vw');
-              }
+            }
 
             if (index == 4) {
                 $(document).off('mouseover', '.banner6-div-1,.span-div-1');
@@ -296,18 +318,18 @@ $(function () {
                 $('.banner6-div-1 *').css({ '-webkit-transform': 'skew(13deg)', '-moz-transform': 'skew(13deg)', 'transform': 'skew(13deg)' });
                 $('.banner6-div-1 img').css({ 'right': '-15%' });
                 $('.banner6-div-1 p').css({ 'right': '7vw' });
-                $('.banner6-div-1 a').css({ 'right': '1%' });
+                $('.banner6-div-1 a').css({ 'right': '0.5%' });
 
                 $('.banner6-div-2').css({ 'width': '100%', 'left': '-120%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1002' });
                 $('.banner6-div-2 *').css({ '-webkit-transform': 'skew(13deg)', '-moz-transform': 'skew(13deg)', 'transform': 'skew(13deg)' });
                 $('.banner6-div-2 img').css({ 'right': '-17%' });
                 $('.banner6-div-2 p').css({ 'right': '7vw' });
-                $('.banner6-div-2 a').css({ 'right': '1%' });
+                $('.banner6-div-2 a').css({ 'right': '0.5%' });
 
                 $('.banner6-div-3').css({ 'width': '100%', 'left': '-120%', 'z-index': '1001' });
                 $('.banner6-div-3 img').css({ 'right': '0' });
                 $('.banner6-div-3 p').css({ 'right': '7vw' });
-                $('.banner6-div-3 a').css({ 'right': '1%' });
+                $('.banner6-div-3 a').css({ 'right': '0.5%' });
             }
         },
         afterSlideLoad: function (anchorLink, index, slideAnchor, slideIndex) {

@@ -229,7 +229,7 @@
     vertical-align: middle;
 }
 
-.banner3 .pop-layout-content .left-nav li.active a {
+.banner3 .pop-layout-content .left-nav li.active a,.banner3 .pop-layout-content .left-nav li a:hover {
     background-image: url(../../images/index/banner3/left-nav/3.png);
 }
 
@@ -441,7 +441,7 @@
 ******************************************************************************************/
 
 .banner6 .banner6-div-1 {
-    width: 100%;
+    width: 48%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -483,13 +483,13 @@
     background-size: contain;
     width: 5vw;
     height: 4vw;
-    right: 1%;
+    right: 0.5%;
     bottom: 10%;
     position: absolute;
 }
 
 .banner6 .banner6-div-2 {
-    width: 100%;
+    width: 48%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -531,13 +531,13 @@
     background-size: contain;
     width: 5vw;
     height: 4vw;
-    right: 1%;
+    right: 0.5%;
     bottom: 10%;
     position: absolute;
 }
 
 .banner6 .banner6-div-3 {
-    width: 100%;
+    width: 48%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -569,7 +569,7 @@
     background-size: contain;
     width: 5vw;
     height: 4vw;
-    right: 1%;
+    right: 0.5%;
     bottom: 10%;
     position: absolute;
 }
@@ -578,7 +578,7 @@
     background: url(../../images/index/banner6/9.png) repeat;
     transform: none !important;
     cursor: pointer;
-    width: 5vw;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0%;
