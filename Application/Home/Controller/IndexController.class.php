@@ -18,7 +18,7 @@ class IndexController extends HomeController {
 
 	//系统首页
     public function index(){
-        $this->pageTitle = C('WEB_SITE_TITLE');
+        $this->pageTitle = "ORANGE GARTEN";
         $this->display();
     }
 

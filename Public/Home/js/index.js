@@ -318,20 +318,20 @@ $(function() {
                 $('.banner6-div-2 span').remove();
                 $('.banner6-div-3 span').remove();
 
-                $('.banner6-div-1').css({ 'width': '100%', 'left': '-120%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1003' });
+                $('.banner6-div-1').css({ 'width': '48%', 'left': '-120%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1003' });
                 $('.banner6-div-1 *').css({ '-webkit-transform': 'skew(13deg)', '-moz-transform': 'skew(13deg)', 'transform': 'skew(13deg)' });
-                $('.banner6-div-1 img').css({ 'right': '-15%' });
+                $('.banner6-div-1 img').css({ 'right': '-15%', 'width': 'auto' });
                 $('.banner6-div-1 p').css({ 'right': '7vw' });
                 $('.banner6-div-1 a').css({ 'right': '0.5%' });
 
-                $('.banner6-div-2').css({ 'width': '100%', 'left': '-120%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1002' });
+                $('.banner6-div-2').css({ 'width': '48%', 'left': '-120%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1002' });
                 $('.banner6-div-2 *').css({ '-webkit-transform': 'skew(13deg)', '-moz-transform': 'skew(13deg)', 'transform': 'skew(13deg)' });
-                $('.banner6-div-2 img').css({ 'right': '-17%' });
+                $('.banner6-div-2 img').css({ 'right': '-17%', 'width': 'auto' });
                 $('.banner6-div-2 p').css({ 'right': '7vw' });
                 $('.banner6-div-2 a').css({ 'right': '0.5%' });
 
-                $('.banner6-div-3').css({ 'width': '100%', 'left': '-120%', 'z-index': '1001' });
-                $('.banner6-div-3 img').css({ 'right': '0' });
+                $('.banner6-div-3').css({ 'width': '48%', 'left': '-120%', 'z-index': '1001' });
+                $('.banner6-div-3 img').css({ 'right': '0', 'width': 'auto' });
                 $('.banner6-div-3 p').css({ 'right': '7vw' });
                 $('.banner6-div-3 a').css({ 'right': '0.5%' });
             }
