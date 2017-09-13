@@ -78,14 +78,14 @@
             url = url.replace(/(\/(p)\/\d+)|(&p=\d+)|(\/(id)\/\d+)|(&id=\d+)|(\/(group)\/\d+)|(&group=\d+)/, "");
 
             if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
-				if(document.domain != "m.orangegarten.cn"){
-					window.location.href = "http://m.orangegarten.cn" + url;
-				}
-                
+                if (document.domain != "m.ot.com") {
+                    window.location.href = "http://m.ot.com:8083" + url;
+                }
+
             } else {
-                if(document.domain != "www.orangegarten.cn"){
-					window.location.href = "http://www.orangegarten.cn" + url;
-				}
+                if (document.domain != "ot.com") {
+                    window.location.href = "http://ot.com:8083" + url;
+                }
             }
         }
 
