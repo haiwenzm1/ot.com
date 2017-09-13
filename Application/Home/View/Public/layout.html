@@ -38,8 +38,8 @@
             </li>
         </ul>
         <div class="social_icon">
-            <a href="javascript:;"></a>
-            <a href="javascript:;"></a>
+            <a href="http://weibo.com/u/6326800239"></a>
+            <a href="https://mp.weixin.qq.com/s/E9SY-B0XN8poUO5ClGFqrg"></a>
             <a href="https://mall.kaola.com/675665"></a>
         </div>
     </div>
@@ -78,14 +78,14 @@
             url = url.replace(/(\/(p)\/\d+)|(&p=\d+)|(\/(id)\/\d+)|(&id=\d+)|(\/(group)\/\d+)|(&group=\d+)/, "");
 
             if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
-                if (document.domain != "ot.com") {
-                    window.location.href = "ot.com" + url;
-                }
-
+				if(document.domain != "m.orangegarten.cn"){
+					window.location.href = "http://m.orangegarten.cn" + url;
+				}
+                
             } else {
-                if (document.domain != "ot.com") {
-                    window.location.href = "http://ot.com" + url;
-                }
+                if(document.domain != "www.orangegarten.cn"){
+					window.location.href = "http://www.orangegarten.cn" + url;
+				}
             }
         }
 
