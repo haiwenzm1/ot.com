@@ -77,6 +77,26 @@
 *******************************************************************************************
 ******************************************************************************************/
 
+.banner1-content {
+    width: 94vw;
+    margin-left: 3vw;
+    height: 85vh;
+    overflow: hidden;
+    position: relative;
+    margin-top: 1vh;
+}
+
+.banner1-content img {
+    height: 100%;
+}
+
+
+/******************************************************************************************
+*******************************************************************************************
+**用于banner2
+*******************************************************************************************
+******************************************************************************************/
+
 .banner2-content {
     width: 88vw;
     margin-left: 6vw;
@@ -229,7 +249,7 @@
     vertical-align: middle;
 }
 
-.banner3 .pop-layout-content .left-nav li.active a,.banner3 .pop-layout-content .left-nav li a:hover {
+.banner3 .pop-layout-content .left-nav li.active a, .banner3 .pop-layout-content .left-nav li a:hover {
     background-image: url(../../images/index/banner3/left-nav/3.png);
 }
 
