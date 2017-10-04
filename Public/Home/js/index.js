@@ -17,7 +17,6 @@ $(function () {
 
             if (index == 3) {
                 $('.banner3-wrap .text').animate({ 'opacity': '1', 'left': '48.6vw' }, 2000);
-
                 $('.banner3-wrap #pop-click').animate({ 'opacity': '1', 'left': '80vw', }, 2000);
 
                 $('#pop-click').click(function () {
@@ -55,6 +54,7 @@ $(function () {
                     }
                     var index = $('.left-nav').find('li').index($('.left-nav .active'));
                     $('.banner3-nav-content').find('p').eq(index).show().siblings().hide();
+                    $('.banner3 .pop-layout').css({ 'backgroundImage': 'url(/Public/Home/images/index/banner3/content/bg-' + index + '.jpg)' });
                     return false;
                 });
 
@@ -150,18 +150,19 @@ $(function () {
                             $('.banner6-div-1').css({ 'width': '48%', 'left': '-10%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1003' });
                             $('.banner6-div-1 *').css({ '-webkit-transform': 'skew(13deg)', '-moz-transform': 'skew(13deg)', 'transform': 'skew(13deg)' });
                             $('.banner6-div-1 img').css({ 'right': '-15%', 'width': 'auto' });
-                            $('.banner6-div-1 p').css({ 'right': '7vw' });
+                            $('.banner6-div-1 p').css({ 'right': '7vw', 'backgroundImage': 'url(/Public/Home/images/index/banner6/10.png)' });
+
                             $('.banner6-div-1 a').css({ 'right': '0.5%' });
 
                             $('.banner6-div-2').css({ 'width': '48%', 'left': '26%', '-webkit-transform': 'skew(-13deg)', '-moz-transform': 'skew(-13deg)', 'transform': 'skew(-13deg)', 'z-index': '1002' });
                             $('.banner6-div-2 *').css({ '-webkit-transform': 'skew(13deg)', '-moz-transform': 'skew(13deg)', 'transform': 'skew(13deg)' });
                             $('.banner6-div-2 img').css({ 'right': '-17%', 'width': 'auto' });
-                            $('.banner6-div-2 p').css({ 'right': '7vw' });
+                            $('.banner6-div-2 p').css({ 'right': '7vw', 'backgroundImage': 'url(/Public/Home/images/index/banner6/11.png)' });
                             $('.banner6-div-2 a').css({ 'right': '0.5%' });
 
                             $('.banner6-div-3').css({ 'width': '48%', 'left': '52%', 'z-index': '1001' });
                             $('.banner6-div-3 img').css({ 'right': '0', 'width': 'auto' });
-                            $('.banner6-div-3 p').css({ 'right': '7vw' });
+                            $('.banner6-div-3 p').css({ 'right': '7vw', 'backgroundImage': 'url(/Public/Home/images/index/banner6/12.png)' });
                             $('.banner6-div-3 a').css({ 'right': '0.5%' });
                         });
 
@@ -185,7 +186,7 @@ $(function () {
                                 $('.banner6-div-1').animate({ 'width': '90%', 'left': '0', 'transform': 'none', 'z-index': '3000' }, 1000);
                                 $('.banner6-div-1 *').css({ 'transform': 'none' });
                                 $('.banner6-div-1 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-1 p').css({ 'right': w1 + 10 + 'px' });
+                                $('.banner6-div-1 p').css({ 'right': w1 + 10 + 'px', 'backgroundImage': 'url(/Public/Home/images/index/banner6/6.png)' });
                                 $('.banner6-div-1 a').css({ 'right': '0.5%' });
 
                                 $('.banner6-div-2').css({ 'transform': 'none', 'z-index': '2000' });
@@ -228,7 +229,7 @@ $(function () {
                                 $('.banner6-div-2').animate({ 'width': '90%', 'left': '5%' }, 1000);
                                 $('.banner6-div-2 *').css({ 'transform': 'none' });
                                 $('.banner6-div-2 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-2 p').css({ 'right': w1 + 10 + 'px' });
+                                $('.banner6-div-2 p').css({ 'right': w1 + 10 + 'px', 'backgroundImage': 'url(/Public/Home/images/index/banner6/7.png)' });
                                 $('.banner6-div-2 a').css({ 'right': '0.5%' });
 
                                 $('.banner6-div-3').css({ 'z-index': '1000' });
@@ -270,7 +271,7 @@ $(function () {
                                 $('.banner6-div-3').css({ 'z-index': '3000' });
                                 $('.banner6-div-3').animate({ 'left': '10%', 'width': '90%' }, 1000);
                                 $('.banner6-div-3 img').css({ 'right': '0', 'width': '100%' });
-                                $('.banner6-div-3 p').css({ 'right': w1 + 10 + 'px' });
+                                $('.banner6-div-3 p').css({ 'right': w1 + 10 + 'px', 'backgroundImage': 'url(/Public/Home/images/index/banner6/8.png)' });
                                 $('.banner6-div-3 a').css({ 'right': '0.5%' });
                             }, 100);
                         });

@@ -156,7 +156,7 @@ textarea {
 }
 
 .main_nav li a.active, .main_nav li a:hover {
-    border-bottom-color: #ee5322;
+    border-bottom-color: #fe5000;
 }
 
 .social_icon a {
@@ -232,6 +232,6 @@ textarea {
 }
 
 #footer p a span {
-    color: #ee5322;
+    color: #fe5000;
     font-size: 0.8vw;
 }

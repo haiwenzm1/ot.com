@@ -39,8 +39,8 @@
 }
 
 #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
-    background: #ee5322;
-    border-color: #ee5322;
+    background: #fe5000;
+    border-color: #fe5000;
 }
 
 #fp-nav ul li, .fp-slidesNav ul li {
@@ -154,7 +154,7 @@
     display: none;
     width: 100vw;
     height: 100vh;
-    background: url(../../images/index/banner3/bg.jpg) no-repeat 50%;
+    background: url(../../images/index/banner3/content/bg-0.jpg) no-repeat 50%;
     background-size: cover;
     position: absolute;
     top: 0;
@@ -268,14 +268,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url(../../images/index/banner3/content/bg.png) repeat;
 }
 
 .banner3 .pop-layout-content .banner3-nav-content p {
     display: none;
     color: #fff;
-    font-size: 1.5vw;
+    font-size: 1vw;
     line-height: 2;
     margin-top: -15vh;
+    font-family: fzltch !important;
 }
 
 .banner3-nav-content p.first-p {
@@ -489,7 +491,7 @@
 }
 
 .banner6 .banner6-div-1 p {
-    background: url(../../images/index/banner6/6.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/10.png) 0 0 no-repeat;
     background-size: contain;
     width: 15vw;
     height: 5vw;
@@ -537,7 +539,7 @@
 }
 
 .banner6 .banner6-div-2 p {
-    background: url(../../images/index/banner6/7.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/11.png) 0 0 no-repeat;
     background-size: contain;
     width: 15vw;
     height: 5vw;
@@ -575,7 +577,7 @@
 }
 
 .banner6 .banner6-div-3 p {
-    background: url(../../images/index/banner6/8.png) 0 0 no-repeat;
+    background: url(../../images/index/banner6/12.png) 0 0 no-repeat;
     background-size: contain;
     width: 15vw;
     height: 5vw;
