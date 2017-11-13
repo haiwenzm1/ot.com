@@ -121,6 +121,7 @@ textarea {
     padding-left: 7vw;
     display: table-cell;
     align-items: center;
+	height: 100%;
 }
 
 .social_icon {

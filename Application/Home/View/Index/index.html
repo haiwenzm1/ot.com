@@ -4,6 +4,7 @@
     <link type="text/css" href="__CSS__/index/jquery.fullPage.css" rel="stylesheet" />
     <link type="text/css" href="__CSS__/index/animate.min.css" rel="stylesheet" />
     <link type="text/css" href="__CSS__/index/index.css" rel="stylesheet" />
+    <link type="text/css" href="__CSS__/index/video-js.css" rel="stylesheet">
 </block>
 
 <block name="body">
@@ -16,19 +17,19 @@
         <div class="slide">
             <div class='banner1-content'> <img src="__IMG__/index/banner1/2.jpg"></div>
         </div>
-		<!-- slide2 -->
+        <!-- slide2 -->
         <div class="slide">
             <div class='banner1-content'> <img src="__IMG__/index/banner1/3.jpg"></div>
         </div>
-		<!-- slide2 -->
+        <!-- slide2 -->
         <div class="slide">
             <div class='banner1-content'> <img src="__IMG__/index/banner1/4.jpg"></div>
         </div>
-		<!-- slide2 -->
+        <!-- slide2 -->
         <div class="slide">
             <div class='banner1-content'> <img src="__IMG__/index/banner1/5.jpg"></div>
         </div>
-		<!-- slide2 -->
+        <!-- slide2 -->
         <div class="slide">
             <div class='banner1-content'> <img src="__IMG__/index/banner1/6.jpg"></div>
         </div>
@@ -225,6 +226,19 @@
         <div class="banner5-wrap">
             <img class="text" style="z-index: 1007;width: 36vw;top: 64vh;left: 37vw;" src="/Public/Home/images/index/banner5/text.png">
             <img id="banner5-pop-click" style="z-index:1009; width:4.1vw; top:70vh; left:80vw;" src="__IMG__/index/banner5/1.png">
+            <img id="banner5-vedio-click" style="z-index:1009; width:4.1vw; top:70vh; left:86vw;" src="__IMG__/index/banner5/vedio.png">
+        </div>
+        <div class="banner5-vedio-layout">
+            <div class="banner5-vedio-layout-content">
+                <img class="banner5-vedio-layout-content-close" src="__IMG__/index/banner3/content/close.png">
+                <!-- //<video id="my-video" class="video-js" controls preload="auto" width="740" height="400" poster="__VEDIO__/1110_OG_02.jpg" data-setup="{}"> -->
+                <video id="my-video" class="video-js vjs-default-skin vjs-fluid" controls preload="none" width="100%" controls preload="auto" data-setup='{ "html5" : { "nativeTextTracks" : false } }'>
+					<source src="__VEDIO__/1110_OG_02.mp4" type="video/mp4">
+					<p class="vjs-no-js">
+					  To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video 
+					</p>
+				</video>
+            </div>
         </div>
         <div class="banner5-pop-layout">
             <div class="banner5-pop-layout-content">
@@ -279,7 +293,7 @@
                     <div>
                         <img style="width: 43.6%;top: 20.7%;left: 6%;" src="__IMG__/index/banner5/9.png">
                         <h2 style="width:38.6%; top:42.2%; left:61.3%;">最有影响力的瑞士企业家</h2>
-                        <p style="width: 50.6%;top:57.6%;left:61.3%;">2012年,Migros成立“Generation M”,做出30余项可持续<br> 发展承诺,未来将惠及更多的年轻人和儿童。<br> 同年,Gottlieb Duttweiler被瑞士政府评为“近100年来最<br>                            有影响力的瑞士企业家”。</p>
+                        <p style="width: 50.6%;top:57.6%;left:61.3%;">2012年,Migros成立“Generation M”,做出30余项可持续<br> 发展承诺,未来将惠及更多的年轻人和儿童。<br> 同年,Gottlieb Duttweiler被瑞士政府评为“近100年来最<br> 有影响力的瑞士企业家”。</p>
                     </div>
                     <div>
                         <img style="width: 43.6%;top:28.7%;left: 2%;" src="__IMG__/index/banner5/10.png">
@@ -322,5 +336,7 @@
     <script src="__JS__/jquery.easing.min.js"></script>
     <script src="__JS__/jquery.mousewheel.min.js"></script>
     <script src="__JS__/parallax.min.js"></script>
+    <script src="__JS__/video.min.js"></script>
+    <script src="__JS__/videojs-ie8.min.js"></script>
     <script src="__JS__/index.js"></script>
 </block>

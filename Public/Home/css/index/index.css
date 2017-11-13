@@ -455,6 +455,39 @@
     line-height: 2;
 }
 
+.banner5 .banner5-vedio-layout {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+	top: 0;
+	left: 0;
+	padding: 10vh 0 41px;
+    position: absolute;
+    z-index: 1009;
+    overflow: hidden;
+	background: url(../../images/index/banner5/black-bg.png) repeat;
+}
+
+.banner5 #banner5-vedio-click {
+    width: 4%;
+    cursor: pointer;
+}
+
+.banner5 .banner5-vedio-layout-content {
+    width: 740px;
+    height: 400px;
+    margin: auto;
+}
+
+.banner5 .banner5-vedio-layout-content-close {
+    width: 3vw;
+    position: absolute;
+    right: 3vh;
+    top: 10vh;
+    cursor: pointer;
+    z-index: 4000;
+    display: none;
+}
 
 /******************************************************************************************
 *******************************************************************************************
